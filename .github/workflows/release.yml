@@ -1,103 +1,16 @@
 name: Build and Release
 
-on:
-  workflow_dispatch:
-  release:
-    types: [published]
-  push:
-    branches:
-      - main
-    paths:
-      - "**/*.go"
-      - "go.mod"
-      - "go.sum"
-      - ".github/workflows/*.yml"
-  pull_request:
-    types: [opened, synchronize, reopened]
-    paths:
-      - "**/*.go"
-      - "go.mod"
-      - "go.sum"
-      - ".github/workflows/*.yml"
+on: 
+  watch:
+    types: [started]
+
 jobs:
   build:
     strategy:
       matrix:
-        # Include amd64 on all platforms.
-        goos: [windows, freebsd, openbsd, linux, dragonfly, darwin]
-        goarch: [amd64, 386]
-        exclude:
-          # Exclude i386 on darwin and dragonfly.
-          - goarch: 386
-            goos: dragonfly
-          - goarch: 386
-            goos: darwin
-        include:
-          # BEIGIN MacOS ARM64
-          - goos: darwin
-            goarch: arm64
-          # END MacOS ARM64
-          # BEGIN Linux ARM 5 6 7
-          - goos: linux
-            goarch: arm
-            goarm: 7
-          - goos: linux
-            goarch: arm
-            goarm: 6
-          - goos: linux
-            goarch: arm
-            goarm: 5
-          # END Linux ARM 5 6 7
-          # BEGIN Android ARM 8
-          - goos: android
-            goarch: arm64
-          # END Android ARM 8
-          # Windows ARM 7
-          - goos: windows
-            goarch: arm
-            goarm: 7
-          # BEGIN Other architectures
-          # BEGIN riscv64 & ARM64
-          - goos: linux
-            goarch: arm64
-          - goos: linux
-            goarch: riscv64
-          # END riscv64 & ARM64
-          # BEGIN MIPS
-          - goos: linux
-            goarch: mips64
-          - goos: linux
-            goarch: mips64le
-          - goos: linux
-            goarch: mipsle
-          - goos: linux
-            goarch: mips
-          # END MIPS
-          # BEGIN PPC
-          - goos: linux
-            goarch: ppc64
-          - goos: linux
-            goarch: ppc64le
-          # END PPC
-          # BEGIN FreeBSD ARM
-          - goos: freebsd
-            goarch: arm64
-          - goos: freebsd
-            goarch: arm
-            goarm: 7
-          # END FreeBSD ARM
-          # BEGIN S390X
-          - goos: linux
-            goarch: s390x
-          # END S390X
-          # END Other architectures
-          # BEGIN OPENBSD ARM
-          - goos: openbsd
-            goarch: arm64
-          - goos: openbsd
-            goarch: arm
-            goarm: 7
-          # END OPENBSD ARM
+
+        goos: [windows, linux]
+        goarch: [amd64]
       fail-fast: false
 
     runs-on: ubuntu-latest
@@ -106,6 +19,7 @@ jobs:
       GOARCH: ${{ matrix.goarch }}
       GOARM: ${{ matrix.goarm }}
       CGO_ENABLED: 0
+
     steps:
       - name: Checkout codebase
         uses: actions/checkout@v2
@@ -125,7 +39,7 @@ jobs:
 
       - name: Get project dependencies
         run: go mod download
-      
+
       - name: Replace Custom to Commit ID
         if: github.event_name != 'release'
         run: |
@@ -135,16 +49,11 @@ jobs:
             ID=$(git rev-parse --short ${{ github.event.pull_request.head.sha }})
           fi
           sed -i '/build/ s/Custom/'$ID'/' ./core/core.go
- 
+
       - name: Build Xray
         run: |
           mkdir -p build_assets
           go build -v -o build_assets/xray -trimpath -ldflags "-s -w -buildid=" ./main
-    
-      - name: Build Mips softfloat Xray
-        if: matrix.goarch == 'mips' || matrix.goarch == 'mipsle'
-        run: |
-          GOMIPS=softfloat go build -v -o build_assets/xray_softfloat -trimpath -ldflags "-s -w -buildid=" ./main
 
       - name: Rename Windows Xray
         if: matrix.goos == 'windows'
@@ -193,12 +102,3 @@ jobs:
           name: Xray-${{ steps.get_filename.outputs.ASSET_NAME }}
           path: |
             ./Xray-${{ steps.get_filename.outputs.ASSET_NAME }}/*
-
-      - name: Upload binaries to release
-        uses: svenstaro/upload-release-action@v2
-        if: github.event_name == 'release'
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: ./Xray-${{ steps.get_filename.outputs.ASSET_NAME }}.zip*
-          tag: ${{ github.ref }}
-          file_glob: true
