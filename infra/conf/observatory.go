@@ -1,8 +1,8 @@
 package conf
 
 import (
-	"github.com/xtls/xray-core/app/observatory"
-	"github.com/xtls/xray-core/infra/conf/cfgcommon/duration"
+	"github.com/luoluodaduan/xray-core/app/observatory"
+	"github.com/luoluodaduan/xray-core/infra/conf/cfgcommon/duration"
 	"google.golang.org/protobuf/proto"
 )
 

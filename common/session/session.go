@@ -1,14 +1,14 @@
 // Package session provides functions for sessions of incoming requests.
-package session // import "github.com/xtls/xray-core/common/session"
+package session // import "github.com/luoluodaduan/xray-core/common/session"
 
 import (
 	"context"
 	"math/rand"
 
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/protocol"
-	"github.com/xtls/xray-core/common/signal"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/common/protocol"
+	"github.com/luoluodaduan/xray-core/common/signal"
 )
 
 // ID of a session.
@@ -55,7 +55,7 @@ type Inbound struct {
 	CanSpliceCopy int
 }
 
-func(i *Inbound) SetCanSpliceCopy(canSpliceCopy int) int {
+func (i *Inbound) SetCanSpliceCopy(canSpliceCopy int) int {
 	if canSpliceCopy > i.CanSpliceCopy {
 		i.CanSpliceCopy = canSpliceCopy
 	}
@@ -72,7 +72,7 @@ type Outbound struct {
 	Gateway net.Address
 	// Name of the outbound proxy that handles the connection.
 	Name string
-	// Conn is actually internet.Connection. May be nil. It is currently nil for outbound with proxySettings 
+	// Conn is actually internet.Connection. May be nil. It is currently nil for outbound with proxySettings
 	Conn net.Conn
 }
 

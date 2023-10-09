@@ -6,22 +6,22 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/xtls/xray-core/app/proxyman"
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/buf"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/serial"
-	"github.com/xtls/xray-core/common/session"
-	"github.com/xtls/xray-core/common/signal/done"
-	"github.com/xtls/xray-core/common/task"
-	"github.com/xtls/xray-core/features/routing"
-	"github.com/xtls/xray-core/features/stats"
-	"github.com/xtls/xray-core/proxy"
-	"github.com/xtls/xray-core/transport/internet"
-	"github.com/xtls/xray-core/transport/internet/stat"
-	"github.com/xtls/xray-core/transport/internet/tcp"
-	"github.com/xtls/xray-core/transport/internet/udp"
-	"github.com/xtls/xray-core/transport/pipe"
+	"github.com/luoluodaduan/xray-core/app/proxyman"
+	"github.com/luoluodaduan/xray-core/common"
+	"github.com/luoluodaduan/xray-core/common/buf"
+	"github.com/luoluodaduan/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/common/serial"
+	"github.com/luoluodaduan/xray-core/common/session"
+	"github.com/luoluodaduan/xray-core/common/signal/done"
+	"github.com/luoluodaduan/xray-core/common/task"
+	"github.com/luoluodaduan/xray-core/features/routing"
+	"github.com/luoluodaduan/xray-core/features/stats"
+	"github.com/luoluodaduan/xray-core/proxy"
+	"github.com/luoluodaduan/xray-core/transport/internet"
+	"github.com/luoluodaduan/xray-core/transport/internet/stat"
+	"github.com/luoluodaduan/xray-core/transport/internet/tcp"
+	"github.com/luoluodaduan/xray-core/transport/internet/udp"
+	"github.com/luoluodaduan/xray-core/transport/pipe"
 )
 
 type worker interface {
@@ -60,7 +60,7 @@ func (w *tcpWorker) callback(conn stat.Connection) {
 	sid := session.NewID()
 	ctx = session.ContextWithID(ctx, sid)
 
-	var outbound = &session.Outbound{}
+	outbound := &session.Outbound{}
 	if w.recvOrigDest {
 		var dest net.Destination
 		switch getTProxyType(w.stream) {

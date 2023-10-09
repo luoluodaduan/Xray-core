@@ -6,7 +6,7 @@ import (
 	"syscall"
 	"unsafe"
 
-	"github.com/xtls/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/common/net"
 	"golang.org/x/sys/unix"
 )
 
@@ -165,7 +165,7 @@ func applyInboundSocketOptions(network string, fd uintptr, config *SocketConfig)
 				}
 			}
 		}
-		
+
 		if config.TcpKeepAliveIdle > 0 || config.TcpKeepAliveInterval > 0 {
 			if config.TcpKeepAliveIdle > 0 {
 				if err := unix.SetsockoptInt(int(fd), unix.IPPROTO_TCP, unix.TCP_KEEPALIVE, int(config.TcpKeepAliveInterval)); err != nil {
@@ -201,6 +201,7 @@ func setReuseAddr(fd uintptr) error {
 func setReusePort(fd uintptr) error {
 	return nil
 }
+
 func getInterfaceIndexByName(name string) int {
 	ifaces, err := network.Interfaces()
 	if err == nil {
@@ -217,7 +218,6 @@ func getInterfaceIndexByName(name string) int {
 					}
 				}
 			}
-
 		}
 	}
 	return 0

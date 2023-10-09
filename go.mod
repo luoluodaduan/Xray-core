@@ -1,21 +1,20 @@
-module github.com/xtls/xray-core
+module github.com/luoluodaduan/xray-core
 
 go 1.21
 
 require (
-	github.com/ghodss/yaml v1.0.1-0.20220118164431-d8423dcdf344
-	github.com/golang/mock v1.6.0
+	github.com/golang/mock v1.7.0-rc.1.0.20220812172401-5b455625bd2c
 	github.com/google/go-cmp v0.5.9
-	github.com/gorilla/websocket v1.5.0
+	github.com/luoluodaduan/cuckoofilter v0.0.0-20231008094048-84ab8c45f2d4
+	github.com/luoluodaduan/websocket v0.0.0-20231008094042-53c68498c8ed
 	github.com/miekg/dns v1.1.56
-	github.com/pelletier/go-toml v1.9.5
+	github.com/pelletier/go-toml/v2 v2.1.0
 	github.com/pires/go-proxyproto v0.7.0
 	github.com/quic-go/quic-go v0.39.0
 	github.com/refraction-networking/utls v1.5.3
 	github.com/sagernet/sing v0.2.13
 	github.com/sagernet/sing-shadowsocks v0.2.5
 	github.com/sagernet/wireguard-go v0.0.0-20221116151939-c99467f53f2c
-	github.com/seiflotfy/cuckoofilter v0.0.0-20220411075957-e3b120b3f5fb
 	github.com/stretchr/testify v1.8.4
 	github.com/v2fly/ss-bloomring v0.0.0-20210312155135-28617310f63e
 	github.com/xtls/reality v0.0.0-20230828171259-e426190d57f6
@@ -26,6 +25,7 @@ require (
 	golang.org/x/sys v0.13.0
 	google.golang.org/grpc v1.58.2
 	google.golang.org/protobuf v1.31.0
+	gopkg.in/yaml.v3 v3.0.1
 	gvisor.dev/gvisor v0.0.0-20230822212503-5bf4e5f98744
 	h12.io/socks v1.0.3
 	lukechampine.com/blake3 v1.2.1
@@ -56,6 +56,4 @@ require (
 	golang.org/x/time v0.3.0 // indirect
 	golang.org/x/tools v0.13.0 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20230920204549-e6e6cdab5c13 // indirect
-	gopkg.in/yaml.v2 v2.4.0 // indirect
-	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
