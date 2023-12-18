@@ -1,44 +1,80 @@
-name: Test
+name: Update
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - "**/*.go"
-      - "go.mod"
-      - "go.sum"
-      - ".github/workflows/*.yml"
-  pull_request:
-    types: [opened, synchronize, reopened]
-    paths:
-      - "**/*.go"
-      - "go.mod"
-      - "go.sum"
-      - ".github/workflows/*.yml"
+  workflow_dispatch:
 
 jobs:
-  test:
-    permissions:
-      contents: read
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [windows-latest, ubuntu-latest, macos-latest]
+  update:
+    runs-on: ubuntu-latest
     steps:
-      - name: Set up Go
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Prepare
+        run: |
+          sudo apt-get update
+          mkdir -p dist
+          curl -LR -o- "https://raw.githubusercontent.com/github/gitignore/main/C%2B%2B.gitignore" | sed 's/\r//' | sort -u | grep -vE '^#|^$' >> dist/gitignore
+          curl -LR -o- "https://raw.githubusercontent.com/github/gitignore/main/C.gitignore" | sed 's/\r//' | sort -u | grep -vE '^#|^$' >> dist/gitignore
+          curl -LR -o- "https://raw.githubusercontent.com/github/gitignore/main/Global/Archives.gitignore" | sed 's/\r//' | sort -u | grep -vE '^#|^$' >> dist/gitignore
+          curl -LR -o- "https://raw.githubusercontent.com/github/gitignore/main/Global/Linux.gitignore" | sed 's/\r//' | sort -u | grep -vE '^#|^$' >> dist/gitignore
+          curl -LR -o- "https://raw.githubusercontent.com/github/gitignore/main/Global/macOS.gitignore" | sed 's/\r//' | sort -u | grep -vE '^#|^$' >> dist/gitignore
+          curl -LR -o- "https://raw.githubusercontent.com/github/gitignore/main/Global/Windows.gitignore" | sed 's/\r//' | sort -u | grep -vE '^#|^$' >> dist/gitignore
+          curl -LR -o- "https://raw.githubusercontent.com/github/gitignore/main/Go.gitignore" | sed 's/\r//' | sort -u | grep -vE '^#|^$' >> dist/gitignore
+          curl -LR -o- "https://raw.githubusercontent.com/github/gitignore/main/Java.gitignore" | sed 's/\r//' | sort -u | grep -vE '^#|^$' >> dist/gitignore
+          curl -LR -o- "https://raw.githubusercontent.com/XTLS/Xray-core/main/.gitignore" | sed 's/\r//' | sort -u | grep -vE '^#|^$' >> dist/gitignore
+          echo -e "!go.mod\n!go.sum\n.idea/" >> dist/gitignore
+          sort -u dist/gitignore | grep -vE '^#|^$' > .gitignore
+          rm -rf .github/dependabot.yml
+          find -name 'go.mod' | xargs perl -pi -e 's|/xtls/xray-core|/luoluodaduan/xray-core|g'
+          find -name '*.go' | xargs perl -pi -e 's|/seiflotfy/cuckoofilter|/luoluodaduan/cuckoofilter|g'
+          find -name '*.go' | xargs perl -pi -e 's|/xtls/xray-core|/luoluodaduan/xray-core|g'
+          find -name '*.proto' | xargs perl -pi -e 's|/xtls/xray-core|/luoluodaduan/xray-core|g'
+
+      - name: Setup Go
         uses: actions/setup-go@v5
         with:
-          go-version: '1.21'
+          go-version-file: './go.mod'
           check-latest: true
-      - name: Checkout codebase
-        uses: actions/checkout@v4
-      - name: Restore Cache
-        uses: actions/cache/restore@v3
+
+      - name: Update
+        run: |
+          wget https://github.com/protocolbuffers/protobuf/releases/download/v24.4/protoc-24.4-linux-x86_64.zip -O protoc.zip
+          unzip -d dist protoc.zip
+          sudo mv -f ./dist/bin/protoc /usr/local/bin
+          sudo mv -f ./dist/include/* /usr/local/include
+          protoc --version
+          rm -rf dist
+          rm -rf protoc.zip
+          go install mvdan.cc/gofumpt@master
+          go install github.com/daixiang0/gci@master
+          go run ./infra/vformat
+          go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+          go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
+          go run ./infra/vprotogen
+          go install github.com/golang/mock/mockgen@v1.7.0-rc.1.0.20220812172401-5b455625bd2c
+          mockgen -package mocks -destination ./testing/mocks/io.go -mock_names Reader=Reader,Writer=Writer io Reader,Writer
+          mockgen -package mocks -destination ./testing/mocks/log.go -mock_names Handler=LogHandler github.com/luoluodaduan/xray-core/common/log Handler
+          mockgen -package mocks -destination ./testing/mocks/mux.go -mock_names ClientWorkerFactory=MuxClientWorkerFactory github.com/luoluodaduan/xray-core/common/mux ClientWorkerFactory
+          mockgen -package mocks -destination ./testing/mocks/dns.go -mock_names Client=DNSClient github.com/luoluodaduan/xray-core/features/dns Client
+          mockgen -package mocks -destination ./testing/mocks/outbound.go -mock_names Manager=OutboundManager,HandlerSelector=OutboundHandlerSelector github.com/luoluodaduan/xray-core/features/outbound Manager,HandlerSelector
+          mockgen -package mocks -destination ./testing/mocks/proxy.go -mock_names Inbound=ProxyInbound,Outbound=ProxyOutbound github.com/luoluodaduan/xray-core/proxy Inbound,Outbound
+          find -name '*.pb.go' | xargs gci write -s standard -s default
+          go get github.com/golang/mock@v1.7.0-rc.1.0.20220812172401-5b455625bd2c
+          go mod tidy
+
+      - name: Commit Files
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add .
+          git commit -m "Update"
+
+      - name: Push Changes
+        uses: ad-m/github-push-action@master
         with:
-          path: resources
-          key: xray-geodat-
-          enableCrossOsArchive: true
-      - name: Test
-        run: go test -timeout 1h -v ./...
+          branch: ${{ github.ref }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
