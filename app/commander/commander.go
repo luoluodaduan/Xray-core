@@ -1,16 +1,16 @@
 package commander
 
-//go:generate go run github.com/xtls/xray-core/common/errors/errorgen
+//go:generate go run github.com/luoluodaduan/xray-core/common/errors/errorgen
 
 import (
 	"context"
 	"net"
 	"sync"
 
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/signal/done"
-	core "github.com/xtls/xray-core/core"
-	"github.com/xtls/xray-core/features/outbound"
+	"github.com/luoluodaduan/xray-core/common"
+	"github.com/luoluodaduan/xray-core/common/signal/done"
+	core "github.com/luoluodaduan/xray-core/core"
+	"github.com/luoluodaduan/xray-core/features/outbound"
 	"google.golang.org/grpc"
 )
 
@@ -68,7 +68,7 @@ func (c *Commander) Start() error {
 	}
 	c.Unlock()
 
-	var listen = func(listener net.Listener) {
+	listen := func(listener net.Listener) {
 		if err := c.server.Serve(listener); err != nil {
 			newError("failed to start grpc server").Base(err).AtError().WriteToLog()
 		}

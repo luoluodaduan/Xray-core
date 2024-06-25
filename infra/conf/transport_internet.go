@@ -11,22 +11,22 @@ import (
 	"strings"
 	"syscall"
 
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/platform/filesystem"
-	"github.com/xtls/xray-core/common/protocol"
-	"github.com/xtls/xray-core/common/serial"
-	"github.com/xtls/xray-core/transport/internet"
-	"github.com/xtls/xray-core/transport/internet/domainsocket"
-	httpheader "github.com/xtls/xray-core/transport/internet/headers/http"
-	"github.com/xtls/xray-core/transport/internet/http"
-	"github.com/xtls/xray-core/transport/internet/httpupgrade"
-	"github.com/xtls/xray-core/transport/internet/kcp"
-	"github.com/xtls/xray-core/transport/internet/quic"
-	"github.com/xtls/xray-core/transport/internet/reality"
-	"github.com/xtls/xray-core/transport/internet/splithttp"
-	"github.com/xtls/xray-core/transport/internet/tcp"
-	"github.com/xtls/xray-core/transport/internet/tls"
-	"github.com/xtls/xray-core/transport/internet/websocket"
+	"github.com/luoluodaduan/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/common/platform/filesystem"
+	"github.com/luoluodaduan/xray-core/common/protocol"
+	"github.com/luoluodaduan/xray-core/common/serial"
+	"github.com/luoluodaduan/xray-core/transport/internet"
+	"github.com/luoluodaduan/xray-core/transport/internet/domainsocket"
+	httpheader "github.com/luoluodaduan/xray-core/transport/internet/headers/http"
+	"github.com/luoluodaduan/xray-core/transport/internet/http"
+	"github.com/luoluodaduan/xray-core/transport/internet/httpupgrade"
+	"github.com/luoluodaduan/xray-core/transport/internet/kcp"
+	"github.com/luoluodaduan/xray-core/transport/internet/quic"
+	"github.com/luoluodaduan/xray-core/transport/internet/reality"
+	"github.com/luoluodaduan/xray-core/transport/internet/splithttp"
+	"github.com/luoluodaduan/xray-core/transport/internet/tcp"
+	"github.com/luoluodaduan/xray-core/transport/internet/tls"
+	"github.com/luoluodaduan/xray-core/transport/internet/websocket"
 	"google.golang.org/protobuf/proto"
 )
 
@@ -209,10 +209,10 @@ func (c *HttpUpgradeConfig) Build() (proto.Message, error) {
 	// Host priority: Host field > headers field > address.
 	if c.Host == "" && c.Headers["host"] != "" {
 		c.Host = c.Headers["host"]
-		delete(c.Headers,"host")
+		delete(c.Headers, "host")
 	} else if c.Host == "" && c.Headers["Host"] != "" {
 		c.Host = c.Headers["Host"]
-		delete(c.Headers,"Host")
+		delete(c.Headers, "Host")
 	}
 	config := &httpupgrade.Config{
 		Path:                path,

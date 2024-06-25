@@ -7,12 +7,12 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/session"
-	"github.com/xtls/xray-core/transport/internet"
-	"github.com/xtls/xray-core/transport/internet/stat"
-	"github.com/xtls/xray-core/transport/internet/tls"
+	"github.com/luoluodaduan/xray-core/common"
+	"github.com/luoluodaduan/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/common/session"
+	"github.com/luoluodaduan/xray-core/transport/internet"
+	"github.com/luoluodaduan/xray-core/transport/internet/stat"
+	"github.com/luoluodaduan/xray-core/transport/internet/tls"
 )
 
 type ConnRF struct {
@@ -104,9 +104,9 @@ func dialhttpUpgrade(ctx context.Context, dest net.Destination, streamSettings *
 	return connRF, nil
 }
 
-//http.Header.Add() will convert headers to MIME header format.
-//Some people don't like this because they want to send "Web*S*ocket".
-//So we add a simple function to replace that method.
+// http.Header.Add() will convert headers to MIME header format.
+// Some people don't like this because they want to send "Web*S*ocket".
+// So we add a simple function to replace that method.
 func AddHeader(header http.Header, key, value string) {
 	header[key] = append(header[key], value)
 }

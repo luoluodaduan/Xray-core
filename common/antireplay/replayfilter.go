@@ -4,7 +4,7 @@ import (
 	"sync"
 	"time"
 
-	cuckoo "github.com/seiflotfy/cuckoofilter"
+	cuckoo "github.com/luoluodaduan/cuckoofilter"
 )
 
 const replayFilterCapacity = 100000

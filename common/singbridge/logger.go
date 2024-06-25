@@ -3,9 +3,9 @@ package singbridge
 import (
 	"context"
 
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/session"
 	"github.com/sagernet/sing/common/logger"
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/common/session"
 )
 
 var _ logger.ContextLogger = (*XrayLogger)(nil)

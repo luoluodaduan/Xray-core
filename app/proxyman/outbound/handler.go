@@ -4,27 +4,28 @@ import (
 	"context"
 	"crypto/rand"
 	"errors"
-	"github.com/xtls/xray-core/app/proxyman"
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/buf"
-	"github.com/xtls/xray-core/common/mux"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/net/cnc"
-	"github.com/xtls/xray-core/common/session"
-	"github.com/xtls/xray-core/core"
-	"github.com/xtls/xray-core/features/outbound"
-	"github.com/xtls/xray-core/features/policy"
-	"github.com/xtls/xray-core/features/stats"
-	"github.com/xtls/xray-core/proxy"
-	"github.com/xtls/xray-core/transport"
-	"github.com/xtls/xray-core/transport/internet"
-	"github.com/xtls/xray-core/transport/internet/stat"
-	"github.com/xtls/xray-core/transport/internet/tls"
-	"github.com/xtls/xray-core/transport/pipe"
 	"io"
 	"math/big"
 	gonet "net"
 	"os"
+
+	"github.com/luoluodaduan/xray-core/app/proxyman"
+	"github.com/luoluodaduan/xray-core/common"
+	"github.com/luoluodaduan/xray-core/common/buf"
+	"github.com/luoluodaduan/xray-core/common/mux"
+	"github.com/luoluodaduan/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/common/net/cnc"
+	"github.com/luoluodaduan/xray-core/common/session"
+	"github.com/luoluodaduan/xray-core/core"
+	"github.com/luoluodaduan/xray-core/features/outbound"
+	"github.com/luoluodaduan/xray-core/features/policy"
+	"github.com/luoluodaduan/xray-core/features/stats"
+	"github.com/luoluodaduan/xray-core/proxy"
+	"github.com/luoluodaduan/xray-core/transport"
+	"github.com/luoluodaduan/xray-core/transport/internet"
+	"github.com/luoluodaduan/xray-core/transport/internet/stat"
+	"github.com/luoluodaduan/xray-core/transport/internet/tls"
+	"github.com/luoluodaduan/xray-core/transport/pipe"
 )
 
 func getStatCounter(v *core.Instance, tag string) (stats.Counter, stats.Counter) {
@@ -170,7 +171,7 @@ func (h *Handler) Tag() string {
 // Dispatch implements proxy.Outbound.Dispatch.
 func (h *Handler) Dispatch(ctx context.Context, link *transport.Link) {
 	outbounds := session.OutboundsFromContext(ctx)
-	ob := outbounds[len(outbounds) - 1]
+	ob := outbounds[len(outbounds)-1]
 	if ob.Target.Network == net.Network_UDP && ob.OriginalTarget.Address != nil && ob.OriginalTarget.Address != ob.Target.Address {
 		link.Reader = &buf.EndpointOverrideReader{Reader: link.Reader, Dest: ob.Target.Address, OriginalDest: ob.OriginalTarget.Address}
 		link.Writer = &buf.EndpointOverrideWriter{Writer: link.Writer, Dest: ob.Target.Address, OriginalDest: ob.OriginalTarget.Address}
@@ -247,7 +248,7 @@ func (h *Handler) Dial(ctx context.Context, dest net.Destination) (stat.Connecti
 				outbounds := session.OutboundsFromContext(ctx)
 				ctx = session.ContextWithOutbounds(ctx, append(outbounds, &session.Outbound{
 					Target: dest,
-					Tag: tag,
+					Tag:    tag,
 				})) // add another outbound in session ctx
 				opts := pipe.OptionsFromContext(ctx)
 				uplinkReader, uplinkWriter := pipe.New(opts...)
@@ -269,10 +270,10 @@ func (h *Handler) Dial(ctx context.Context, dest net.Destination) (stat.Connecti
 
 		if h.senderSettings.Via != nil {
 			outbounds := session.OutboundsFromContext(ctx)
-			ob := outbounds[len(outbounds) - 1]
+			ob := outbounds[len(outbounds)-1]
 			if h.senderSettings.ViaCidr == "" {
 				ob.Gateway = h.senderSettings.Via.AsAddress()
-			} else { //Get a random address.
+			} else { // Get a random address.
 				ob.Gateway = ParseRandomIPv6(h.senderSettings.Via.AsAddress(), h.senderSettings.ViaCidr)
 			}
 		}
@@ -285,7 +286,7 @@ func (h *Handler) Dial(ctx context.Context, dest net.Destination) (stat.Connecti
 	conn, err := internet.Dial(ctx, dest, h.streamSettings)
 	conn = h.getStatCouterConnection(conn)
 	outbounds := session.OutboundsFromContext(ctx)
-	ob := outbounds[len(outbounds) - 1]
+	ob := outbounds[len(outbounds)-1]
 	ob.Conn = conn
 	return conn, err
 }
@@ -316,7 +317,6 @@ func (h *Handler) Close() error {
 	common.Close(h.mux)
 	return nil
 }
-
 
 func ParseRandomIPv6(address net.Address, prefix string) net.Address {
 	_, network, _ := gonet.ParseCIDR(address.IP().String() + "/" + prefix)

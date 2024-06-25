@@ -2,15 +2,15 @@ package burst
 
 import (
 	"context"
-	
-	"github.com/xtls/xray-core/core"
-	"github.com/xtls/xray-core/app/observatory"
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/signal/done"
-	"github.com/xtls/xray-core/features/extension"
-	"github.com/xtls/xray-core/features/outbound"
-	"google.golang.org/protobuf/proto"
 	"sync"
+
+	"github.com/luoluodaduan/xray-core/app/observatory"
+	"github.com/luoluodaduan/xray-core/common"
+	"github.com/luoluodaduan/xray-core/common/signal/done"
+	"github.com/luoluodaduan/xray-core/core"
+	"github.com/luoluodaduan/xray-core/features/extension"
+	"github.com/luoluodaduan/xray-core/features/outbound"
+	"google.golang.org/protobuf/proto"
 )
 
 type Observer struct {
@@ -65,7 +65,6 @@ func (o *Observer) Start() error {
 		o.hp.StartScheduler(func() ([]string, error) {
 			hs, ok := o.ohm.(outbound.HandlerSelector)
 			if !ok {
-
 				return nil, newError("outbound.Manager is not a HandlerSelector")
 			}
 

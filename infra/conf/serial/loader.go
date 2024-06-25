@@ -5,11 +5,11 @@ import (
 	"encoding/json"
 	"io"
 
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/core"
+	"github.com/luoluodaduan/xray-core/infra/conf"
+	json_reader "github.com/luoluodaduan/xray-core/infra/conf/json"
 	"github.com/pelletier/go-toml/v2"
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/core"
-	"github.com/xtls/xray-core/infra/conf"
-	json_reader "github.com/xtls/xray-core/infra/conf/json"
 	"gopkg.in/yaml.v3"
 )
 

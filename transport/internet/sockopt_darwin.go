@@ -6,7 +6,7 @@ import (
 	"syscall"
 	"unsafe"
 
-	"github.com/xtls/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/common/net"
 	"golang.org/x/sys/unix"
 )
 
@@ -229,6 +229,7 @@ func setReusePort(fd uintptr) error {
 	}
 	return nil
 }
+
 func getInterfaceIndexByName(name string) int {
 	ifaces, err := network.Interfaces()
 	if err == nil {
@@ -245,7 +246,6 @@ func getInterfaceIndexByName(name string) int {
 					}
 				}
 			}
-
 		}
 	}
 	return 0

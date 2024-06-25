@@ -11,14 +11,14 @@ import (
 	"sync"
 	"time"
 
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/net"
-	http_proto "github.com/xtls/xray-core/common/protocol/http"
-	"github.com/xtls/xray-core/common/session"
-	"github.com/xtls/xray-core/common/signal/done"
-	"github.com/xtls/xray-core/transport/internet"
-	"github.com/xtls/xray-core/transport/internet/stat"
-	v2tls "github.com/xtls/xray-core/transport/internet/tls"
+	"github.com/luoluodaduan/xray-core/common"
+	"github.com/luoluodaduan/xray-core/common/net"
+	http_proto "github.com/luoluodaduan/xray-core/common/protocol/http"
+	"github.com/luoluodaduan/xray-core/common/session"
+	"github.com/luoluodaduan/xray-core/common/signal/done"
+	"github.com/luoluodaduan/xray-core/transport/internet"
+	"github.com/luoluodaduan/xray-core/transport/internet/stat"
+	v2tls "github.com/luoluodaduan/xray-core/transport/internet/tls"
 	"golang.org/x/net/http2"
 	"golang.org/x/net/http2/h2c"
 )
@@ -140,7 +140,6 @@ func (h *requestHandler) ServeHTTP(writer http.ResponseWriter, request *http.Req
 			Payload: payload,
 			Seq:     seqInt,
 		})
-
 		if err != nil {
 			newError("failed to upload").Base(err).WriteToLog()
 			writer.WriteHeader(http.StatusInternalServerError)
@@ -238,7 +237,7 @@ func ListenSH(ctx context.Context, address net.Address, port net.Port, streamSet
 	}
 	var listener net.Listener
 	var err error
-	var localAddr = gonet.TCPAddr{}
+	localAddr := gonet.TCPAddr{}
 
 	if port == net.Port(0) { // unix
 		listener, err = internet.ListenSystem(ctx, &net.UnixAddr{
