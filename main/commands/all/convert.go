@@ -10,12 +10,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/buf"
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/infra/conf"
-	"github.com/xtls/xray-core/infra/conf/serial"
-	"github.com/xtls/xray-core/main/commands/base"
+	"github.com/luoluodaduan/xray-core/common"
+	"github.com/luoluodaduan/xray-core/common/buf"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/infra/conf"
+	"github.com/luoluodaduan/xray-core/infra/conf/serial"
+	"github.com/luoluodaduan/xray-core/main/commands/base"
 	"google.golang.org/protobuf/proto"
 )
 

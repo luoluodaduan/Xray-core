@@ -6,9 +6,9 @@ import (
 	"strings"
 	"testing"
 
-	. "github.com/xtls/xray-core/common/reflect"
-	cserial "github.com/xtls/xray-core/common/serial"
-	iserial "github.com/xtls/xray-core/infra/conf/serial"
+	. "github.com/luoluodaduan/xray-core/common/reflect"
+	cserial "github.com/luoluodaduan/xray-core/common/serial"
+	iserial "github.com/luoluodaduan/xray-core/infra/conf/serial"
 )
 
 func TestMashalStruct(t *testing.T) {
@@ -56,7 +56,6 @@ func TestMashalStruct(t *testing.T) {
 }
 
 func TestMarshalConfigJson(t *testing.T) {
-
 	buf := bytes.NewBufferString(getConfig())
 	config, err := iserial.DecodeJSONConfig(buf)
 	if err != nil {

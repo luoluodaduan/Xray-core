@@ -6,9 +6,9 @@ import (
 	"crypto/sha256"
 	"errors"
 
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/protocol"
-	"github.com/xtls/xray-core/transport/internet"
+	"github.com/luoluodaduan/xray-core/common"
+	"github.com/luoluodaduan/xray-core/common/protocol"
+	"github.com/luoluodaduan/xray-core/transport/internet"
 	"golang.org/x/crypto/chacha20poly1305"
 )
 

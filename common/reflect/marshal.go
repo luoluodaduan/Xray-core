@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"reflect"
 
-	cserial "github.com/xtls/xray-core/common/serial"
+	cserial "github.com/luoluodaduan/xray-core/common/serial"
 )
 
 func MarshalToJson(v interface{}) (string, bool) {
@@ -139,7 +139,6 @@ func isValueKind(kind reflect.Kind) bool {
 }
 
 func marshalInterface(v interface{}, ignoreNullValue bool) interface{} {
-
 	if r, ok := marshalKnownType(v, ignoreNullValue); ok {
 		return r
 	}

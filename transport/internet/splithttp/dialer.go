@@ -10,19 +10,19 @@ import (
 	"sync"
 	"time"
 
+	"github.com/luoluodaduan/xray-core/common"
+	"github.com/luoluodaduan/xray-core/common/buf"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/common/signal/semaphore"
+	"github.com/luoluodaduan/xray-core/common/uuid"
+	"github.com/luoluodaduan/xray-core/transport/internet"
+	"github.com/luoluodaduan/xray-core/transport/internet/browser_dialer"
+	"github.com/luoluodaduan/xray-core/transport/internet/stat"
+	"github.com/luoluodaduan/xray-core/transport/internet/tls"
+	"github.com/luoluodaduan/xray-core/transport/pipe"
 	"github.com/quic-go/quic-go"
 	"github.com/quic-go/quic-go/http3"
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/buf"
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/signal/semaphore"
-	"github.com/xtls/xray-core/common/uuid"
-	"github.com/xtls/xray-core/transport/internet"
-	"github.com/xtls/xray-core/transport/internet/browser_dialer"
-	"github.com/xtls/xray-core/transport/internet/stat"
-	"github.com/xtls/xray-core/transport/internet/tls"
-	"github.com/xtls/xray-core/transport/pipe"
 	"golang.org/x/net/http2"
 )
 
@@ -232,7 +232,6 @@ func Dial(ctx context.Context, dest net.Destination, streamSettings *internet.Me
 					&buf.MultiBufferContainer{MultiBuffer: chunk},
 					int64(chunk.Len()),
 				)
-
 				if err != nil {
 					errors.LogInfoInner(ctx, err, "failed to send upload")
 					uploadPipeReader.Interrupt()

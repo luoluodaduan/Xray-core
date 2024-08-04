@@ -12,12 +12,11 @@ import (
 	"strings"
 	"time"
 
+	"github.com/luoluodaduan/xray-core/common/buf"
+	"github.com/luoluodaduan/xray-core/main/commands/base"
+	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 	"google.golang.org/protobuf/encoding/protojson"
-
-	"github.com/xtls/xray-core/common/buf"
-	"github.com/xtls/xray-core/main/commands/base"
-	"google.golang.org/grpc"
 	"google.golang.org/protobuf/proto"
 )
 

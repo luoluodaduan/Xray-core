@@ -7,12 +7,12 @@ import (
 	"math/big"
 	"time"
 
+	"github.com/luoluodaduan/xray-core/common/buf"
+	"github.com/luoluodaduan/xray-core/common/net"
 	utls "github.com/refraction-networking/utls"
-	"github.com/xtls/xray-core/common/buf"
-	"github.com/xtls/xray-core/common/net"
 )
 
-//go:generate go run github.com/xtls/xray-core/common/errors/errorgen
+//go:generate go run github.com/luoluodaduan/xray-core/common/errors/errorgen
 
 type Interface interface {
 	net.Conn
@@ -21,8 +21,10 @@ type Interface interface {
 	NegotiatedProtocol() string
 }
 
-var _ buf.Writer = (*Conn)(nil)
-var _ Interface = (*Conn)(nil)
+var (
+	_ buf.Writer = (*Conn)(nil)
+	_ Interface  = (*Conn)(nil)
+)
 
 type Conn struct {
 	*tls.Conn
