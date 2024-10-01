@@ -3,10 +3,10 @@ package outbound
 import (
 	"time"
 
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/protocol"
-	"github.com/xtls/xray-core/proxy/vmess"
+	"github.com/luoluodaduan/xray-core/common"
+	"github.com/luoluodaduan/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/common/protocol"
+	"github.com/luoluodaduan/xray-core/proxy/vmess"
 )
 
 func (h *Handler) handleSwitchAccount(cmd *protocol.CommandSwitchAccount) {

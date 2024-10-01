@@ -10,10 +10,9 @@ import (
 	"net/netip"
 	"os"
 
-	"golang.org/x/sys/unix"
-
 	"github.com/sagernet/sing/common/control"
 	"github.com/vishvananda/netlink"
+	"golang.org/x/sys/unix"
 	wgtun "golang.zx2c4.com/wireguard/tun"
 )
 

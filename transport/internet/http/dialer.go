@@ -9,20 +9,20 @@ import (
 	"sync"
 	"time"
 
+	"github.com/luoluodaduan/xray-core/common"
+	"github.com/luoluodaduan/xray-core/common/buf"
+	c "github.com/luoluodaduan/xray-core/common/ctx"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/common/net/cnc"
+	"github.com/luoluodaduan/xray-core/common/session"
+	"github.com/luoluodaduan/xray-core/transport/internet"
+	"github.com/luoluodaduan/xray-core/transport/internet/reality"
+	"github.com/luoluodaduan/xray-core/transport/internet/stat"
+	"github.com/luoluodaduan/xray-core/transport/internet/tls"
+	"github.com/luoluodaduan/xray-core/transport/pipe"
 	"github.com/quic-go/quic-go"
 	"github.com/quic-go/quic-go/http3"
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/buf"
-	c "github.com/xtls/xray-core/common/ctx"
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/net/cnc"
-	"github.com/xtls/xray-core/common/session"
-	"github.com/xtls/xray-core/transport/internet"
-	"github.com/xtls/xray-core/transport/internet/reality"
-	"github.com/xtls/xray-core/transport/internet/stat"
-	"github.com/xtls/xray-core/transport/internet/tls"
-	"github.com/xtls/xray-core/transport/pipe"
 	"golang.org/x/net/http2"
 )
 
@@ -134,21 +134,21 @@ func getHTTPClient(ctx context.Context, dest net.Destination, streamSettings *in
 					return nil, err
 				}
 				address := net.ParseAddress(rawHost)
-	
+
 				hctx = c.ContextWithID(hctx, c.IDFromContext(ctx))
 				hctx = session.ContextWithOutbounds(hctx, session.OutboundsFromContext(ctx))
 				hctx = session.ContextWithTimeoutOnly(hctx, true)
-	
+
 				pconn, err := internet.DialSystem(hctx, net.TCPDestination(address, port), sockopt)
 				if err != nil {
-					errors.LogErrorInner(ctx, err, "failed to dial to " + addr)
+					errors.LogErrorInner(ctx, err, "failed to dial to "+addr)
 					return nil, err
 				}
-	
+
 				if realityConfigs != nil {
 					return reality.UClient(pconn, realityConfigs, hctx, dest)
 				}
-	
+
 				var cn tls.Interface
 				if fingerprint := tls.GetFingerprint(tlsConfigs.Fingerprint); fingerprint != nil {
 					cn = tls.UClient(pconn, tlsConfig, fingerprint).(*tls.UConn)
@@ -156,12 +156,12 @@ func getHTTPClient(ctx context.Context, dest net.Destination, streamSettings *in
 					cn = tls.Client(pconn, tlsConfig).(*tls.Conn)
 				}
 				if err := cn.HandshakeContext(ctx); err != nil {
-					errors.LogErrorInner(ctx, err, "failed to dial to " + addr)
+					errors.LogErrorInner(ctx, err, "failed to dial to "+addr)
 					return nil, err
 				}
 				if !tlsConfig.InsecureSkipVerify {
 					if err := cn.VerifyHostname(tlsConfig.ServerName); err != nil {
-						errors.LogErrorInner(ctx, err, "failed to dial to " + addr)
+						errors.LogErrorInner(ctx, err, "failed to dial to "+addr)
 						return nil, err
 					}
 				}
@@ -224,7 +224,7 @@ func Dial(ctx context.Context, dest net.Destination, streamSettings *internet.Me
 			Host:   dest.NetAddr(),
 			Path:   httpSettings.getNormalizedPath(),
 		},
-		Header:     httpHeaders,
+		Header: httpHeaders,
 	}
 	// Disable any compression method from server.
 	request.Header.Set("Accept-Encoding", "identity")

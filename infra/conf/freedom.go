@@ -6,10 +6,10 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/xtls/xray-core/common/errors"
-	v2net "github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/protocol"
-	"github.com/xtls/xray-core/proxy/freedom"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	v2net "github.com/luoluodaduan/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/common/protocol"
+	"github.com/luoluodaduan/xray-core/proxy/freedom"
 	"google.golang.org/protobuf/proto"
 )
 
@@ -224,11 +224,11 @@ func ParseNoise(noise *Noise) (*freedom.Noise, error) {
 		}
 
 	case "str":
-		//user input string
+		// user input string
 		NConfig.StrNoise = []byte(strings.TrimSpace(noise.Packet))
 
 	case "base64":
-		//user input base64
+		// user input base64
 		NConfig.StrNoise, err = base64.StdEncoding.DecodeString(strings.TrimSpace(noise.Packet))
 		if err != nil {
 			return nil, errors.New("Invalid base64 string")
@@ -248,7 +248,6 @@ func ParseNoise(noise *Noise) (*freedom.Noise, error) {
 		} else {
 			return nil, errors.New("DelayMin or DelayMax cannot be zero")
 		}
-
 	} else {
 		NConfig.DelayMin = 0
 		NConfig.DelayMax = 0

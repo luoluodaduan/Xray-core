@@ -12,12 +12,11 @@ import (
 	"strings"
 	"time"
 
-	"google.golang.org/grpc/credentials/insecure"
-
-	"github.com/xtls/xray-core/common/buf"
-	"github.com/xtls/xray-core/main/commands/base"
-	creflect "github.com/xtls/xray-core/common/reflect"
+	"github.com/luoluodaduan/xray-core/common/buf"
+	creflect "github.com/luoluodaduan/xray-core/common/reflect"
+	"github.com/luoluodaduan/xray-core/main/commands/base"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials/insecure"
 	"google.golang.org/protobuf/proto"
 )
 

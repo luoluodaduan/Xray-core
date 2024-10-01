@@ -4,22 +4,22 @@ import (
 	"testing"
 	"time"
 
-	"github.com/xtls/xray-core/app/proxyman"
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/protocol"
-	"github.com/xtls/xray-core/common/serial"
-	"github.com/xtls/xray-core/common/uuid"
-	"github.com/xtls/xray-core/core"
-	"github.com/xtls/xray-core/proxy/dokodemo"
-	"github.com/xtls/xray-core/proxy/freedom"
-	"github.com/xtls/xray-core/proxy/vmess"
-	"github.com/xtls/xray-core/proxy/vmess/inbound"
-	"github.com/xtls/xray-core/proxy/vmess/outbound"
-	"github.com/xtls/xray-core/testing/servers/tcp"
-	"github.com/xtls/xray-core/transport/internet"
-	"github.com/xtls/xray-core/transport/internet/headers/http"
-	tcptransport "github.com/xtls/xray-core/transport/internet/tcp"
+	"github.com/luoluodaduan/xray-core/app/proxyman"
+	"github.com/luoluodaduan/xray-core/common"
+	"github.com/luoluodaduan/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/common/protocol"
+	"github.com/luoluodaduan/xray-core/common/serial"
+	"github.com/luoluodaduan/xray-core/common/uuid"
+	"github.com/luoluodaduan/xray-core/core"
+	"github.com/luoluodaduan/xray-core/proxy/dokodemo"
+	"github.com/luoluodaduan/xray-core/proxy/freedom"
+	"github.com/luoluodaduan/xray-core/proxy/vmess"
+	"github.com/luoluodaduan/xray-core/proxy/vmess/inbound"
+	"github.com/luoluodaduan/xray-core/proxy/vmess/outbound"
+	"github.com/luoluodaduan/xray-core/testing/servers/tcp"
+	"github.com/luoluodaduan/xray-core/transport/internet"
+	"github.com/luoluodaduan/xray-core/transport/internet/headers/http"
+	tcptransport "github.com/luoluodaduan/xray-core/transport/internet/tcp"
 )
 
 func TestHTTPConnectionHeader(t *testing.T) {
@@ -42,7 +42,7 @@ func TestHTTPConnectionHeader(t *testing.T) {
 						TransportSettings: []*internet.TransportConfig{
 							{
 								ProtocolName: "tcp",
-								Settings:     serial.ToTypedMessage(&tcptransport.Config{
+								Settings: serial.ToTypedMessage(&tcptransport.Config{
 									HeaderSettings: serial.ToTypedMessage(&http.Config{}),
 								}),
 							},
@@ -76,8 +76,8 @@ func TestHTTPConnectionHeader(t *testing.T) {
 					Listen:   net.NewIPOrDomain(net.LocalHostIP),
 				}),
 				ProxySettings: serial.ToTypedMessage(&dokodemo.Config{
-					Address: net.NewIPOrDomain(dest.Address),
-					Port:    uint32(dest.Port),
+					Address:  net.NewIPOrDomain(dest.Address),
+					Port:     uint32(dest.Port),
 					Networks: []net.Network{net.Network_TCP},
 				}),
 			},
@@ -104,7 +104,7 @@ func TestHTTPConnectionHeader(t *testing.T) {
 						TransportSettings: []*internet.TransportConfig{
 							{
 								ProtocolName: "tcp",
-								Settings:     serial.ToTypedMessage(&tcptransport.Config{
+								Settings: serial.ToTypedMessage(&tcptransport.Config{
 									HeaderSettings: serial.ToTypedMessage(&http.Config{}),
 								}),
 							},
