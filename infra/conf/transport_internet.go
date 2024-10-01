@@ -263,7 +263,7 @@ func (c *SplitHTTPConfig) Build() (proto.Message, error) {
 		c.Host = c.Headers["Host"]
 	}
 
-	if c.Xmux.MaxConnections != nil && c.Xmux.MaxConcurrency != nil {
+	if c.Xmux.MaxConnections != nil && c.Xmux.MaxConnections.To > 0 && c.Xmux.MaxConcurrency != nil && c.Xmux.MaxConcurrency.To > 0 {
 		return nil, errors.New("maxConnections cannot be specified together with maxConcurrency")
 	}
 
@@ -644,13 +644,13 @@ type TransportProtocol string
 // Build implements Buildable.
 func (p TransportProtocol) Build() (string, error) {
 	switch strings.ToLower(string(p)) {
-	case "tcp":
+	case "raw", "tcp":
 		return "tcp", nil
 	case "kcp", "mkcp":
 		return "mkcp", nil
 	case "ws", "websocket":
 		return "websocket", nil
-	case "h2", "http":
+	case "h2", "h3", "http":
 		return "http", nil
 	case "grpc", "gun":
 		return "grpc", nil
@@ -779,19 +779,20 @@ func (c *SocketConfig) Build() (*internet.SocketConfig, error) {
 }
 
 type StreamConfig struct {
-	Network             *TransportProtocol  `json:"network"`
-	Security            string              `json:"security"`
-	TLSSettings         *TLSConfig          `json:"tlsSettings"`
-	REALITYSettings     *REALITYConfig      `json:"realitySettings"`
-	TCPSettings         *TCPConfig          `json:"tcpSettings"`
-	KCPSettings         *KCPConfig          `json:"kcpSettings"`
-	WSSettings          *WebSocketConfig    `json:"wsSettings"`
-	HTTPSettings        *HTTPConfig         `json:"httpSettings"`
-	SocketSettings      *SocketConfig       `json:"sockopt"`
-	GRPCConfig          *GRPCConfig         `json:"grpcSettings"`
-	GUNConfig           *GRPCConfig         `json:"gunSettings"`
-	HTTPUPGRADESettings *HttpUpgradeConfig  `json:"httpupgradeSettings"`
-	SplitHTTPSettings   *SplitHTTPConfig    `json:"splithttpSettings"`
+	Network             *TransportProtocol `json:"network"`
+	Security            string             `json:"security"`
+	TLSSettings         *TLSConfig         `json:"tlsSettings"`
+	REALITYSettings     *REALITYConfig     `json:"realitySettings"`
+	RAWSettings         *TCPConfig         `json:"rawSettings"`
+	TCPSettings         *TCPConfig         `json:"tcpSettings"`
+	KCPSettings         *KCPConfig         `json:"kcpSettings"`
+	WSSettings          *WebSocketConfig   `json:"wsSettings"`
+	HTTPSettings        *HTTPConfig        `json:"httpSettings"`
+	SocketSettings      *SocketConfig      `json:"sockopt"`
+	GRPCConfig          *GRPCConfig        `json:"grpcSettings"`
+	GUNConfig           *GRPCConfig        `json:"gunSettings"`
+	HTTPUPGRADESettings *HttpUpgradeConfig `json:"httpupgradeSettings"`
+	SplitHTTPSettings   *SplitHTTPConfig   `json:"splithttpSettings"`
 }
 
 // Build implements Buildable.
@@ -839,10 +840,13 @@ func (c *StreamConfig) Build() (*internet.StreamConfig, error) {
 	default:
 		return nil, errors.New(`Unknown security "` + c.Security + `".`)
 	}
+	if c.TCPSettings == nil {
+		c.TCPSettings = c.RAWSettings
+	}
 	if c.TCPSettings != nil {
 		ts, err := c.TCPSettings.Build()
 		if err != nil {
-			return nil, errors.New("Failed to build TCP config.").Base(err)
+			return nil, errors.New("Failed to build RAW config.").Base(err)
 		}
 		config.TransportSettings = append(config.TransportSettings, &internet.TransportConfig{
 			ProtocolName: "tcp",
