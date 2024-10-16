@@ -9,14 +9,14 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/xtls/xray-core/app/dispatcher"
-	"github.com/xtls/xray-core/app/proxyman"
-	"github.com/xtls/xray-core/app/stats"
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/serial"
-	core "github.com/xtls/xray-core/core"
-	"github.com/xtls/xray-core/transport/internet"
+	"github.com/luoluodaduan/xray-core/app/dispatcher"
+	"github.com/luoluodaduan/xray-core/app/proxyman"
+	"github.com/luoluodaduan/xray-core/app/stats"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/common/serial"
+	core "github.com/luoluodaduan/xray-core/core"
+	"github.com/luoluodaduan/xray-core/transport/internet"
 )
 
 var (
@@ -286,7 +286,7 @@ func (c *OutboundDetourConfig) Build() (*core.OutboundHandlerConfig, error) {
 
 	if c.SendThrough != nil {
 		address := ParseSendThough(c.SendThrough)
-		//Check if CIDR exists
+		// Check if CIDR exists
 		if strings.Contains(*c.SendThrough, "/") {
 			senderSettings.ViaCidr = strings.Split(*c.SendThrough, "/")[1]
 		} else {
@@ -363,7 +363,7 @@ func (c *StatsConfig) Build() (*stats.Config, error) {
 type Config struct {
 	// Deprecated: Global transport config is no longer used
 	// left for returning error
-	Transport        map[string]json.RawMessage `json:"transport"`
+	Transport map[string]json.RawMessage `json:"transport"`
 
 	LogConfig        *LogConfig              `json:"log"`
 	RouterConfig     *RouterConfig           `json:"routing"`
@@ -457,7 +457,6 @@ func (c *Config) Override(o *Config, fn string) {
 				c.InboundConfigs = append(c.InboundConfigs, o.InboundConfigs[i])
 				errors.LogInfo(context.Background(), "[", fn, "] appended inbound with tag: ", o.InboundConfigs[i].Tag)
 			}
-
 		}
 	}
 
