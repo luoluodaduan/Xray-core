@@ -8,8 +8,8 @@ import (
 
 	"github.com/OmarTariq612/goech"
 	"github.com/cloudflare/circl/hpke"
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/main/commands/base"
+	"github.com/luoluodaduan/xray-core/common"
+	"github.com/luoluodaduan/xray-core/main/commands/base"
 )
 
 var cmdECH = &base.Command{
@@ -27,9 +27,11 @@ func init() {
 	cmdECH.Run = executeECH
 }
 
-var input_pqSignatureSchemesEnabled = cmdECH.Flag.Bool("pqSignatureSchemesEnabled", false, "")
-var input_serverName = cmdECH.Flag.String("serverName", "cloudflare-ech.com", "")
-var input_json = cmdECH.Flag.Bool("json", false, "True == turn on json output")
+var (
+	input_pqSignatureSchemesEnabled = cmdECH.Flag.Bool("pqSignatureSchemesEnabled", false, "")
+	input_serverName                = cmdECH.Flag.String("serverName", "cloudflare-ech.com", "")
+	input_json                      = cmdECH.Flag.Bool("json", false, "True == turn on json output")
+)
 
 func executeECH(cmd *base.Command, args []string) {
 	var kem hpke.KEM
