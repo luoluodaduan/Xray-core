@@ -11,18 +11,18 @@ import (
 	"sync"
 	"time"
 
+	"github.com/luoluodaduan/xray-core/common"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/net"
+	http_proto "github.com/luoluodaduan/xray-core/common/protocol/http"
+	"github.com/luoluodaduan/xray-core/common/signal/done"
+	"github.com/luoluodaduan/xray-core/transport/internet"
+	"github.com/luoluodaduan/xray-core/transport/internet/reality"
+	"github.com/luoluodaduan/xray-core/transport/internet/stat"
+	v2tls "github.com/luoluodaduan/xray-core/transport/internet/tls"
 	"github.com/xtls/quic-go"
 	"github.com/xtls/quic-go/http3"
 	goreality "github.com/xtls/reality"
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/common/net"
-	http_proto "github.com/xtls/xray-core/common/protocol/http"
-	"github.com/xtls/xray-core/common/signal/done"
-	"github.com/xtls/xray-core/transport/internet"
-	"github.com/xtls/xray-core/transport/internet/reality"
-	"github.com/xtls/xray-core/transport/internet/stat"
-	v2tls "github.com/xtls/xray-core/transport/internet/tls"
 	"golang.org/x/net/http2"
 	"golang.org/x/net/http2/h2c"
 )
@@ -196,7 +196,6 @@ func (h *requestHandler) ServeHTTP(writer http.ResponseWriter, request *http.Req
 			Payload: payload,
 			Seq:     seqInt,
 		})
-
 		if err != nil {
 			errors.LogInfoInner(context.Background(), err, "failed to upload (PushPayload)")
 			writer.WriteHeader(http.StatusInternalServerError)
@@ -314,7 +313,7 @@ func ListenSH(ctx context.Context, address net.Address, port net.Port, streamSet
 	}
 	var listener net.Listener
 	var err error
-	var localAddr = gonet.TCPAddr{}
+	localAddr := gonet.TCPAddr{}
 	handler := &requestHandler{
 		config:    shSettings,
 		host:      shSettings.Host,
@@ -427,6 +426,7 @@ func (ln *Listener) Close() error {
 	}
 	return errors.New("listener does not have an HTTP/3 server or a net.listener")
 }
+
 func getTLSConfig(streamSettings *internet.MemoryStreamConfig) *tls.Config {
 	config := v2tls.ConfigFromStreamSettings(streamSettings)
 	if config == nil {
@@ -434,6 +434,7 @@ func getTLSConfig(streamSettings *internet.MemoryStreamConfig) *tls.Config {
 	}
 	return config.GetTLSConfig()
 }
+
 func init() {
 	common.Must(internet.RegisterTransportListener(protocolName, ListenSH))
 }

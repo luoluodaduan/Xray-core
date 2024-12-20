@@ -6,19 +6,19 @@ import (
 	"sync"
 	"time"
 
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/common/platform"
-	"github.com/xtls/xray-core/common/serial"
-	"github.com/xtls/xray-core/features"
-	"github.com/xtls/xray-core/features/dns"
-	"github.com/xtls/xray-core/features/dns/localdns"
-	"github.com/xtls/xray-core/features/inbound"
-	"github.com/xtls/xray-core/features/outbound"
-	"github.com/xtls/xray-core/features/policy"
-	"github.com/xtls/xray-core/features/routing"
-	"github.com/xtls/xray-core/features/stats"
-	"github.com/xtls/xray-core/transport/internet"
+	"github.com/luoluodaduan/xray-core/common"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/platform"
+	"github.com/luoluodaduan/xray-core/common/serial"
+	"github.com/luoluodaduan/xray-core/features"
+	"github.com/luoluodaduan/xray-core/features/dns"
+	"github.com/luoluodaduan/xray-core/features/dns/localdns"
+	"github.com/luoluodaduan/xray-core/features/inbound"
+	"github.com/luoluodaduan/xray-core/features/outbound"
+	"github.com/luoluodaduan/xray-core/features/policy"
+	"github.com/luoluodaduan/xray-core/features/routing"
+	"github.com/luoluodaduan/xray-core/features/stats"
+	"github.com/luoluodaduan/xray-core/transport/internet"
 )
 
 // Server is an instance of Xray. At any time, there must be at most one Server instance running.
@@ -314,11 +314,11 @@ func (s *Instance) RequireFeaturesAsync(callback interface{}) {
 		callback: callback,
 	}
 	go func() {
-		var finished = false
+		finished := false
 		for i := 0; !finished; i++ {
 			if i > 100000 {
 				errors.LogError(s.ctx, "RequireFeaturesAsync failed after count ", i)
-				break;
+				break
 			}
 			finished, _ = r.resolve(s.features)
 			time.Sleep(time.Millisecond)
