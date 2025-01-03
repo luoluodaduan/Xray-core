@@ -8,12 +8,12 @@ import (
 	"encoding/binary"
 	"io"
 
+	"github.com/luoluodaduan/xray-core/common"
+	"github.com/luoluodaduan/xray-core/common/buf"
+	"github.com/luoluodaduan/xray-core/common/bytespool"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	ptls "github.com/luoluodaduan/xray-core/common/protocol/tls"
 	"github.com/xtls/quic-go/quicvarint"
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/buf"
-	"github.com/xtls/xray-core/common/bytespool"
-	"github.com/xtls/xray-core/common/errors"
-	ptls "github.com/xtls/xray-core/common/protocol/tls"
 	"golang.org/x/crypto/hkdf"
 )
 
