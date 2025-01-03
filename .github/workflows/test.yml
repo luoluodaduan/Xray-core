@@ -1,32 +1,70 @@
-name: Test
+name: Update
 
 on:
-  push:
-  pull_request:
-    types: [opened, synchronize, reopened]
+  workflow_dispatch:
 
 jobs:
-  test:
-    permissions:
-      contents: read
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [windows-latest, ubuntu-latest, macos-latest]
+  update:
+    runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout codebase
+      - name: Checkout
         uses: actions/checkout@v4
-      - name: Set up Go
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Prepare
+        run: |
+          sudo -E apt-get -yqq update
+          mkdir -p dist
+          rm -rf .github/dependabot.yml
+          rm -rf .github/workflows/docker.yml
+          rm -rf .github/workflows/release-win7.yml
+          find -name 'go.mod' | xargs perl -pi -e 's|/xtls/xray-core|/luoluodaduan/xray-core|g'
+          find -name '*.go' | xargs perl -pi -e 's|/xtls/xray-core|/luoluodaduan/xray-core|g'
+          find -name '*.proto' | xargs perl -pi -e 's|/xtls/xray-core|/luoluodaduan/xray-core|g'
+
+      - name: Setup Go
         uses: actions/setup-go@v5
         with:
           go-version-file: go.mod
           check-latest: true
-      - name: Restore Cache
-        uses: actions/cache/restore@v4
+
+      - name: Update
+        run: |
+          wget https://github.com/protocolbuffers/protobuf/releases/download/v28.3/protoc-28.3-linux-x86_64.zip -O protoc.zip
+          unzip -d dist protoc.zip
+          sudo -E mv -f ./dist/bin/protoc /usr/local/bin
+          sudo -E mv -f ./dist/include/* /usr/local/include
+          protoc --version
+          rm -rf dist
+          rm -rf protoc.zip
+          go install mvdan.cc/gofumpt@latest
+          go install github.com/daixiang0/gci@latest
+          go run ./infra/vformat
+          go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+          go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
+          go run ./infra/vprotogen
+          #go install github.com/golang/mock/mockgen@v1.7.0-rc.1
+          #mockgen -package mocks -destination ./testing/mocks/io.go -mock_names Reader=Reader,Writer=Writer io Reader,Writer
+          #mockgen -package mocks -destination ./testing/mocks/log.go -mock_names Handler=LogHandler github.com/luoluodaduan/xray-core/common/log Handler
+          #mockgen -package mocks -destination ./testing/mocks/mux.go -mock_names ClientWorkerFactory=MuxClientWorkerFactory github.com/luoluodaduan/xray-core/common/mux ClientWorkerFactory
+          #mockgen -package mocks -destination ./testing/mocks/dns.go -mock_names Client=DNSClient github.com/luoluodaduan/xray-core/features/dns Client
+          #mockgen -package mocks -destination ./testing/mocks/outbound.go -mock_names Manager=OutboundManager,HandlerSelector=OutboundHandlerSelector github.com/luoluodaduan/xray-core/features/outbound Manager,HandlerSelector
+          #mockgen -package mocks -destination ./testing/mocks/proxy.go -mock_names Inbound=ProxyInbound,Outbound=ProxyOutbound github.com/luoluodaduan/xray-core/proxy Inbound,Outbound
+          find -name '*.pb.go' | xargs gci write -s standard -s default
+          go mod tidy
+
+      - name: Commit Files
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add .
+          git commit -m "Update"
+
+      - name: Push Changes
+        uses: ad-m/github-push-action@master
         with:
-          path: resources
-          key: xray-geodat-
-          enableCrossOsArchive: true
-      - name: Test
-        run: go test -timeout 1h -v ./...
+          branch: ${{ github.ref }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
