@@ -20,13 +20,6 @@ jobs:
 
       - name: Free Disk Space
         uses: FirelightFlagboy/gh-runner-free-disk-space@main
-        with:
-          android: true
-          docker-images: true
-          dotnet: true
-          haskell: true
-          large-packages: true
-          swap-storage: true
 
       - name: Initialization environment
         run: |
