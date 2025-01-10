@@ -7,26 +7,26 @@ import (
 	"math/big"
 	"time"
 
+	"github.com/luoluodaduan/xray-core/common"
+	"github.com/luoluodaduan/xray-core/common/buf"
+	"github.com/luoluodaduan/xray-core/common/dice"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/common/platform"
+	"github.com/luoluodaduan/xray-core/common/retry"
+	"github.com/luoluodaduan/xray-core/common/session"
+	"github.com/luoluodaduan/xray-core/common/signal"
+	"github.com/luoluodaduan/xray-core/common/task"
+	"github.com/luoluodaduan/xray-core/core"
+	"github.com/luoluodaduan/xray-core/features/dns"
+	"github.com/luoluodaduan/xray-core/features/policy"
+	"github.com/luoluodaduan/xray-core/features/stats"
+	"github.com/luoluodaduan/xray-core/proxy"
+	"github.com/luoluodaduan/xray-core/transport"
+	"github.com/luoluodaduan/xray-core/transport/internet"
+	"github.com/luoluodaduan/xray-core/transport/internet/stat"
+	"github.com/luoluodaduan/xray-core/transport/internet/tls"
 	"github.com/pires/go-proxyproto"
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/buf"
-	"github.com/xtls/xray-core/common/dice"
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/platform"
-	"github.com/xtls/xray-core/common/retry"
-	"github.com/xtls/xray-core/common/session"
-	"github.com/xtls/xray-core/common/signal"
-	"github.com/xtls/xray-core/common/task"
-	"github.com/xtls/xray-core/core"
-	"github.com/xtls/xray-core/features/dns"
-	"github.com/xtls/xray-core/features/policy"
-	"github.com/xtls/xray-core/features/stats"
-	"github.com/xtls/xray-core/proxy"
-	"github.com/xtls/xray-core/transport"
-	"github.com/xtls/xray-core/transport/internet"
-	"github.com/xtls/xray-core/transport/internet/stat"
-	"github.com/xtls/xray-core/transport/internet/tls"
 )
 
 var useSplice bool
@@ -332,7 +332,6 @@ func NewPacketWriter(conn net.Conn, h *Handler, ctx context.Context, UDPOverride
 			Context:           ctx,
 			UDPOverride:       UDPOverride,
 		}
-
 	}
 	return &buf.SequentialWriter{Writer: conn}
 }
@@ -399,18 +398,18 @@ type NoisePacketWriter struct {
 func (w *NoisePacketWriter) WriteMultiBuffer(mb buf.MultiBuffer) error {
 	if w.firstWrite {
 		w.firstWrite = false
-		//Do not send Noise for dns requests(just to be safe)
+		// Do not send Noise for dns requests(just to be safe)
 		if w.UDPOverride.Port == 53 {
 			return w.Writer.WriteMultiBuffer(mb)
 		}
 		var noise []byte
 		var err error
 		for _, n := range w.noises {
-			//User input string or base64 encoded string
+			// User input string or base64 encoded string
 			if n.Packet != nil {
 				noise = n.Packet
 			} else {
-				//Random noise
+				// Random noise
 				noise, err = GenerateRandomBytes(randBetween(int64(n.LengthMin),
 					int64(n.LengthMax)))
 			}
@@ -506,7 +505,7 @@ func (f *FragmentWriter) Write(b []byte) (int, error) {
 	}
 }
 
-// stolen from github.com/xtls/xray-core/transport/internet/reality
+// stolen from github.com/luoluodaduan/xray-core/transport/internet/reality
 func randBetween(left int64, right int64) int64 {
 	if left == right {
 		return left
@@ -514,6 +513,7 @@ func randBetween(left int64, right int64) int64 {
 	bigInt, _ := rand.Int(rand.Reader, big.NewInt(right-left))
 	return left + bigInt.Int64()
 }
+
 func GenerateRandomBytes(n int64) ([]byte, error) {
 	b := make([]byte, n)
 	_, err := rand.Read(b)
