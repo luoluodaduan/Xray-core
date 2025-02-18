@@ -43,13 +43,13 @@ jobs:
         if: matrix.goos != 'windows'
         run: |
           mkdir -p build
-          go build -o xray -trimpath -buildvcs=false -ldflags="-s -w -buildid=" -v ./main
+          go build -o build/xray -trimpath -buildvcs=false -ldflags="-s -w -buildid=" -v ./main
 
       - name: Build Xray for Windows
         if: matrix.goos == 'windows'
         run: |
           mkdir -p build
-          go build -o xray.exe -trimpath -buildvcs=false -ldflags="-s -w -buildid=" -v ./main
+          go build -o build/xray.exe -trimpath -buildvcs=false -ldflags="-s -w -buildid=" -v ./main
 
       - name: Delete old Releases and Workflows
         if: matrix.goos == 'linux'
