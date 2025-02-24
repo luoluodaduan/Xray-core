@@ -7,8 +7,8 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/transport/internet"
+	"github.com/luoluodaduan/xray-core/common"
+	"github.com/luoluodaduan/xray-core/transport/internet"
 )
 
 func (c *Config) GetNormalizedPath() string {

@@ -1,4 +1,0 @@
-name: Scheduled assets update
-
-on:
-  workflow_dispatch:
