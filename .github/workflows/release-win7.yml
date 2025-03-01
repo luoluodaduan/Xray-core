@@ -1,4 +1,0 @@
-name: Build and Release for Windows 7
-
-on:
-  workflow_dispatch:

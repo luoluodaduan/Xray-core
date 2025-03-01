@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"syscall"
 
-	"github.com/xtls/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/errors"
 	"golang.org/x/sys/unix"
 )
 
@@ -105,7 +105,7 @@ func applyOutboundSocketOptions(network string, address string, fd uintptr, conf
 
 		if len(config.CustomSockopt) > 0 {
 			for _, custom := range config.CustomSockopt {
-				var level = 0x6 // default TCP
+				level := 0x6 // default TCP
 				var opt int
 				if len(custom.Opt) == 0 {
 					return errors.New("No opt!")
@@ -199,7 +199,7 @@ func applyInboundSocketOptions(network string, fd uintptr, config *SocketConfig)
 		}
 		if len(config.CustomSockopt) > 0 {
 			for _, custom := range config.CustomSockopt {
-				var level = 0x6 // default TCP
+				level := 0x6 // default TCP
 				var opt int
 				if len(custom.Opt) == 0 {
 					return errors.New("No opt!")
