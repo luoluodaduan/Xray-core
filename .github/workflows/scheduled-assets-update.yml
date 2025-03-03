@@ -1,8 +1,0 @@
-name: Scheduled assets update
-
-on:
-  workflow_dispatch:
-
-jobs:
-  geodat:
-    runs-on: ubuntu-latest
