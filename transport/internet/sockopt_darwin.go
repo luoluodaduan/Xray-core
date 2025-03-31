@@ -6,8 +6,8 @@ import (
 	"syscall"
 	"unsafe"
 
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/net"
 	"golang.org/x/sys/unix"
 )
 
@@ -132,7 +132,6 @@ func applyOutboundSocketOptions(network string, address string, fd uintptr, conf
 
 	if config.Interface != "" {
 		iface, err := gonet.InterfaceByName(config.Interface)
-
 		if err != nil {
 			return errors.New("failed to get interface ", config.Interface).Base(err)
 		}
@@ -185,7 +184,6 @@ func applyInboundSocketOptions(network string, fd uintptr, config *SocketConfig)
 
 	if config.Interface != "" {
 		iface, err := gonet.InterfaceByName(config.Interface)
-
 		if err != nil {
 			return errors.New("failed to get interface ", config.Interface).Base(err)
 		}

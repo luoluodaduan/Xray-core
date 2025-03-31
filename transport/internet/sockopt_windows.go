@@ -6,16 +6,16 @@ import (
 	"syscall"
 	"unsafe"
 
-	"github.com/xtls/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/errors"
 )
 
 const (
-	TCP_FASTOPEN    = 15
-	IP_UNICAST_IF   = 31
-	IPV6_UNICAST_IF = 31
-	IP_MULTICAST_IF = 9
+	TCP_FASTOPEN      = 15
+	IP_UNICAST_IF     = 31
+	IPV6_UNICAST_IF   = 31
+	IP_MULTICAST_IF   = 9
 	IPV6_MULTICAST_IF = 9
-	IPV6_V6ONLY = 27
+	IPV6_V6ONLY       = 27
 )
 
 func setTFO(fd syscall.Handle, tfo int) error {
