@@ -12,8 +12,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/xtls/xray-core/common/crypto"
-	"github.com/xtls/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/crypto"
+	"github.com/luoluodaduan/xray-core/common/errors"
 	"golang.org/x/crypto/chacha20poly1305"
 	"lukechampine.com/blake3"
 )
@@ -217,12 +217,12 @@ func DecodeHeader(h []byte) (l int, err error) {
 	if l < 17 || l > 17000 { // TODO: TLSv1.3 max length
 		err = errors.New("invalid header: " + fmt.Sprintf("%v", h[:5])) // DO NOT CHANGE: relied by client's Read()
 	}
-	return
+	return l, err
 }
 
 func ParsePadding(padding string, paddingLens, paddingGaps *[][3]int) (err error) {
 	if padding == "" {
-		return
+		return err
 	}
 	maxLen := 0
 	for i, s := range strings.Split(padding, ".") {
@@ -232,13 +232,13 @@ func ParsePadding(padding string, paddingLens, paddingGaps *[][3]int) (err error
 		}
 		y := [3]int{}
 		if y[0], err = strconv.Atoi(x[0]); err != nil {
-			return
+			return err
 		}
 		if y[1], err = strconv.Atoi(x[1]); err != nil {
-			return
+			return err
 		}
 		if y[2], err = strconv.Atoi(x[2]); err != nil {
-			return
+			return err
 		}
 		if i == 0 && (y[0] < 100 || y[1] < 18+17 || y[2] < 18+17) {
 			return errors.New("first padding length must not be smaller than 35")
@@ -253,7 +253,7 @@ func ParsePadding(padding string, paddingLens, paddingGaps *[][3]int) (err error
 	if maxLen > 18+65535 {
 		return errors.New("total padding length must not be larger than 65553")
 	}
-	return
+	return err
 }
 
 func CreatPadding(paddingLens, paddingGaps [][3]int) (length int, lens []int, gaps []time.Duration) {
@@ -276,5 +276,5 @@ func CreatPadding(paddingLens, paddingGaps [][3]int) (length int, lens []int, ga
 		}
 		gaps = append(gaps, time.Duration(g)*time.Millisecond)
 	}
-	return
+	return length, lens, gaps
 }

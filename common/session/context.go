@@ -4,9 +4,9 @@ import (
 	"context"
 	_ "unsafe"
 
-	"github.com/xtls/xray-core/common/ctx"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/features/routing"
+	"github.com/luoluodaduan/xray-core/common/ctx"
+	"github.com/luoluodaduan/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/features/routing"
 )
 
 //go:linkname IndependentCancelCtx context.newCancelCtx
@@ -16,12 +16,12 @@ const (
 	inboundSessionKey         ctx.SessionKey = 1
 	outboundSessionKey        ctx.SessionKey = 2
 	contentSessionKey         ctx.SessionKey = 3
-	muxPreferredSessionKey    ctx.SessionKey = 4 // unused
-	sockoptSessionKey         ctx.SessionKey = 5 // used by dokodemo to only receive sockopt.Mark
-	trackedConnectionErrorKey ctx.SessionKey = 6 // used by observer to get outbound error
-	dispatcherKey             ctx.SessionKey = 7 // used by ss2022 inbounds to get dispatcher
-	timeoutOnlyKey            ctx.SessionKey = 8 // mux context's child contexts to only cancel when its own traffic times out
-	allowedNetworkKey         ctx.SessionKey = 9 // muxcool server control incoming request tcp/udp
+	muxPreferredSessionKey    ctx.SessionKey = 4  // unused
+	sockoptSessionKey         ctx.SessionKey = 5  // used by dokodemo to only receive sockopt.Mark
+	trackedConnectionErrorKey ctx.SessionKey = 6  // used by observer to get outbound error
+	dispatcherKey             ctx.SessionKey = 7  // used by ss2022 inbounds to get dispatcher
+	timeoutOnlyKey            ctx.SessionKey = 8  // mux context's child contexts to only cancel when its own traffic times out
+	allowedNetworkKey         ctx.SessionKey = 9  // muxcool server control incoming request tcp/udp
 	handlerSessionKey         ctx.SessionKey = 10 // unused
 	mitmAlpn11Key             ctx.SessionKey = 11 // used by TLS dialer
 	mitmServerNameKey         ctx.SessionKey = 12 // used by TLS dialer
