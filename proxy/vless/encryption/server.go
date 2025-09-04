@@ -73,7 +73,7 @@ func (i *ServerInstance) Init(nfsSKeysBytes [][]byte, xorMode uint32, secondsFro
 	i.SecondsTo = secondsTo
 	err = ParsePadding(padding, &i.PaddingLens, &i.PaddingGaps)
 	if err != nil {
-		return
+		return err
 	}
 	if i.SecondsFrom > 0 || i.SecondsTo > 0 {
 		i.Lasts = make(map[int64][16]byte)
@@ -104,14 +104,14 @@ func (i *ServerInstance) Init(nfsSKeysBytes [][]byte, xorMode uint32, secondsFro
 			}
 		}()
 	}
-	return
+	return err
 }
 
 func (i *ServerInstance) Close() (err error) {
 	i.RWLock.Lock()
 	i.Closed = true
 	i.RWLock.Unlock()
-	return
+	return err
 }
 
 func (i *ServerInstance) Handshake(conn net.Conn, fallback *[]byte) (*CommonConn, error) {

@@ -55,9 +55,9 @@ func genCurve25519(inputPrivateKey []byte) (privateKey []byte, password []byte, 
 	key, err := ecdh.X25519().NewPrivateKey(privateKey)
 	if err != nil {
 		returnErr = err
-		return
+		return privateKey, password, hash32, returnErr
 	}
 	password = key.PublicKey().Bytes()
 	hash32 = blake3.Sum256(password)
-	return
+	return privateKey, password, hash32, returnErr
 }
