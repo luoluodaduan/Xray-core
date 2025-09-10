@@ -7,9 +7,9 @@ import (
 	"math/big"
 	"time"
 
+	"github.com/luoluodaduan/xray-core/common/buf"
+	"github.com/luoluodaduan/xray-core/common/net"
 	utls "github.com/refraction-networking/utls"
-	"github.com/xtls/xray-core/common/buf"
-	"github.com/xtls/xray-core/common/net"
 )
 
 type Interface interface {
@@ -20,8 +20,10 @@ type Interface interface {
 	NegotiatedProtocol() string
 }
 
-var _ buf.Writer = (*Conn)(nil)
-var _ Interface = (*Conn)(nil)
+var (
+	_ buf.Writer = (*Conn)(nil)
+	_ Interface  = (*Conn)(nil)
+)
 
 type Conn struct {
 	*tls.Conn
@@ -167,15 +169,15 @@ func GetFingerprint(name string) (fingerprint *utls.ClientHelloID) {
 		return &utls.HelloChrome_Auto
 	}
 	if fingerprint = PresetFingerprints[name]; fingerprint != nil {
-		return
+		return fingerprint
 	}
 	if fingerprint = ModernFingerprints[name]; fingerprint != nil {
-		return
+		return fingerprint
 	}
 	if fingerprint = OtherFingerprints[name]; fingerprint != nil {
-		return
+		return fingerprint
 	}
-	return
+	return fingerprint
 }
 
 var PresetFingerprints = map[string]*utls.ClientHelloID{

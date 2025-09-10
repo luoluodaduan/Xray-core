@@ -3,15 +3,16 @@ package dns
 import (
 	"context"
 	go_errors "errors"
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/signal/pubsub"
-	"github.com/xtls/xray-core/common/task"
-	dns_feature "github.com/xtls/xray-core/features/dns"
-	"golang.org/x/net/dns/dnsmessage"
 	"sync"
 	"time"
+
+	"github.com/luoluodaduan/xray-core/common"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/common/signal/pubsub"
+	"github.com/luoluodaduan/xray-core/common/task"
+	dns_feature "github.com/luoluodaduan/xray-core/features/dns"
+	"golang.org/x/net/dns/dnsmessage"
 )
 
 type CacheController struct {
@@ -175,7 +176,7 @@ func (c *CacheController) registerSubscribers(domain string, option dns_feature.
 	if option.IPv6Enable {
 		sub6 = c.pub.Subscribe(domain + "6")
 	}
-	return
+	return sub4, sub6
 }
 
 func closeSubscribers(sub4 *pubsub.Subscriber, sub6 *pubsub.Subscriber) {

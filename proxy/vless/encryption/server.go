@@ -12,8 +12,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/xtls/xray-core/common/crypto"
-	"github.com/xtls/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/crypto"
+	"github.com/luoluodaduan/xray-core/common/errors"
 	"lukechampine.com/blake3"
 )
 
@@ -54,13 +54,13 @@ func (i *ServerInstance) Init(nfsSKeysBytes [][]byte, xorMode uint32, secondsFro
 	for j, k := range nfsSKeysBytes {
 		if len(k) == 32 {
 			if i.NfsSKeys[j], err = ecdh.X25519().NewPrivateKey(k); err != nil {
-				return
+				return err
 			}
 			i.NfsPKeysBytes[j] = i.NfsSKeys[j].(*ecdh.PrivateKey).PublicKey().Bytes()
 			i.RelaysLength += 32 + 32
 		} else {
 			if i.NfsSKeys[j], err = mlkem.NewDecapsulationKey768(k); err != nil {
-				return
+				return err
 			}
 			i.NfsPKeysBytes[j] = i.NfsSKeys[j].(*mlkem.DecapsulationKey768).EncapsulationKey().Bytes()
 			i.RelaysLength += 1088 + 32
@@ -73,7 +73,7 @@ func (i *ServerInstance) Init(nfsSKeysBytes [][]byte, xorMode uint32, secondsFro
 	i.SecondsTo = secondsTo
 	err = ParsePadding(padding, &i.PaddingLens, &i.PaddingGaps)
 	if err != nil {
-		return
+		return err
 	}
 	if i.SecondsFrom > 0 || i.SecondsTo > 0 {
 		i.Lasts = make(map[int64][16]byte)
@@ -104,14 +104,14 @@ func (i *ServerInstance) Init(nfsSKeysBytes [][]byte, xorMode uint32, secondsFro
 			}
 		}()
 	}
-	return
+	return err
 }
 
 func (i *ServerInstance) Close() (err error) {
 	i.RWLock.Lock()
 	i.Closed = true
 	i.RWLock.Unlock()
-	return
+	return err
 }
 
 func (i *ServerInstance) Handshake(conn net.Conn, fallback *[]byte) (*CommonConn, error) {
@@ -135,7 +135,7 @@ func (i *ServerInstance) Handshake(conn net.Conn, fallback *[]byte) (*CommonConn
 		if lastCTR != nil {
 			lastCTR.XORKeyStream(relays, relays[:32]) // recover this relay
 		}
-		var index = 32
+		index := 32
 		if _, ok := k.(*mlkem.DecapsulationKey768); ok {
 			index = 1088
 		}

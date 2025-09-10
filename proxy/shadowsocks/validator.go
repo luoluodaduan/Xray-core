@@ -8,9 +8,9 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/xtls/xray-core/common/dice"
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/common/protocol"
+	"github.com/luoluodaduan/xray-core/common/dice"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/protocol"
 )
 
 // Validator stores valid Shadowsocks users.
@@ -141,13 +141,13 @@ func (v *Validator) Get(bs []byte, command protocol.RequestCommand) (u *protocol
 			if matchErr == nil {
 				u = user
 				err = account.CheckIV(iv)
-				return
+				return u, aead, ret, ivLen, err
 			}
 		} else {
 			u = user
 			ivLen = user.Account.(*MemoryAccount).Cipher.IVSize()
 			// err = user.Account.(*MemoryAccount).CheckIV(bs[:ivLen]) // The IV size of None Cipher is 0.
-			return
+			return u, aead, ret, ivLen, err
 		}
 	}
 

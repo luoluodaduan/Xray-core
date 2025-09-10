@@ -8,20 +8,20 @@ import (
 	"sync"
 	"time"
 
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/buf"
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/common/net"
-	dns_proto "github.com/xtls/xray-core/common/protocol/dns"
-	"github.com/xtls/xray-core/common/session"
-	"github.com/xtls/xray-core/common/signal"
-	"github.com/xtls/xray-core/common/task"
-	"github.com/xtls/xray-core/core"
-	"github.com/xtls/xray-core/features/dns"
-	"github.com/xtls/xray-core/features/policy"
-	"github.com/xtls/xray-core/transport"
-	"github.com/xtls/xray-core/transport/internet"
-	"github.com/xtls/xray-core/transport/internet/stat"
+	"github.com/luoluodaduan/xray-core/common"
+	"github.com/luoluodaduan/xray-core/common/buf"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/net"
+	dns_proto "github.com/luoluodaduan/xray-core/common/protocol/dns"
+	"github.com/luoluodaduan/xray-core/common/session"
+	"github.com/luoluodaduan/xray-core/common/signal"
+	"github.com/luoluodaduan/xray-core/common/task"
+	"github.com/luoluodaduan/xray-core/core"
+	"github.com/luoluodaduan/xray-core/features/dns"
+	"github.com/luoluodaduan/xray-core/features/policy"
+	"github.com/luoluodaduan/xray-core/transport"
+	"github.com/luoluodaduan/xray-core/transport/internet"
+	"github.com/luoluodaduan/xray-core/transport/internet/stat"
 	"golang.org/x/net/dns/dnsmessage"
 )
 
@@ -82,23 +82,23 @@ func parseIPQuery(b []byte) (r bool, domain string, id uint16, qType dnsmessage.
 	header, err := parser.Start(b)
 	if err != nil {
 		errors.LogInfoInner(context.Background(), err, "parser start")
-		return
+		return r, domain, id, qType
 	}
 
 	id = header.ID
 	q, err := parser.Question()
 	if err != nil {
 		errors.LogInfoInner(context.Background(), err, "question")
-		return
+		return r, domain, id, qType
 	}
 	domain = q.Name.String()
 	qType = q.Type
 	if qType != dnsmessage.TypeA && qType != dnsmessage.TypeAAAA {
-		return
+		return r, domain, id, qType
 	}
 
 	r = true
-	return
+	return r, domain, id, qType
 }
 
 // Process implements proxy.Outbound.
