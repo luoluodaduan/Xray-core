@@ -28,13 +28,13 @@ type TrojanServerTarget struct {
 
 // TrojanClientConfig is configuration of trojan servers
 type TrojanClientConfig struct {
-	Address  *Address `json:"address"`
-	Port     uint16   `json:"port"`
-	Level    byte     `json:"level"`
-	Email    string   `json:"email"`
-	Password string   `json:"password"`
-	Flow     string   `json:"flow"`
-	Servers []*TrojanServerTarget `json:"servers"`
+	Address  *Address              `json:"address"`
+	Port     uint16                `json:"port"`
+	Level    byte                  `json:"level"`
+	Email    string                `json:"email"`
+	Password string                `json:"password"`
+	Flow     string                `json:"flow"`
+	Servers  []*TrojanServerTarget `json:"servers"`
 }
 
 // Build implements Buildable
