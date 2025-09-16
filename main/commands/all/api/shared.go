@@ -13,12 +13,11 @@ import (
 	"strings"
 	"time"
 
-	"google.golang.org/grpc/credentials/insecure"
-
-	"github.com/xtls/xray-core/common/buf"
-	creflect "github.com/xtls/xray-core/common/reflect"
-	"github.com/xtls/xray-core/main/commands/base"
+	"github.com/luoluodaduan/xray-core/common/buf"
+	creflect "github.com/luoluodaduan/xray-core/common/reflect"
+	"github.com/luoluodaduan/xray-core/main/commands/base"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials/insecure"
 	"google.golang.org/protobuf/proto"
 )
 
@@ -48,7 +47,7 @@ func dialAPIServer() (conn *grpc.ClientConn, ctx context.Context, close func()) 
 		cancel()
 		conn.Close()
 	}
-	return
+	return conn, ctx, close
 }
 
 // loadArg loads one arg, maybe an remote url, or local file path
@@ -66,10 +65,10 @@ func loadArg(arg string) (out io.Reader, err error) {
 	}
 
 	if err != nil {
-		return
+		return out, err
 	}
 	out = bytes.NewBuffer(data)
-	return
+	return out, err
 }
 
 // fetchHTTPContent dials https for remote content

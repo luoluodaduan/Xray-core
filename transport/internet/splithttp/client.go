@@ -10,10 +10,10 @@ import (
 	"net/http/httptrace"
 	"sync"
 
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/signal/done"
+	"github.com/luoluodaduan/xray-core/common"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/common/signal/done"
 )
 
 // interface to abstract between use of browser dialer, vs net/http
@@ -90,7 +90,7 @@ func (c *DefaultDialerClient) OpenStream(ctx context.Context, url string, body i
 	}()
 
 	<-gotConn.Wait()
-	return
+	return wrc, remoteAddr, localAddr, err
 }
 
 func (c *DefaultDialerClient) PostPacket(ctx context.Context, url string, body io.Reader, contentLength int64) error {
