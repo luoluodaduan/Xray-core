@@ -4,10 +4,10 @@ import (
 	"context"
 	"strconv"
 
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/strmatcher"
-	"github.com/xtls/xray-core/features/dns"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/common/strmatcher"
+	"github.com/luoluodaduan/xray-core/features/dns"
 )
 
 // StaticHosts represents static domain-ip mapping in DNS server.

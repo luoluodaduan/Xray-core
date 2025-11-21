@@ -3,21 +3,21 @@ package core_test
 import (
 	"testing"
 
-	"github.com/xtls/xray-core/app/dispatcher"
-	"github.com/xtls/xray-core/app/proxyman"
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/protocol"
-	"github.com/xtls/xray-core/common/serial"
-	"github.com/xtls/xray-core/common/uuid"
-	. "github.com/xtls/xray-core/core"
-	"github.com/xtls/xray-core/features/dns"
-	"github.com/xtls/xray-core/features/dns/localdns"
-	_ "github.com/xtls/xray-core/main/distro/all"
-	"github.com/xtls/xray-core/proxy/dokodemo"
-	"github.com/xtls/xray-core/proxy/vmess"
-	"github.com/xtls/xray-core/proxy/vmess/outbound"
-	"github.com/xtls/xray-core/testing/servers/tcp"
+	"github.com/luoluodaduan/xray-core/app/dispatcher"
+	"github.com/luoluodaduan/xray-core/app/proxyman"
+	"github.com/luoluodaduan/xray-core/common"
+	"github.com/luoluodaduan/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/common/protocol"
+	"github.com/luoluodaduan/xray-core/common/serial"
+	"github.com/luoluodaduan/xray-core/common/uuid"
+	. "github.com/luoluodaduan/xray-core/core"
+	"github.com/luoluodaduan/xray-core/features/dns"
+	"github.com/luoluodaduan/xray-core/features/dns/localdns"
+	_ "github.com/luoluodaduan/xray-core/main/distro/all"
+	"github.com/luoluodaduan/xray-core/proxy/dokodemo"
+	"github.com/luoluodaduan/xray-core/proxy/vmess"
+	"github.com/luoluodaduan/xray-core/proxy/vmess/outbound"
+	"github.com/luoluodaduan/xray-core/testing/servers/tcp"
 	"google.golang.org/protobuf/proto"
 )
 
@@ -66,7 +66,7 @@ func TestXrayClose(t *testing.T) {
 					Receiver: &protocol.ServerEndpoint{
 						Address: net.NewIPOrDomain(net.LocalHostIP),
 						Port:    uint32(0),
-						User:  &protocol.User{
+						User: &protocol.User{
 							Account: serial.ToTypedMessage(&vmess.Account{
 								Id: userID.String(),
 							}),
