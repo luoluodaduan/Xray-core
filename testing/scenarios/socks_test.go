@@ -4,20 +4,20 @@ import (
 	"testing"
 	"time"
 
-	"github.com/xtls/xray-core/app/proxyman"
-	"github.com/xtls/xray-core/app/router"
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/protocol"
-	"github.com/xtls/xray-core/common/serial"
-	"github.com/xtls/xray-core/core"
-	"github.com/xtls/xray-core/proxy/blackhole"
-	"github.com/xtls/xray-core/proxy/dokodemo"
-	"github.com/xtls/xray-core/proxy/freedom"
-	"github.com/xtls/xray-core/proxy/http"
-	"github.com/xtls/xray-core/proxy/socks"
-	"github.com/xtls/xray-core/testing/servers/tcp"
-	"github.com/xtls/xray-core/testing/servers/udp"
+	"github.com/luoluodaduan/xray-core/app/proxyman"
+	"github.com/luoluodaduan/xray-core/app/router"
+	"github.com/luoluodaduan/xray-core/common"
+	"github.com/luoluodaduan/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/common/protocol"
+	"github.com/luoluodaduan/xray-core/common/serial"
+	"github.com/luoluodaduan/xray-core/core"
+	"github.com/luoluodaduan/xray-core/proxy/blackhole"
+	"github.com/luoluodaduan/xray-core/proxy/dokodemo"
+	"github.com/luoluodaduan/xray-core/proxy/freedom"
+	"github.com/luoluodaduan/xray-core/proxy/http"
+	"github.com/luoluodaduan/xray-core/proxy/socks"
+	"github.com/luoluodaduan/xray-core/testing/servers/tcp"
+	"github.com/luoluodaduan/xray-core/testing/servers/udp"
 	xproxy "golang.org/x/net/proxy"
 	socks4 "h12.io/socks"
 )
@@ -76,7 +76,7 @@ func TestSocksBridgeTCP(t *testing.T) {
 					Server: &protocol.ServerEndpoint{
 						Address: net.NewIPOrDomain(net.LocalHostIP),
 						Port:    uint32(serverPort),
-						User:    &protocol.User{
+						User: &protocol.User{
 							Account: serial.ToTypedMessage(&socks.Account{
 								Username: "Test Account",
 								Password: "Test Password",
@@ -151,7 +151,7 @@ func TestSocksWithHttpRequest(t *testing.T) {
 					Server: &protocol.ServerEndpoint{
 						Address: net.NewIPOrDomain(net.LocalHostIP),
 						Port:    uint32(serverPort),
-						User:    &protocol.User{
+						User: &protocol.User{
 							Account: serial.ToTypedMessage(&http.Account{
 								Username: "Test Account",
 								Password: "Test Password",
@@ -251,7 +251,7 @@ func TestSocksBridageUDP(t *testing.T) {
 					Server: &protocol.ServerEndpoint{
 						Address: net.NewIPOrDomain(net.LocalHostIP),
 						Port:    uint32(serverPort),
-						User:    &protocol.User{
+						User: &protocol.User{
 							Account: serial.ToTypedMessage(&socks.Account{
 								Username: "Test Account",
 								Password: "Test Password",
