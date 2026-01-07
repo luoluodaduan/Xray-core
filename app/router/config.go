@@ -6,10 +6,10 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/common/platform/filesystem"
-	"github.com/xtls/xray-core/features/outbound"
-	"github.com/xtls/xray-core/features/routing"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/platform/filesystem"
+	"github.com/luoluodaduan/xray-core/features/outbound"
+	"github.com/luoluodaduan/xray-core/features/routing"
 	"google.golang.org/protobuf/proto"
 )
 
@@ -211,7 +211,6 @@ func GetGeoIPList(ips []*GeoIP) ([]*GeoIP, error) {
 		}
 	}
 	return geoipList, nil
-
 }
 
 func getDomainList(domains []*Domain) ([]*Domain, error) {

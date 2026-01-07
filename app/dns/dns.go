@@ -12,14 +12,14 @@ import (
 	"sync"
 	"time"
 
-	router "github.com/xtls/xray-core/app/router"
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/platform/filesystem"
-	"github.com/xtls/xray-core/common/session"
-	"github.com/xtls/xray-core/common/strmatcher"
-	"github.com/xtls/xray-core/features/dns"
+	router "github.com/luoluodaduan/xray-core/app/router"
+	"github.com/luoluodaduan/xray-core/common"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/common/platform/filesystem"
+	"github.com/luoluodaduan/xray-core/common/session"
+	"github.com/luoluodaduan/xray-core/common/strmatcher"
+	"github.com/luoluodaduan/xray-core/features/dns"
 	"google.golang.org/protobuf/proto"
 )
 
@@ -94,7 +94,7 @@ func New(ctx context.Context, config *Config) (*DNS, error) {
 	var clients []*Client
 	domainRuleCount := 0
 
-	var defaultTag = config.Tag
+	defaultTag := config.Tag
 	if len(config.Tag) == 0 {
 		defaultTag = generateRandomTag()
 	}
@@ -157,7 +157,7 @@ func New(ctx context.Context, config *Config) (*DNS, error) {
 			serveExpiredTTL = *ns.ServeExpiredTTL
 		}
 
-		var tag = defaultTag
+		tag := defaultTag
 		if len(ns.Tag) > 0 {
 			tag = ns.Tag
 		}
