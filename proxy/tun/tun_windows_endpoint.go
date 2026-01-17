@@ -69,7 +69,6 @@ func (e *WintunEndpoint) IsAttached() bool {
 }
 
 func (e *WintunEndpoint) Wait() {
-
 }
 
 func (e *WintunEndpoint) ARPHardwareType() header.ARPHardwareType {
@@ -92,7 +91,6 @@ func (e *WintunEndpoint) Close() {
 }
 
 func (e *WintunEndpoint) SetOnCloseAction(f func()) {
-
 }
 
 func (e *WintunEndpoint) WritePackets(packetBufferList stack.PacketBufferList) (int, tcpip.Error) {

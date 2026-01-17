@@ -1,9 +1,9 @@
 package hysteria
 
 import (
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/transport/internet"
-	"github.com/xtls/xray-core/transport/internet/hysteria/padding"
+	"github.com/luoluodaduan/xray-core/common"
+	"github.com/luoluodaduan/xray-core/transport/internet"
+	"github.com/luoluodaduan/xray-core/transport/internet/hysteria/padding"
 )
 
 const (
@@ -25,10 +25,9 @@ const (
 	udpMessageChanSize = 1024
 )
 
-var (
-	authRequestPadding = padding.Padding{Min: 256, Max: 2048}
-	// authResponsePadding = padding.Padding{Min: 256, Max: 2048}
-)
+var authRequestPadding = padding.Padding{Min: 256, Max: 2048}
+
+// authResponsePadding = padding.Padding{Min: 256, Max: 2048}
 
 type Status int
 
