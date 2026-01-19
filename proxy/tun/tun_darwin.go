@@ -24,8 +24,10 @@ type DarwinTun struct {
 	options TunOptions
 }
 
-var _ Tun = (*DarwinTun)(nil)
-var _ GVisorTun = (*DarwinTun)(nil)
+var (
+	_ Tun       = (*DarwinTun)(nil)
+	_ GVisorTun = (*DarwinTun)(nil)
+)
 
 func NewTun(options TunOptions) (Tun, error) {
 	tunFd, name, err := openUTun(options.Name)
