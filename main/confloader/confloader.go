@@ -5,16 +5,14 @@ import (
 	"io"
 	"os"
 
-	"github.com/xtls/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/errors"
 )
 
 type (
 	configFileLoader func(string) (io.Reader, error)
 )
 
-var (
-	EffectiveConfigFileLoader configFileLoader
-)
+var EffectiveConfigFileLoader configFileLoader
 
 // LoadConfig reads from a path/url/stdin
 // actual work is in external module

@@ -11,20 +11,20 @@ import (
 	"strings"
 	"syscall"
 
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/platform/filesystem"
-	"github.com/xtls/xray-core/common/serial"
-	"github.com/xtls/xray-core/transport/internet"
-	"github.com/xtls/xray-core/transport/internet/finalmask/salamander"
-	"github.com/xtls/xray-core/transport/internet/httpupgrade"
-	"github.com/xtls/xray-core/transport/internet/hysteria"
-	"github.com/xtls/xray-core/transport/internet/kcp"
-	"github.com/xtls/xray-core/transport/internet/reality"
-	"github.com/xtls/xray-core/transport/internet/splithttp"
-	"github.com/xtls/xray-core/transport/internet/tcp"
-	"github.com/xtls/xray-core/transport/internet/tls"
-	"github.com/xtls/xray-core/transport/internet/websocket"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/common/platform/filesystem"
+	"github.com/luoluodaduan/xray-core/common/serial"
+	"github.com/luoluodaduan/xray-core/transport/internet"
+	"github.com/luoluodaduan/xray-core/transport/internet/finalmask/salamander"
+	"github.com/luoluodaduan/xray-core/transport/internet/httpupgrade"
+	"github.com/luoluodaduan/xray-core/transport/internet/hysteria"
+	"github.com/luoluodaduan/xray-core/transport/internet/kcp"
+	"github.com/luoluodaduan/xray-core/transport/internet/reality"
+	"github.com/luoluodaduan/xray-core/transport/internet/splithttp"
+	"github.com/luoluodaduan/xray-core/transport/internet/tcp"
+	"github.com/luoluodaduan/xray-core/transport/internet/tls"
+	"github.com/luoluodaduan/xray-core/transport/internet/websocket"
 	"google.golang.org/protobuf/proto"
 )
 
@@ -946,7 +946,7 @@ type HappyEyeballsConfig struct {
 }
 
 func (h *HappyEyeballsConfig) UnmarshalJSON(data []byte) error {
-	var innerHappyEyeballsConfig = struct {
+	innerHappyEyeballsConfig := struct {
 		PrioritizeIPv6   bool   `json:"prioritizeIPv6"`
 		TryDelayMs       uint64 `json:"tryDelayMs"`
 		Interleave       uint32 `json:"interleave"`
@@ -1074,7 +1074,7 @@ func (c *SocketConfig) Build() (*internet.SocketConfig, error) {
 		return nil, errors.New("unsupported address and port strategy: ", c.AddressPortStrategy)
 	}
 
-	var happyEyeballs = &internet.HappyEyeballsConfig{Interleave: 1, PrioritizeIpv6: false, TryDelayMs: 0, MaxConcurrentTry: 4}
+	happyEyeballs := &internet.HappyEyeballsConfig{Interleave: 1, PrioritizeIpv6: false, TryDelayMs: 0, MaxConcurrentTry: 4}
 	if c.HappyEyeballsSettings != nil {
 		happyEyeballs.PrioritizeIpv6 = c.HappyEyeballsSettings.PrioritizeIPv6
 		happyEyeballs.Interleave = c.HappyEyeballsSettings.Interleave
@@ -1106,11 +1106,9 @@ func (c *SocketConfig) Build() (*internet.SocketConfig, error) {
 	}, nil
 }
 
-var (
-	udpmaskLoader = NewJSONConfigLoader(ConfigCreatorCache{
-		"salamander": func() interface{} { return new(Salamander) },
-	}, "type", "settings")
-)
+var udpmaskLoader = NewJSONConfigLoader(ConfigCreatorCache{
+	"salamander": func() interface{} { return new(Salamander) },
+}, "type", "settings")
 
 type Salamander struct {
 	Password string `json:"password"`
