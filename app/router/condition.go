@@ -57,7 +57,8 @@ type DomainMatcher struct {
 
 func NewMphMatcherGroup(domains []*Domain) (*DomainMatcher, error) {
 	g := strmatcher.NewMphMatcherGroup()
-	for _, d := range domains {
+	for i, d := range domains {
+		domains[i] = nil
 		matcherType, f := matcherTypeMap[d.Type]
 		if !f {
 			errors.LogError(context.Background(), "ignore unsupported domain type ", d.Type, " of rule ", d.Value)
@@ -309,48 +310,6 @@ func (m *AttributeMatcher) Apply(ctx routing.Context) bool {
 	return m.Match(attributes)
 }
 
-// Geo attribute
-type GeoAttributeMatcher interface {
-	Match(*Domain) bool
-}
-
-type GeoBooleanMatcher string
-
-func (m GeoBooleanMatcher) Match(domain *Domain) bool {
-	for _, attr := range domain.Attribute {
-		if attr.Key == string(m) {
-			return true
-		}
-	}
-	return false
-}
-
-type GeoAttributeList struct {
-	Matcher []GeoAttributeMatcher
-}
-
-func (al *GeoAttributeList) Match(domain *Domain) bool {
-	for _, matcher := range al.Matcher {
-		if !matcher.Match(domain) {
-			return false
-		}
-	}
-	return true
-}
-
-func (al *GeoAttributeList) IsEmpty() bool {
-	return len(al.Matcher) == 0
-}
-
-func ParseAttrs(attrs []string) *GeoAttributeList {
-	al := new(GeoAttributeList)
-	for _, attr := range attrs {
-		lc := strings.ToLower(attr)
-		al.Matcher = append(al.Matcher, GeoBooleanMatcher(lc))
-	}
-	return al
-}
-
 type ProcessNameMatcher struct {
 	ProcessNames  []string
 	AbsPaths      []string
@@ -400,6 +359,9 @@ func NewProcessNameMatcher(names []string) *ProcessNameMatcher {
 }
 
 func (m *ProcessNameMatcher) Apply(ctx routing.Context) bool {
+	if len(ctx.GetSourceIPs()) == 0 {
+		return false
+	}
 	srcPort := ctx.GetSourcePort().String()
 	srcIP := ctx.GetSourceIPs()[0].String()
 	var network string
