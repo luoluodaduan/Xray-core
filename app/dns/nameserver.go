@@ -7,16 +7,16 @@ import (
 	"strings"
 	"time"
 
-	"github.com/xtls/xray-core/app/router"
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/platform"
-	"github.com/xtls/xray-core/common/platform/filesystem"
-	"github.com/xtls/xray-core/common/session"
-	"github.com/xtls/xray-core/common/strmatcher"
-	"github.com/xtls/xray-core/core"
-	"github.com/xtls/xray-core/features/dns"
-	"github.com/xtls/xray-core/features/routing"
+	"github.com/luoluodaduan/xray-core/app/router"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/common/platform"
+	"github.com/luoluodaduan/xray-core/common/platform/filesystem"
+	"github.com/luoluodaduan/xray-core/common/session"
+	"github.com/luoluodaduan/xray-core/common/strmatcher"
+	"github.com/luoluodaduan/xray-core/core"
+	"github.com/luoluodaduan/xray-core/features/dns"
+	"github.com/luoluodaduan/xray-core/features/routing"
 )
 
 type mphMatcherWrapper struct {
@@ -225,7 +225,7 @@ func NewClient(
 			}
 		}
 
-		var timeoutMs = 4000 * time.Millisecond
+		timeoutMs := 4000 * time.Millisecond
 		if ns.TimeoutMs > 0 {
 			timeoutMs = time.Duration(ns.TimeoutMs) * time.Millisecond
 		}

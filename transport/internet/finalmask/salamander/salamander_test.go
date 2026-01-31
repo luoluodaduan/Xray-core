@@ -4,8 +4,8 @@ import (
 	"crypto/rand"
 	"testing"
 
+	"github.com/luoluodaduan/xray-core/transport/internet/finalmask/salamander"
 	"github.com/stretchr/testify/assert"
-	"github.com/xtls/xray-core/transport/internet/finalmask/salamander"
 )
 
 const (

@@ -9,7 +9,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/xtls/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/errors"
 )
 
 const (
@@ -270,7 +270,6 @@ func (c *xdnsConnServer) sendLoop() {
 
 				limit -= 2 + len(p)
 				if payload.Len() == 0 {
-
 				} else if limit < 0 {
 					c.stash(queue, p)
 

@@ -7,8 +7,8 @@ import (
 	sync "sync"
 	"time"
 
-	"github.com/xtls/xray-core/common/dice"
-	"github.com/xtls/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/dice"
+	"github.com/luoluodaduan/xray-core/common/errors"
 )
 
 type wechat struct {
@@ -127,7 +127,6 @@ func (c *wechatConn) WriteTo(p []byte, addr net.Addr) (n int, err error) {
 		c.header.Serialize(c.writeBuf[c.leaveSize : c.leaveSize+c.Size()])
 
 		nn, err := c.conn.WriteTo(c.writeBuf[:n], addr)
-
 		if err != nil {
 			c.writeMutex.Unlock()
 			return 0, err
