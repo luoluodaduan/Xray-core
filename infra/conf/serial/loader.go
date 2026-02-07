@@ -5,12 +5,12 @@ import (
 	"encoding/json"
 	"io"
 
-	"github.com/ghodss/yaml"
-	"github.com/pelletier/go-toml"
+	"github.com/pelletier/go-toml/v2"
 	"github.com/xtls/xray-core/common/errors"
 	"github.com/xtls/xray-core/core"
 	"github.com/xtls/xray-core/infra/conf"
 	json_reader "github.com/xtls/xray-core/infra/conf/json"
+	"gopkg.in/yaml.v3"
 )
 
 type offset struct {
@@ -92,7 +92,7 @@ func DecodeTOMLConfig(reader io.Reader) (*conf.Config, error) {
 	}
 
 	configMap := make(map[string]interface{})
-	if err := toml.Unmarshal(tomlFile, &configMap); err != nil {
+	if err := toml.Unmarshal([]byte(tomlFile), &configMap); err != nil {
 		return nil, errors.New("failed to convert toml to map").Base(err)
 	}
 
@@ -119,16 +119,21 @@ func LoadTOMLConfig(reader io.Reader) (*core.Config, error) {
 }
 
 // DecodeYAMLConfig reads from reader and decode the config into *conf.Config
-// using github.com/ghodss/yaml to convert yaml to json.
+// using gopkg.in/yaml and map to convert yaml to json.
 func DecodeYAMLConfig(reader io.Reader) (*conf.Config, error) {
 	yamlFile, err := io.ReadAll(reader)
 	if err != nil {
 		return nil, errors.New("failed to read config file").Base(err)
 	}
 
-	jsonFile, err := yaml.YAMLToJSON(yamlFile)
+	configMap := make(map[string]interface{})
+	if err := yaml.Unmarshal([]byte(yamlFile), &configMap); err != nil {
+		return nil, errors.New("failed to convert yaml to map").Base(err)
+	}
+
+	jsonFile, err := json.Marshal(&configMap)
 	if err != nil {
-		return nil, errors.New("failed to convert yaml to json").Base(err)
+		return nil, errors.New("failed to convert map to json").Base(err)
 	}
 
 	return DecodeJSONConfig(bytes.NewReader(jsonFile))

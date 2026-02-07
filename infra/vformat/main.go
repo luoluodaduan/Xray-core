@@ -180,11 +180,11 @@ func main() {
 	}
 
 	gofmtArgs := []string{
-		"-s", "-l", "-e", "-w",
+		"-l", "-e", "-w",
 	}
 
 	goimportsArgs := []string{
-		"write",
+		"write", "-s", "standard", "-s", "default",
 	}
 
 	RunMany(gofmt, gofmtArgs, rawFilesSlice)
