@@ -1,77 +1,65 @@
-name: Test
+name: Update
 
 on:
-  push:
-  pull_request:
-    types: [opened, synchronize, reopened]
+  workflow_dispatch:
 
 jobs:
-  check-assets:
+  update:
     runs-on: ubuntu-latest
-    steps:
-      - name: Restore Geodat Cache
-        uses: actions/cache/restore@v5
-        with:
-          path: resources
-          key: xray-geodat-
-      - name: Check Assets Existence
-        id: check-assets
-        run: |
-          [ -d 'resources' ] || mkdir resources
-          LIST=('geoip.dat' 'geosite.dat')
-          for FILE_NAME in "${LIST[@]}"
-          do
-            echo -e "Checking ${FILE_NAME}..."
-            if [ -s "./resources/${FILE_NAME}" ]; then
-              echo -e "${FILE_NAME} exists."
-            else
-              echo -e "${FILE_NAME} does not exist."
-              echo "missing=true" >> $GITHUB_OUTPUT
-              break
-            fi
-          done
-      - name: Sleep for 90 seconds if Assets Missing
-        if: steps.check-assets.outputs.missing == 'true'
-        run: sleep 90
 
-  check-proto:
-    runs-on: ubuntu-latest
     steps:
-      - name: Checkout codebase
+      - name: Check Out
         uses: actions/checkout@v6
-      - name: Check Proto Version Header
-        run: |
-          head -n 4 core/config.pb.go > ref.txt
-          find . -name "*.pb.go" ! -name "*_grpc.pb.go" -print0 | while IFS= read -r -d '' file; do
-            if ! cmp -s ref.txt <(head -n 4 "$file"); then
-              echo "Error: Header mismatch in $file"
-              head -n 4 "$file"
-              exit 1
-            fi
-          done
 
-  test:
-    needs: check-assets
-    permissions:
-      contents: read
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [windows-latest, ubuntu-latest, macos-latest]
-    steps:
-      - name: Checkout codebase
-        uses: actions/checkout@v6
-      - name: Set up Go
+      - name: Initialization Environment
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run: sudo -E apt-get -yqq update
+
+      - name: Setup Go
         uses: actions/setup-go@v6
         with:
           go-version-file: go.mod
           check-latest: true
-      - name: Restore Geodat Cache
-        uses: actions/cache/restore@v5
+
+      - name: Prepare
+        run: |
+          mkdir -p dist
+          rm -rf .github/dependabot.yml
+          rm -rf .github/workflows/docker.yml
+          rm -rf .github/workflows/release-win7.yml
+          rm -rf .github/workflows/scheduled-assets-update.yml
+          find -name 'go.mod' | xargs -r perl -pi -e 's|/xtls/xray-core|/luoluodaduan/xray-core|g'
+          find -name '*.go' | xargs -r perl -pi -e 's|/xtls/xray-core|/luoluodaduan/xray-core|g'
+          find -name '*.proto' | xargs -r perl -pi -e 's|/xtls/xray-core|/luoluodaduan/xray-core|g'
+
+      - name: Update
+        run: |
+          wget https://github.com/protocolbuffers/protobuf/releases/download/v33.5/protoc-33.5-linux-x86_64.zip -O protoc.zip
+          unzip -d dist protoc.zip
+          sudo -E mv -f ./dist/bin/protoc /usr/local/bin
+          sudo -E mv -f ./dist/include/* /usr/local/include
+          protoc --version
+          rm -rf dist
+          rm -rf protoc.zip
+          go install mvdan.cc/gofumpt@latest
+          go install github.com/daixiang0/gci@latest
+          go run ./infra/vformat
+          go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.36.11
+          go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.6.0
+          go run ./infra/vprotogen
+          find -name '*.pb.go' | xargs gci write -s standard -s default
+          go mod tidy
+
+      - name: Commit Files
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add .
+          git commit -m "Update"
+
+      - name: Push Changes
+        uses: ad-m/github-push-action@master
         with:
-          path: resources
-          key: xray-geodat-
-          enableCrossOsArchive: true
-      - name: Test
-        run: go test -timeout 1h -v ./...
+          branch: ${{ github.ref }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
