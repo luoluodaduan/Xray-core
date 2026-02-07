@@ -7,13 +7,14 @@
 package router
 
 import (
-	net "github.com/xtls/xray-core/common/net"
-	serial "github.com/xtls/xray-core/common/serial"
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	net "github.com/luoluodaduan/xray-core/common/net"
+	serial "github.com/luoluodaduan/xray-core/common/serial"
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -1120,8 +1121,8 @@ const file_app_router_config_proto_rawDesc = "" +
 	"\x04AsIs\x10\x00\x12\x10\n" +
 	"\fIpIfNonMatch\x10\x02\x12\x0e\n" +
 	"\n" +
-	"IpOnDemand\x10\x03BO\n" +
-	"\x13com.xray.app.routerP\x01Z$github.com/xtls/xray-core/app/router\xaa\x02\x0fXray.App.Routerb\x06proto3"
+	"IpOnDemand\x10\x03BW\n" +
+	"\x13com.xray.app.routerP\x01Z,github.com/luoluodaduan/xray-core/app/router\xaa\x02\x0fXray.App.Routerb\x06proto3"
 
 var (
 	file_app_router_config_proto_rawDescOnce sync.Once

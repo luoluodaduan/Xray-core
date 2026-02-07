@@ -7,11 +7,12 @@
 package command
 
 import (
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -637,8 +638,8 @@ const file_app_stats_command_command_proto_rawDesc = "" +
 	"QueryStats\x12).xray.app.stats.command.QueryStatsRequest\x1a*.xray.app.stats.command.QueryStatsResponse\"\x00\x12b\n" +
 	"\vGetSysStats\x12'.xray.app.stats.command.SysStatsRequest\x1a(.xray.app.stats.command.SysStatsResponse\"\x00\x12w\n" +
 	"\x14GetStatsOnlineIpList\x12'.xray.app.stats.command.GetStatsRequest\x1a4.xray.app.stats.command.GetStatsOnlineIpListResponse\"\x00\x12z\n" +
-	"\x11GetAllOnlineUsers\x120.xray.app.stats.command.GetAllOnlineUsersRequest\x1a1.xray.app.stats.command.GetAllOnlineUsersResponse\"\x00Bd\n" +
-	"\x1acom.xray.app.stats.commandP\x01Z+github.com/xtls/xray-core/app/stats/command\xaa\x02\x16Xray.App.Stats.Commandb\x06proto3"
+	"\x11GetAllOnlineUsers\x120.xray.app.stats.command.GetAllOnlineUsersRequest\x1a1.xray.app.stats.command.GetAllOnlineUsersResponse\"\x00Bl\n" +
+	"\x1acom.xray.app.stats.commandP\x01Z3github.com/luoluodaduan/xray-core/app/stats/command\xaa\x02\x16Xray.App.Stats.Commandb\x06proto3"
 
 var (
 	file_app_stats_command_command_proto_rawDescOnce sync.Once

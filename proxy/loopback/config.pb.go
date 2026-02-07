@@ -7,11 +7,12 @@
 package loopback
 
 import (
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -72,8 +73,8 @@ const file_proxy_loopback_config_proto_rawDesc = "" +
 	"\x1bproxy/loopback/config.proto\x12\x13xray.proxy.loopback\")\n" +
 	"\x06Config\x12\x1f\n" +
 	"\vinbound_tag\x18\x01 \x01(\tR\n" +
-	"inboundTagB[\n" +
-	"\x17com.xray.proxy.loopbackP\x01Z(github.com/xtls/xray-core/proxy/loopback\xaa\x02\x13Xray.Proxy.Loopbackb\x06proto3"
+	"inboundTagBc\n" +
+	"\x17com.xray.proxy.loopbackP\x01Z0github.com/luoluodaduan/xray-core/proxy/loopback\xaa\x02\x13Xray.Proxy.Loopbackb\x06proto3"
 
 var (
 	file_proxy_loopback_config_proto_rawDescOnce sync.Once

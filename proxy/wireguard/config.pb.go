@@ -7,11 +7,12 @@
 package wireguard
 
 import (
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -294,8 +295,8 @@ const file_proxy_wireguard_config_proto_rawDesc = "" +
 	"\n" +
 	"FORCE_IP46\x10\x03\x12\x0e\n" +
 	"\n" +
-	"FORCE_IP64\x10\x04B^\n" +
-	"\x18com.xray.proxy.wireguardP\x01Z)github.com/xtls/xray-core/proxy/wireguard\xaa\x02\x14Xray.Proxy.WireGuardb\x06proto3"
+	"FORCE_IP64\x10\x04Bf\n" +
+	"\x18com.xray.proxy.wireguardP\x01Z1github.com/luoluodaduan/xray-core/proxy/wireguard\xaa\x02\x14Xray.Proxy.WireGuardb\x06proto3"
 
 var (
 	file_proxy_wireguard_config_proto_rawDescOnce sync.Once

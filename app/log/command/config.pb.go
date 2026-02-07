@@ -7,11 +7,12 @@
 package command
 
 import (
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -138,8 +139,8 @@ const file_app_log_command_config_proto_rawDesc = "" +
 	"\x14RestartLoggerRequest\"\x17\n" +
 	"\x15RestartLoggerResponse2{\n" +
 	"\rLoggerService\x12j\n" +
-	"\rRestartLogger\x12*.xray.app.log.command.RestartLoggerRequest\x1a+.xray.app.log.command.RestartLoggerResponse\"\x00B^\n" +
-	"\x18com.xray.app.log.commandP\x01Z)github.com/xtls/xray-core/app/log/command\xaa\x02\x14Xray.App.Log.Commandb\x06proto3"
+	"\rRestartLogger\x12*.xray.app.log.command.RestartLoggerRequest\x1a+.xray.app.log.command.RestartLoggerResponse\"\x00Bf\n" +
+	"\x18com.xray.app.log.commandP\x01Z1github.com/luoluodaduan/xray-core/app/log/command\xaa\x02\x14Xray.App.Log.Commandb\x06proto3"
 
 var (
 	file_app_log_command_config_proto_rawDescOnce sync.Once

@@ -9,9 +9,9 @@ import (
 	sync "sync"
 	"time"
 
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/crypto"
-	"github.com/xtls/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common"
+	"github.com/luoluodaduan/xray-core/common/crypto"
+	"github.com/luoluodaduan/xray-core/common/errors"
 )
 
 type aes128gcmConn struct {
@@ -128,7 +128,6 @@ func (c *aes128gcmConn) WriteTo(p []byte, addr net.Addr) (n int, err error) {
 		_ = c.aead.Seal(plaintext[:0], nonce, plaintext, nil)
 
 		nn, err := c.conn.WriteTo(c.writeBuf[:n], addr)
-
 		if err != nil {
 			c.writeMutex.Unlock()
 			return 0, err

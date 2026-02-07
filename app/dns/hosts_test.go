@@ -5,11 +5,11 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
-	. "github.com/xtls/xray-core/app/dns"
-	"github.com/xtls/xray-core/app/router"
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/features/dns"
+	. "github.com/luoluodaduan/xray-core/app/dns"
+	"github.com/luoluodaduan/xray-core/app/router"
+	"github.com/luoluodaduan/xray-core/common"
+	"github.com/luoluodaduan/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/features/dns"
 )
 
 func TestStaticHosts(t *testing.T) {
@@ -132,6 +132,7 @@ func TestStaticHosts(t *testing.T) {
 		}
 	}
 }
+
 func TestStaticHostsFromCache(t *testing.T) {
 	sites := []*router.GeoSite{
 		{

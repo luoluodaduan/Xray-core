@@ -7,12 +7,13 @@
 package dns
 
 import (
-	net "github.com/xtls/xray-core/common/net"
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	net "github.com/luoluodaduan/xray-core/common/net"
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -104,8 +105,8 @@ const file_proxy_dns_config_proto_rawDesc = "" +
 	"\fnon_IP_query\x18\x03 \x01(\tR\n" +
 	"nonIPQuery\x12\x1f\n" +
 	"\vblock_types\x18\x04 \x03(\x05R\n" +
-	"blockTypesBL\n" +
-	"\x12com.xray.proxy.dnsP\x01Z#github.com/xtls/xray-core/proxy/dns\xaa\x02\x0eXray.Proxy.Dnsb\x06proto3"
+	"blockTypesBT\n" +
+	"\x12com.xray.proxy.dnsP\x01Z+github.com/luoluodaduan/xray-core/proxy/dns\xaa\x02\x0eXray.Proxy.Dnsb\x06proto3"
 
 var (
 	file_proxy_dns_config_proto_rawDescOnce sync.Once

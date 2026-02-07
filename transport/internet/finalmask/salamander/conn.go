@@ -6,7 +6,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/xtls/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/errors"
 )
 
 type obfsPacketConn struct {
@@ -106,7 +106,6 @@ func (c *obfsPacketConn) WriteTo(p []byte, addr net.Addr) (n int, err error) {
 		c.obfs.Obfuscate(c.writeBuf[c.leaveSize+c.Size():n], c.writeBuf[c.leaveSize:n])
 
 		nn, err := c.conn.WriteTo(c.writeBuf[:n], addr)
-
 		if err != nil {
 			c.writeMutex.Unlock()
 			return 0, err

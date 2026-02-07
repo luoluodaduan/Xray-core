@@ -5,10 +5,10 @@ import (
 	"runtime"
 	"strconv"
 
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/strmatcher"
-	"github.com/xtls/xray-core/features/dns"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/common/strmatcher"
+	"github.com/luoluodaduan/xray-core/features/dns"
 )
 
 // StaticHosts represents static domain-ip mapping in DNS server.
@@ -124,6 +124,7 @@ func (h *StaticHosts) lookup(domain string, option dns.IPOption, maxDepth int) (
 func (h *StaticHosts) Lookup(domain string, option dns.IPOption) ([]net.Address, error) {
 	return h.lookup(domain, option, 5)
 }
+
 func NewStaticHostsFromCache(matcher strmatcher.IndexMatcher, hostIPs map[string][]string) (*StaticHosts, error) {
 	sh := &StaticHosts{
 		ips:      make([][]net.Address, matcher.Size()+1),

@@ -7,11 +7,12 @@
 package burst
 
 import (
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -182,8 +183,8 @@ const file_app_observatory_burst_config_proto_rawDesc = "" +
 	"\atimeout\x18\x05 \x01(\x03R\atimeout\x12\x1e\n" +
 	"\n" +
 	"httpMethod\x18\x06 \x01(\tR\n" +
-	"httpMethodBp\n" +
-	"\x1ecom.xray.app.observatory.burstP\x01Z/github.com/xtls/xray-core/app/observatory/burst\xaa\x02\x1aXray.App.Observatory.Burstb\x06proto3"
+	"httpMethodBx\n" +
+	"\x1ecom.xray.app.observatory.burstP\x01Z7github.com/luoluodaduan/xray-core/app/observatory/burst\xaa\x02\x1aXray.App.Observatory.Burstb\x06proto3"
 
 var (
 	file_app_observatory_burst_config_proto_rawDescOnce sync.Once

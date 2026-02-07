@@ -9,8 +9,8 @@ import (
 	sync "sync"
 	"time"
 
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common"
+	"github.com/luoluodaduan/xray-core/common/errors"
 )
 
 type simple struct{}
@@ -182,7 +182,6 @@ func (c *simpleConn) WriteTo(p []byte, addr net.Addr) (n int, err error) {
 		copy(c.writeBuf[c.leaveSize:], sealed)
 
 		nn, err := c.conn.WriteTo(c.writeBuf[:n], addr)
-
 		if err != nil {
 			c.writeMutex.Unlock()
 			return 0, err

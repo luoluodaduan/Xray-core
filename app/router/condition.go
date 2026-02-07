@@ -9,10 +9,10 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/strmatcher"
-	"github.com/xtls/xray-core/features/routing"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/common/strmatcher"
+	"github.com/luoluodaduan/xray-core/features/routing"
 )
 
 type Condition interface {
@@ -57,7 +57,6 @@ type DomainMatcher struct {
 }
 
 func SerializeDomainMatcher(domains []*Domain, w io.Writer) error {
-
 	g := strmatcher.NewMphMatcherGroup()
 	for _, d := range domains {
 		matcherType, f := matcherTypeMap[d.Type]

@@ -7,11 +7,12 @@
 package noop
 
 import (
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -99,8 +100,8 @@ const file_transport_internet_headers_noop_config_proto_rawDesc = "" +
 	"\n" +
 	",transport/internet/headers/noop/config.proto\x12$xray.transport.internet.headers.noop\"\b\n" +
 	"\x06Config\"\x12\n" +
-	"\x10ConnectionConfigB\x8e\x01\n" +
-	"(com.xray.transport.internet.headers.noopP\x01Z9github.com/xtls/xray-core/transport/internet/headers/noop\xaa\x02$Xray.Transport.Internet.Headers.Noopb\x06proto3"
+	"\x10ConnectionConfigB\x96\x01\n" +
+	"(com.xray.transport.internet.headers.noopP\x01ZAgithub.com/luoluodaduan/xray-core/transport/internet/headers/noop\xaa\x02$Xray.Transport.Internet.Headers.Noopb\x06proto3"
 
 var (
 	file_transport_internet_headers_noop_config_proto_rawDescOnce sync.Once

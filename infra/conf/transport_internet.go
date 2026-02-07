@@ -13,39 +13,37 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/platform/filesystem"
-	"github.com/xtls/xray-core/common/serial"
-	"github.com/xtls/xray-core/transport/internet"
-	"github.com/xtls/xray-core/transport/internet/finalmask/header/dns"
-	"github.com/xtls/xray-core/transport/internet/finalmask/header/dtls"
-	"github.com/xtls/xray-core/transport/internet/finalmask/header/srtp"
-	"github.com/xtls/xray-core/transport/internet/finalmask/header/utp"
-	"github.com/xtls/xray-core/transport/internet/finalmask/header/wechat"
-	"github.com/xtls/xray-core/transport/internet/finalmask/header/wireguard"
-	"github.com/xtls/xray-core/transport/internet/finalmask/mkcp/aes128gcm"
-	"github.com/xtls/xray-core/transport/internet/finalmask/mkcp/original"
-	"github.com/xtls/xray-core/transport/internet/finalmask/salamander"
-	"github.com/xtls/xray-core/transport/internet/finalmask/xdns"
-	"github.com/xtls/xray-core/transport/internet/finalmask/xicmp"
-	"github.com/xtls/xray-core/transport/internet/httpupgrade"
-	"github.com/xtls/xray-core/transport/internet/hysteria"
-	"github.com/xtls/xray-core/transport/internet/kcp"
-	"github.com/xtls/xray-core/transport/internet/reality"
-	"github.com/xtls/xray-core/transport/internet/splithttp"
-	"github.com/xtls/xray-core/transport/internet/tcp"
-	"github.com/xtls/xray-core/transport/internet/tls"
-	"github.com/xtls/xray-core/transport/internet/websocket"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/common/platform/filesystem"
+	"github.com/luoluodaduan/xray-core/common/serial"
+	"github.com/luoluodaduan/xray-core/transport/internet"
+	"github.com/luoluodaduan/xray-core/transport/internet/finalmask/header/dns"
+	"github.com/luoluodaduan/xray-core/transport/internet/finalmask/header/dtls"
+	"github.com/luoluodaduan/xray-core/transport/internet/finalmask/header/srtp"
+	"github.com/luoluodaduan/xray-core/transport/internet/finalmask/header/utp"
+	"github.com/luoluodaduan/xray-core/transport/internet/finalmask/header/wechat"
+	"github.com/luoluodaduan/xray-core/transport/internet/finalmask/header/wireguard"
+	"github.com/luoluodaduan/xray-core/transport/internet/finalmask/mkcp/aes128gcm"
+	"github.com/luoluodaduan/xray-core/transport/internet/finalmask/mkcp/original"
+	"github.com/luoluodaduan/xray-core/transport/internet/finalmask/salamander"
+	"github.com/luoluodaduan/xray-core/transport/internet/finalmask/xdns"
+	"github.com/luoluodaduan/xray-core/transport/internet/finalmask/xicmp"
+	"github.com/luoluodaduan/xray-core/transport/internet/httpupgrade"
+	"github.com/luoluodaduan/xray-core/transport/internet/hysteria"
+	"github.com/luoluodaduan/xray-core/transport/internet/kcp"
+	"github.com/luoluodaduan/xray-core/transport/internet/reality"
+	"github.com/luoluodaduan/xray-core/transport/internet/splithttp"
+	"github.com/luoluodaduan/xray-core/transport/internet/tcp"
+	"github.com/luoluodaduan/xray-core/transport/internet/tls"
+	"github.com/luoluodaduan/xray-core/transport/internet/websocket"
 	"google.golang.org/protobuf/proto"
 )
 
-var (
-	tcpHeaderLoader = NewJSONConfigLoader(ConfigCreatorCache{
-		"none": func() interface{} { return new(NoOpConnectionAuthenticator) },
-		"http": func() interface{} { return new(Authenticator) },
-	}, "type", "")
-)
+var tcpHeaderLoader = NewJSONConfigLoader(ConfigCreatorCache{
+	"none": func() interface{} { return new(NoOpConnectionAuthenticator) },
+	"http": func() interface{} { return new(Authenticator) },
+}, "type", "")
 
 type KCPConfig struct {
 	Mtu             *uint32         `json:"mtu"`
@@ -1076,7 +1074,7 @@ type HappyEyeballsConfig struct {
 }
 
 func (h *HappyEyeballsConfig) UnmarshalJSON(data []byte) error {
-	var innerHappyEyeballsConfig = struct {
+	innerHappyEyeballsConfig := struct {
 		PrioritizeIPv6   bool   `json:"prioritizeIPv6"`
 		TryDelayMs       uint64 `json:"tryDelayMs"`
 		Interleave       uint32 `json:"interleave"`
@@ -1204,7 +1202,7 @@ func (c *SocketConfig) Build() (*internet.SocketConfig, error) {
 		return nil, errors.New("unsupported address and port strategy: ", c.AddressPortStrategy)
 	}
 
-	var happyEyeballs = &internet.HappyEyeballsConfig{Interleave: 1, PrioritizeIpv6: false, TryDelayMs: 0, MaxConcurrentTry: 4}
+	happyEyeballs := &internet.HappyEyeballsConfig{Interleave: 1, PrioritizeIpv6: false, TryDelayMs: 0, MaxConcurrentTry: 4}
 	if c.HappyEyeballsSettings != nil {
 		happyEyeballs.PrioritizeIpv6 = c.HappyEyeballsSettings.PrioritizeIPv6
 		happyEyeballs.Interleave = c.HappyEyeballsSettings.Interleave
@@ -1236,21 +1234,19 @@ func (c *SocketConfig) Build() (*internet.SocketConfig, error) {
 	}, nil
 }
 
-var (
-	udpmaskLoader = NewJSONConfigLoader(ConfigCreatorCache{
-		"header-dns":       func() interface{} { return new(Dns) },
-		"header-dtls":      func() interface{} { return new(Dtls) },
-		"header-srtp":      func() interface{} { return new(Srtp) },
-		"header-utp":       func() interface{} { return new(Utp) },
-		"header-wechat":    func() interface{} { return new(Wechat) },
-		"header-wireguard": func() interface{} { return new(Wireguard) },
-		"mkcp-original":    func() interface{} { return new(Original) },
-		"mkcp-aes128gcm":   func() interface{} { return new(Aes128Gcm) },
-		"salamander":       func() interface{} { return new(Salamander) },
-		"xdns":             func() interface{} { return new(Xdns) },
-		"xicmp":            func() interface{} { return new(Xicmp) },
-	}, "type", "settings")
-)
+var udpmaskLoader = NewJSONConfigLoader(ConfigCreatorCache{
+	"header-dns":       func() interface{} { return new(Dns) },
+	"header-dtls":      func() interface{} { return new(Dtls) },
+	"header-srtp":      func() interface{} { return new(Srtp) },
+	"header-utp":       func() interface{} { return new(Utp) },
+	"header-wechat":    func() interface{} { return new(Wechat) },
+	"header-wireguard": func() interface{} { return new(Wireguard) },
+	"mkcp-original":    func() interface{} { return new(Original) },
+	"mkcp-aes128gcm":   func() interface{} { return new(Aes128Gcm) },
+	"salamander":       func() interface{} { return new(Salamander) },
+	"xdns":             func() interface{} { return new(Xdns) },
+	"xicmp":            func() interface{} { return new(Xicmp) },
+}, "type", "settings")
 
 type Dns struct {
 	Domain string `json:"domain"`

@@ -7,13 +7,14 @@
 package socks
 
 import (
-	net "github.com/xtls/xray-core/common/net"
-	protocol "github.com/xtls/xray-core/common/protocol"
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	net "github.com/luoluodaduan/xray-core/common/net"
+	protocol "github.com/luoluodaduan/xray-core/common/protocol"
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -271,8 +272,8 @@ const file_proxy_socks_config_proto_rawDesc = "" +
 	"\x06server\x18\x01 \x01(\v2$.xray.common.protocol.ServerEndpointR\x06server*%\n" +
 	"\bAuthType\x12\v\n" +
 	"\aNO_AUTH\x10\x00\x12\f\n" +
-	"\bPASSWORD\x10\x01BR\n" +
-	"\x14com.xray.proxy.socksP\x01Z%github.com/xtls/xray-core/proxy/socks\xaa\x02\x10Xray.Proxy.Socksb\x06proto3"
+	"\bPASSWORD\x10\x01BZ\n" +
+	"\x14com.xray.proxy.socksP\x01Z-github.com/luoluodaduan/xray-core/proxy/socks\xaa\x02\x10Xray.Proxy.Socksb\x06proto3"
 
 var (
 	file_proxy_socks_config_proto_rawDescOnce sync.Once

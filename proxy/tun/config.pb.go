@@ -7,11 +7,12 @@
 package tun
 
 import (
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -90,8 +91,8 @@ const file_proxy_tun_config_proto_rawDesc = "" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x10\n" +
 	"\x03MTU\x18\x02 \x01(\rR\x03MTU\x12\x1d\n" +
 	"\n" +
-	"user_level\x18\x03 \x01(\rR\tuserLevelBL\n" +
-	"\x12com.xray.proxy.tunP\x01Z#github.com/xtls/xray-core/proxy/tun\xaa\x02\x0eXray.Proxy.Tunb\x06proto3"
+	"user_level\x18\x03 \x01(\rR\tuserLevelBT\n" +
+	"\x12com.xray.proxy.tunP\x01Z+github.com/luoluodaduan/xray-core/proxy/tun\xaa\x02\x0eXray.Proxy.Tunb\x06proto3"
 
 var (
 	file_proxy_tun_config_proto_rawDescOnce sync.Once

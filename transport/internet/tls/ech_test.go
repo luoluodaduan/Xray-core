@@ -7,7 +7,7 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/xtls/xray-core/common"
+	"github.com/luoluodaduan/xray-core/common"
 )
 
 func TestECHDial(t *testing.T) {
@@ -43,7 +43,6 @@ func TestECHDial(t *testing.T) {
 	echConfigCache, ok := GlobalECHConfigCache.Load(ECHCacheKey("udp://1.1.1.1", "encryptedsni.com", nil))
 	if !ok {
 		t.Error("ECH config cache not found")
-
 	}
 	ok = echConfigCache.UpdateLock.TryLock()
 	if !ok {

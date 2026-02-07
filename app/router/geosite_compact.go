@@ -6,7 +6,7 @@ import (
 	"io"
 	"runtime"
 
-	"github.com/xtls/xray-core/common/strmatcher"
+	"github.com/luoluodaduan/xray-core/common/strmatcher"
 )
 
 type geoSiteListGob struct {
@@ -91,6 +91,7 @@ func loadWithDeps(data *geoSiteListGob, code string, visited map[string]bool) (s
 	runtime.GC()
 	return &strmatcher.IndexMatcherGroup{Matchers: matchers}, nil
 }
+
 func LoadGeoSiteHosts(r io.Reader) (map[string][]string, error) {
 	var data geoSiteListGob
 	if err := gob.NewDecoder(r).Decode(&data); err != nil {

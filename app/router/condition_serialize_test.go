@@ -6,13 +6,12 @@ import (
 	"path/filepath"
 	"testing"
 
+	"github.com/luoluodaduan/xray-core/app/router"
+	"github.com/luoluodaduan/xray-core/common/platform/filesystem"
 	"github.com/stretchr/testify/require"
-	"github.com/xtls/xray-core/app/router"
-	"github.com/xtls/xray-core/common/platform/filesystem"
 )
 
 func TestDomainMatcherSerialization(t *testing.T) {
-
 	domains := []*router.Domain{
 		{Type: router.Domain_Domain, Value: "google.com"},
 		{Type: router.Domain_Domain, Value: "v2ray.com"},
@@ -129,6 +128,7 @@ func TestGeoSiteSerialization(t *testing.T) {
 		t.Error("LoadGeoSiteMatcher(unknown) should fail")
 	}
 }
+
 func TestGeoSiteSerializationWithDeps(t *testing.T) {
 	sites := []*router.GeoSite{
 		{

@@ -1,12 +1,11 @@
 package conf
 
 import (
+	"github.com/luoluodaduan/xray-core/app/observatory"
+	"github.com/luoluodaduan/xray-core/app/observatory/burst"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/infra/conf/cfgcommon/duration"
 	"google.golang.org/protobuf/proto"
-
-	"github.com/xtls/xray-core/app/observatory"
-	"github.com/xtls/xray-core/app/observatory/burst"
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/infra/conf/cfgcommon/duration"
 )
 
 type ObservatoryConfig struct {
