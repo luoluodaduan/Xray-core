@@ -7,11 +7,12 @@
 package xicmp
 
 import (
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -80,8 +81,8 @@ const file_transport_internet_finalmask_xicmp_config_proto_rawDesc = "" +
 	"/transport/internet/finalmask/xicmp/config.proto\x12'xray.transport.internet.finalmask.xicmp\"(\n" +
 	"\x06Config\x12\x0e\n" +
 	"\x02ip\x18\x01 \x01(\tR\x02ip\x12\x0e\n" +
-	"\x02id\x18\x02 \x01(\x05R\x02idB\x97\x01\n" +
-	"+com.xray.transport.internet.finalmask.xicmpP\x01Z<github.com/xtls/xray-core/transport/internet/finalmask/xicmp\xaa\x02'Xray.Transport.Internet.Finalmask.Xicmpb\x06proto3"
+	"\x02id\x18\x02 \x01(\x05R\x02idB\x9f\x01\n" +
+	"+com.xray.transport.internet.finalmask.xicmpP\x01ZDgithub.com/luoluodaduan/xray-core/transport/internet/finalmask/xicmp\xaa\x02'Xray.Transport.Internet.Finalmask.Xicmpb\x06proto3"
 
 var (
 	file_transport_internet_finalmask_xicmp_config_proto_rawDescOnce sync.Once

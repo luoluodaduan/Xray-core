@@ -7,11 +7,12 @@
 package protocol
 
 import (
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -137,8 +138,8 @@ const file_common_protocol_headers_proto_rawDesc = "" +
 	"AES128_GCM\x10\x03\x12\x15\n" +
 	"\x11CHACHA20_POLY1305\x10\x04\x12\b\n" +
 	"\x04NONE\x10\x05\x12\b\n" +
-	"\x04ZERO\x10\x06B^\n" +
-	"\x18com.xray.common.protocolP\x01Z)github.com/xtls/xray-core/common/protocol\xaa\x02\x14Xray.Common.Protocolb\x06proto3"
+	"\x04ZERO\x10\x06Bf\n" +
+	"\x18com.xray.common.protocolP\x01Z1github.com/luoluodaduan/xray-core/common/protocol\xaa\x02\x14Xray.Common.Protocolb\x06proto3"
 
 var (
 	file_common_protocol_headers_proto_rawDescOnce sync.Once

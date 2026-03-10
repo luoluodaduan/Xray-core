@@ -7,11 +7,12 @@
 package srtp
 
 import (
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -62,8 +63,8 @@ var File_transport_internet_finalmask_header_srtp_config_proto protoreflect.File
 const file_transport_internet_finalmask_header_srtp_config_proto_rawDesc = "" +
 	"\n" +
 	"5transport/internet/finalmask/header/srtp/config.proto\x12-xray.transport.internet.finalmask.header.srtp\"\b\n" +
-	"\x06ConfigB\xa9\x01\n" +
-	"1com.xray.transport.internet.finalmask.header.srtpP\x01ZBgithub.com/xtls/xray-core/transport/internet/finalmask/header/srtp\xaa\x02-Xray.Transport.Internet.Finalmask.Header.Srtpb\x06proto3"
+	"\x06ConfigB\xb1\x01\n" +
+	"1com.xray.transport.internet.finalmask.header.srtpP\x01ZJgithub.com/luoluodaduan/xray-core/transport/internet/finalmask/header/srtp\xaa\x02-Xray.Transport.Internet.Finalmask.Header.Srtpb\x06proto3"
 
 var (
 	file_transport_internet_finalmask_header_srtp_config_proto_rawDescOnce sync.Once

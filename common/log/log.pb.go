@@ -7,11 +7,12 @@
 package log
 
 import (
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -86,8 +87,8 @@ const file_common_log_log_proto_rawDesc = "" +
 	"\x05Error\x10\x01\x12\v\n" +
 	"\aWarning\x10\x02\x12\b\n" +
 	"\x04Info\x10\x03\x12\t\n" +
-	"\x05Debug\x10\x04BO\n" +
-	"\x13com.xray.common.logP\x01Z$github.com/xtls/xray-core/common/log\xaa\x02\x0fXray.Common.Logb\x06proto3"
+	"\x05Debug\x10\x04BW\n" +
+	"\x13com.xray.common.logP\x01Z,github.com/luoluodaduan/xray-core/common/log\xaa\x02\x0fXray.Common.Logb\x06proto3"
 
 var (
 	file_common_log_log_proto_rawDescOnce sync.Once

@@ -7,10 +7,10 @@ import (
 	"math/big"
 	"time"
 
+	"github.com/luoluodaduan/xray-core/common/buf"
+	"github.com/luoluodaduan/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/common/utils"
 	utls "github.com/refraction-networking/utls"
-	"github.com/xtls/xray-core/common/buf"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/utils"
 )
 
 type Interface interface {
@@ -21,8 +21,10 @@ type Interface interface {
 	NegotiatedProtocol() string
 }
 
-var _ buf.Writer = (*Conn)(nil)
-var _ Interface = (*Conn)(nil)
+var (
+	_ buf.Writer = (*Conn)(nil)
+	_ Interface  = (*Conn)(nil)
+)
 
 type Conn struct {
 	*tls.Conn

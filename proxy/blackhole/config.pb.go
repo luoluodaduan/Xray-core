@@ -7,12 +7,13 @@
 package blackhole
 
 import (
-	serial "github.com/xtls/xray-core/common/serial"
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	serial "github.com/luoluodaduan/xray-core/common/serial"
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -146,8 +147,8 @@ const file_proxy_blackhole_config_proto_rawDesc = "" +
 	"\fNoneResponse\"\x0e\n" +
 	"\fHTTPResponse\"F\n" +
 	"\x06Config\x12<\n" +
-	"\bresponse\x18\x01 \x01(\v2 .xray.common.serial.TypedMessageR\bresponseB^\n" +
-	"\x18com.xray.proxy.blackholeP\x01Z)github.com/xtls/xray-core/proxy/blackhole\xaa\x02\x14Xray.Proxy.Blackholeb\x06proto3"
+	"\bresponse\x18\x01 \x01(\v2 .xray.common.serial.TypedMessageR\bresponseBf\n" +
+	"\x18com.xray.proxy.blackholeP\x01Z1github.com/luoluodaduan/xray-core/proxy/blackhole\xaa\x02\x14Xray.Proxy.Blackholeb\x06proto3"
 
 var (
 	file_proxy_blackhole_config_proto_rawDescOnce sync.Once

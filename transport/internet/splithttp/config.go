@@ -7,10 +7,10 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/crypto"
-	"github.com/xtls/xray-core/common/utils"
-	"github.com/xtls/xray-core/transport/internet"
+	"github.com/luoluodaduan/xray-core/common"
+	"github.com/luoluodaduan/xray-core/common/crypto"
+	"github.com/luoluodaduan/xray-core/common/utils"
+	"github.com/luoluodaduan/xray-core/transport/internet"
 )
 
 func (c *Config) GetNormalizedPath() string {
@@ -57,7 +57,6 @@ func (c *Config) GetRequestHeader() http.Header {
 	return header
 }
 
-
 func (c *Config) GetRequestHeaderWithPayload(payload []byte) http.Header {
 	header := c.GetRequestHeader()
 
@@ -102,9 +101,9 @@ func (c *Config) WriteResponseHeader(writer http.ResponseWriter, requestMethod s
 	}
 
 	if c.GetNormalizedSessionPlacement() == PlacementCookie ||
-	   c.GetNormalizedSeqPlacement() == PlacementCookie ||
-	   c.XPaddingPlacement == PlacementCookie ||
-	   c.GetNormalizedUplinkDataPlacement() == PlacementCookie {
+		c.GetNormalizedSeqPlacement() == PlacementCookie ||
+		c.XPaddingPlacement == PlacementCookie ||
+		c.GetNormalizedUplinkDataPlacement() == PlacementCookie {
 		writer.Header().Set("Access-Control-Allow-Credentials", "true")
 	}
 

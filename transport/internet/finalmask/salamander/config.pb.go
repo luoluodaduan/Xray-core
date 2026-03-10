@@ -7,11 +7,12 @@
 package salamander
 
 import (
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -71,8 +72,8 @@ const file_transport_internet_finalmask_salamander_config_proto_rawDesc = "" +
 	"\n" +
 	"4transport/internet/finalmask/salamander/config.proto\x12,xray.transport.internet.finalmask.salamander\"$\n" +
 	"\x06Config\x12\x1a\n" +
-	"\bpassword\x18\x01 \x01(\tR\bpasswordB\xa6\x01\n" +
-	"0com.xray.transport.internet.finalmask.salamanderP\x01ZAgithub.com/xtls/xray-core/transport/internet/finalmask/salamander\xaa\x02,Xray.Transport.Internet.Finalmask.Salamanderb\x06proto3"
+	"\bpassword\x18\x01 \x01(\tR\bpasswordB\xae\x01\n" +
+	"0com.xray.transport.internet.finalmask.salamanderP\x01ZIgithub.com/luoluodaduan/xray-core/transport/internet/finalmask/salamander\xaa\x02,Xray.Transport.Internet.Finalmask.Salamanderb\x06proto3"
 
 var (
 	file_transport_internet_finalmask_salamander_config_proto_rawDescOnce sync.Once

@@ -7,13 +7,14 @@
 package dns
 
 import (
-	router "github.com/xtls/xray-core/app/router"
-	net "github.com/xtls/xray-core/common/net"
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	router "github.com/luoluodaduan/xray-core/app/router"
+	net "github.com/luoluodaduan/xray-core/common/net"
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -674,8 +675,8 @@ const file_app_dns_config_proto_rawDesc = "" +
 	"\x06USE_IP\x10\x00\x12\v\n" +
 	"\aUSE_IP4\x10\x01\x12\v\n" +
 	"\aUSE_IP6\x10\x02\x12\v\n" +
-	"\aUSE_SYS\x10\x03BF\n" +
-	"\x10com.xray.app.dnsP\x01Z!github.com/xtls/xray-core/app/dns\xaa\x02\fXray.App.Dnsb\x06proto3"
+	"\aUSE_SYS\x10\x03BN\n" +
+	"\x10com.xray.app.dnsP\x01Z)github.com/luoluodaduan/xray-core/app/dns\xaa\x02\fXray.App.Dnsb\x06proto3"
 
 var (
 	file_app_dns_config_proto_rawDescOnce sync.Once

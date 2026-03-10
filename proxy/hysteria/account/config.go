@@ -3,9 +3,8 @@ package account
 import (
 	"sync"
 
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/common/protocol"
-
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/protocol"
 	"google.golang.org/protobuf/proto"
 )
 
@@ -113,7 +112,7 @@ func (v *Validator) GetAll() []*protocol.MemoryUser {
 	v.mutex.Lock()
 	defer v.mutex.Unlock()
 
-	var users = make([]*protocol.MemoryUser, 0, len(v.users))
+	users := make([]*protocol.MemoryUser, 0, len(v.users))
 	for _, user := range v.users {
 		users = append(users, user)
 	}

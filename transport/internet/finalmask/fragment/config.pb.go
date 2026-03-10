@@ -7,11 +7,12 @@
 package fragment
 
 import (
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -137,8 +138,8 @@ const file_transport_internet_finalmask_fragment_config_proto_rawDesc = "" +
 	"\tdelay_min\x18\x05 \x01(\x03R\bdelayMin\x12\x1b\n" +
 	"\tdelay_max\x18\x06 \x01(\x03R\bdelayMax\x12\"\n" +
 	"\rmax_split_min\x18\a \x01(\x03R\vmaxSplitMin\x12\"\n" +
-	"\rmax_split_max\x18\b \x01(\x03R\vmaxSplitMaxB\xa0\x01\n" +
-	".com.xray.transport.internet.finalmask.fragmentP\x01Z?github.com/xtls/xray-core/transport/internet/finalmask/fragment\xaa\x02*Xray.Transport.Internet.Finalmask.Fragmentb\x06proto3"
+	"\rmax_split_max\x18\b \x01(\x03R\vmaxSplitMaxB\xa8\x01\n" +
+	".com.xray.transport.internet.finalmask.fragmentP\x01ZGgithub.com/luoluodaduan/xray-core/transport/internet/finalmask/fragment\xaa\x02*Xray.Transport.Internet.Finalmask.Fragmentb\x06proto3"
 
 var (
 	file_transport_internet_finalmask_fragment_config_proto_rawDescOnce sync.Once

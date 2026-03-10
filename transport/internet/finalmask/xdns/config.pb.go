@@ -7,11 +7,12 @@
 package xdns
 
 import (
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -71,8 +72,8 @@ const file_transport_internet_finalmask_xdns_config_proto_rawDesc = "" +
 	"\n" +
 	".transport/internet/finalmask/xdns/config.proto\x12&xray.transport.internet.finalmask.xdns\" \n" +
 	"\x06Config\x12\x16\n" +
-	"\x06domain\x18\x01 \x01(\tR\x06domainB\x94\x01\n" +
-	"*com.xray.transport.internet.finalmask.xdnsP\x01Z;github.com/xtls/xray-core/transport/internet/finalmask/xdns\xaa\x02&Xray.Transport.Internet.Finalmask.Xdnsb\x06proto3"
+	"\x06domain\x18\x01 \x01(\tR\x06domainB\x9c\x01\n" +
+	"*com.xray.transport.internet.finalmask.xdnsP\x01ZCgithub.com/luoluodaduan/xray-core/transport/internet/finalmask/xdns\xaa\x02&Xray.Transport.Internet.Finalmask.Xdnsb\x06proto3"
 
 var (
 	file_transport_internet_finalmask_xdns_config_proto_rawDescOnce sync.Once
