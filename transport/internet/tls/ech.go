@@ -15,17 +15,16 @@ import (
 	"sync/atomic"
 	"time"
 
-	utls "github.com/refraction-networking/utls"
-	"github.com/xtls/xray-core/common/crypto"
-	dns2 "github.com/xtls/xray-core/features/dns"
-	"golang.org/x/net/http2"
-
+	"github.com/luoluodaduan/xray-core/common/crypto"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/common/utils"
+	dns2 "github.com/luoluodaduan/xray-core/features/dns"
+	"github.com/luoluodaduan/xray-core/transport/internet"
 	"github.com/miekg/dns"
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/utils"
-	"github.com/xtls/xray-core/transport/internet"
+	utls "github.com/refraction-networking/utls"
 	"golang.org/x/crypto/cryptobyte"
+	"golang.org/x/net/http2"
 )
 
 func ApplyECH(c *Config, config *tls.Config) error {
@@ -344,9 +343,7 @@ func ConvertToGoECHKeys(data []byte) ([]tls.EncryptedClientHelloKey, error) {
 			return keys, ErrInvalidLen
 		}
 		child := cryptobyte.String(s[:2+keyLength+2+configLength])
-		var (
-			sk, config cryptobyte.String
-		)
+		var sk, config cryptobyte.String
 		if !child.ReadUint16LengthPrefixed(&sk) || !child.ReadUint16LengthPrefixed(&config) || !child.Empty() {
 			return keys, ErrInvalidLen
 		}

@@ -3,7 +3,7 @@ package salamander
 import (
 	"net"
 
-	"github.com/xtls/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/errors"
 )
 
 type salamanderConn struct {

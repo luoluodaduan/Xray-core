@@ -15,9 +15,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/transport/internet/finalmask"
+	"github.com/luoluodaduan/xray-core/common"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/transport/internet/finalmask"
 )
 
 const (
@@ -75,7 +75,7 @@ func NewConnClient(c *Config, raw net.PacketConn) (net.PacketConn, error) {
 	}
 
 	var resolverAddrs []*net.UDPAddr
-	var resolverSend = make(map[string]*atomic.Uint32)
+	resolverSend := make(map[string]*atomic.Uint32)
 	for _, rs := range servers {
 		h, p, err := net.SplitHostPort(rs)
 		if err != nil {

@@ -10,11 +10,10 @@ import (
 	"strconv"
 	"text/tabwriter"
 
+	"github.com/luoluodaduan/xray-core/common/utils"
+	"github.com/luoluodaduan/xray-core/main/commands/base"
+	. "github.com/luoluodaduan/xray-core/transport/internet/tls"
 	utls "github.com/refraction-networking/utls"
-
-	"github.com/xtls/xray-core/common/utils"
-	"github.com/xtls/xray-core/main/commands/base"
-	. "github.com/xtls/xray-core/transport/internet/tls"
 )
 
 // cmdPing is the tls ping command

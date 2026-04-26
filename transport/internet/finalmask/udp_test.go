@@ -10,20 +10,20 @@ import (
 	"testing"
 	"time"
 
+	"github.com/luoluodaduan/xray-core/proxy"
+	"github.com/luoluodaduan/xray-core/transport/internet/finalmask"
+	"github.com/luoluodaduan/xray-core/transport/internet/finalmask/header/custom"
+	"github.com/luoluodaduan/xray-core/transport/internet/finalmask/header/dns"
+	"github.com/luoluodaduan/xray-core/transport/internet/finalmask/header/srtp"
+	"github.com/luoluodaduan/xray-core/transport/internet/finalmask/header/utp"
+	"github.com/luoluodaduan/xray-core/transport/internet/finalmask/header/wechat"
+	"github.com/luoluodaduan/xray-core/transport/internet/finalmask/header/wireguard"
+	"github.com/luoluodaduan/xray-core/transport/internet/finalmask/mkcp/aes128gcm"
+	"github.com/luoluodaduan/xray-core/transport/internet/finalmask/mkcp/original"
+	"github.com/luoluodaduan/xray-core/transport/internet/finalmask/salamander"
+	"github.com/luoluodaduan/xray-core/transport/internet/finalmask/sudoku"
 	singM "github.com/sagernet/sing/common/metadata"
 	singN "github.com/sagernet/sing/common/network"
-	"github.com/xtls/xray-core/proxy"
-	"github.com/xtls/xray-core/transport/internet/finalmask"
-	"github.com/xtls/xray-core/transport/internet/finalmask/header/custom"
-	"github.com/xtls/xray-core/transport/internet/finalmask/header/dns"
-	"github.com/xtls/xray-core/transport/internet/finalmask/header/srtp"
-	"github.com/xtls/xray-core/transport/internet/finalmask/header/utp"
-	"github.com/xtls/xray-core/transport/internet/finalmask/header/wechat"
-	"github.com/xtls/xray-core/transport/internet/finalmask/header/wireguard"
-	"github.com/xtls/xray-core/transport/internet/finalmask/mkcp/aes128gcm"
-	"github.com/xtls/xray-core/transport/internet/finalmask/mkcp/original"
-	"github.com/xtls/xray-core/transport/internet/finalmask/salamander"
-	"github.com/xtls/xray-core/transport/internet/finalmask/sudoku"
 )
 
 func mustSendRecv(
@@ -127,10 +127,12 @@ func (c *scriptedPacketConn) SetDeadline(t time.Time) error {
 	c.deadline.Store(t.UnixNano())
 	return nil
 }
+
 func (c *scriptedPacketConn) SetReadDeadline(t time.Time) error {
 	c.deadline.Store(t.UnixNano())
 	return nil
 }
+
 func (c *scriptedPacketConn) SetWriteDeadline(t time.Time) error {
 	c.deadline.Store(t.UnixNano())
 	return nil

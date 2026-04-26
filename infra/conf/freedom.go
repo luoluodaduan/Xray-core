@@ -6,12 +6,12 @@ import (
 	"net"
 	"strings"
 
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/common/geodata"
-	v2net "github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/protocol"
-	"github.com/xtls/xray-core/proxy/freedom"
-	"github.com/xtls/xray-core/transport/internet"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/geodata"
+	v2net "github.com/luoluodaduan/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/common/protocol"
+	"github.com/luoluodaduan/xray-core/proxy/freedom"
+	"github.com/luoluodaduan/xray-core/transport/internet"
 	"google.golang.org/protobuf/proto"
 )
 

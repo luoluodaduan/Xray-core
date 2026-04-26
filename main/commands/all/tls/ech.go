@@ -2,16 +2,16 @@ package tls
 
 import (
 	"crypto/ecdh"
-	"crypto/hpke"
 	"crypto/rand"
 	"encoding/base64"
 	"encoding/pem"
 	"io"
 	"os"
 
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/main/commands/base"
-	"github.com/xtls/xray-core/transport/internet/tls"
+	"crypto/hpke"
+	"github.com/luoluodaduan/xray-core/common"
+	"github.com/luoluodaduan/xray-core/main/commands/base"
+	"github.com/luoluodaduan/xray-core/transport/internet/tls"
 	"golang.org/x/crypto/cryptobyte"
 )
 
@@ -34,8 +34,10 @@ func init() {
 var input_echServerKeys = cmdECH.Flag.String("i", "", "ECHServerKeys (base64.StdEncoding)")
 
 // var input_pqSignatureSchemesEnabled = cmdECH.Flag.Bool("pqSignatureSchemesEnabled", false, "")
-var input_serverName = cmdECH.Flag.String("serverName", "cloudflare-ech.com", "")
-var input_pem = cmdECH.Flag.Bool("pem", false, "True == turn on pem output")
+var (
+	input_serverName = cmdECH.Flag.String("serverName", "cloudflare-ech.com", "")
+	input_pem        = cmdECH.Flag.Bool("pem", false, "True == turn on pem output")
+)
 
 func executeECH(cmd *base.Command, args []string) {
 	var kem uint16

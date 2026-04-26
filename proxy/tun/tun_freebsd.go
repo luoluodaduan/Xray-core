@@ -7,14 +7,12 @@ import (
 	"net"
 	_ "unsafe"
 
+	"github.com/luoluodaduan/xray-core/common/buf"
+	"golang.org/x/sys/unix"
 	"golang.zx2c4.com/wireguard/tun"
 	"gvisor.dev/gvisor/pkg/buffer"
 	"gvisor.dev/gvisor/pkg/tcpip"
 	"gvisor.dev/gvisor/pkg/tcpip/stack"
-
-	"golang.org/x/sys/unix"
-
-	"github.com/xtls/xray-core/common/buf"
 )
 
 const tunHeaderSize = 4
@@ -27,8 +25,10 @@ type FreeBSDTun struct {
 	mtu    uint32
 }
 
-var _ Tun = (*FreeBSDTun)(nil)
-var _ GVisorDevice = (*FreeBSDTun)(nil)
+var (
+	_ Tun          = (*FreeBSDTun)(nil)
+	_ GVisorDevice = (*FreeBSDTun)(nil)
+)
 
 // NewTun builds new tun interface handler
 func NewTun(options *Config) (Tun, error) {

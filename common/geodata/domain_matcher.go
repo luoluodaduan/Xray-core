@@ -6,8 +6,8 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/common/geodata/strmatcher"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/geodata/strmatcher"
 )
 
 type DomainMatcher interface {

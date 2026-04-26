@@ -11,8 +11,8 @@ import (
 	"strconv"
 	"unsafe"
 
-	"github.com/xtls/xray-core/common/buf"
-	"github.com/xtls/xray-core/common/platform"
+	"github.com/luoluodaduan/xray-core/common/buf"
+	"github.com/luoluodaduan/xray-core/common/platform"
 	"golang.org/x/sys/unix"
 	"gvisor.dev/gvisor/pkg/buffer"
 	"gvisor.dev/gvisor/pkg/tcpip"
@@ -44,8 +44,10 @@ type DarwinTun struct {
 	ownsFd  bool // true for macOS (we created the fd), false for iOS (fd from system)
 }
 
-var _ Tun = (*DarwinTun)(nil)
-var _ GVisorDevice = (*DarwinTun)(nil)
+var (
+	_ Tun          = (*DarwinTun)(nil)
+	_ GVisorDevice = (*DarwinTun)(nil)
+)
 
 func NewTun(options *Config) (Tun, error) {
 	// Check if fd is provided via environment (iOS mode)

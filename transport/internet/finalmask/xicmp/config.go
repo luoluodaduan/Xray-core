@@ -3,9 +3,9 @@ package xicmp
 import (
 	"net"
 
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/transport/internet"
-	"github.com/xtls/xray-core/transport/internet/hysteria/udphop"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/transport/internet"
+	"github.com/luoluodaduan/xray-core/transport/internet/hysteria/udphop"
 )
 
 func (c *Config) UDP() {

@@ -7,14 +7,13 @@ import (
 	"runtime"
 	"strconv"
 
+	"github.com/luoluodaduan/xray-core/common/buf"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/features/dns"
+	"github.com/luoluodaduan/xray-core/transport/internet"
 	"golang.zx2c4.com/wireguard/conn"
 	"golang.zx2c4.com/wireguard/device"
-
-	"github.com/xtls/xray-core/common/buf"
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/features/dns"
-	"github.com/xtls/xray-core/transport/internet"
 )
 
 type netReadInfo struct {
@@ -134,7 +133,6 @@ func (bind *netBindClient) connectTo(endpoint *netEndpoint) error {
 		for {
 			buff := buf.NewWithSize(device.MaxMessageSize)
 			n, err := buff.ReadFrom(c)
-
 			if err != nil {
 				buff.Release()
 				endpoint.conn = nil
