@@ -9,9 +9,9 @@ import (
 	"strings"
 	"time"
 
+	"github.com/luoluodaduan/xray-core/common"
+	"github.com/luoluodaduan/xray-core/common/errors"
 	"github.com/pion/stun/v3"
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/errors"
 )
 
 type realmConnClient struct {
