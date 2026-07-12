@@ -8,17 +8,6 @@ name: Scheduled assets update
 
 on:
   workflow_dispatch:
-  schedule:
-    # Update GeoData on every day (22:30 UTC)
-    - cron: "30 22 * * *"
-  push:
-    # Prevent triggering update request storm
-    paths:
-      - ".github/workflows/scheduled-assets-update.yml"
-  pull_request:
-    # Prevent triggering update request storm
-    paths:
-      - ".github/workflows/scheduled-assets-update.yml"
 
 jobs:
   geodat:
@@ -59,7 +48,7 @@ jobs:
             done
 
       - name: Save Geodat Cache
-        uses: actions/cache/save@v6
+        uses: actions/cache/save@v5
         if: ${{ steps.update.outputs.unhit }}
         with:
           path: resources
@@ -129,7 +118,7 @@ jobs:
             fi
 
       - name: Save Wintun Cache
-        uses: actions/cache/save@v6
+        uses: actions/cache/save@v5
         if: ${{ steps.update.outputs.unhit }}
         with:
           path: resources
