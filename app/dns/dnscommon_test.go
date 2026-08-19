@@ -7,10 +7,10 @@ import (
 	"time"
 
 	"github.com/google/go-cmp/cmp"
+	"github.com/luoluodaduan/xray-core/common"
+	"github.com/luoluodaduan/xray-core/common/net"
+	dns_feature "github.com/luoluodaduan/xray-core/features/dns"
 	"github.com/miekg/dns"
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/net"
-	dns_feature "github.com/xtls/xray-core/features/dns"
 	"golang.org/x/net/dns/dnsmessage"
 )
 

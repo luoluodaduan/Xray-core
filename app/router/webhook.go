@@ -10,10 +10,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/common/utils"
-	"github.com/xtls/xray-core/features/routing"
-	routing_session "github.com/xtls/xray-core/features/routing/session"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/utils"
+	"github.com/luoluodaduan/xray-core/features/routing"
+	routing_session "github.com/luoluodaduan/xray-core/features/routing/session"
 )
 
 func ptr[T any](v T) *T { return &v }
