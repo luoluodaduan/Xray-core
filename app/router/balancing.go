@@ -4,12 +4,12 @@ import (
 	"context"
 	sync "sync"
 
-	"github.com/xtls/xray-core/app/observatory"
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/core"
-	"github.com/xtls/xray-core/features/extension"
-	"github.com/xtls/xray-core/features/outbound"
+	"github.com/luoluodaduan/xray-core/app/observatory"
+	"github.com/luoluodaduan/xray-core/common"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/core"
+	"github.com/luoluodaduan/xray-core/features/extension"
+	"github.com/luoluodaduan/xray-core/features/outbound"
 )
 
 type BalancingStrategy interface {

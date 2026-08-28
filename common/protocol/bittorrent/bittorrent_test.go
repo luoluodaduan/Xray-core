@@ -4,7 +4,7 @@ import (
 	"encoding/binary"
 	"testing"
 
-	"github.com/xtls/xray-core/common"
+	"github.com/luoluodaduan/xray-core/common"
 )
 
 // utpPacket builds the fixed 20-byte header defined by BEP 29.

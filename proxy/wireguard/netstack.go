@@ -19,7 +19,7 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/xtls/xray-core/transport/internet"
+	"github.com/luoluodaduan/xray-core/transport/internet"
 	"golang.zx2c4.com/wireguard/tun"
 
 	"golang.org/x/net/dns/dnsmessage"
