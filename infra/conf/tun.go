@@ -7,7 +7,7 @@ import (
 	"net"
 	"strconv"
 
-	"github.com/xtls/xray-core/proxy/tun"
+	"github.com/luoluodaduan/xray-core/proxy/tun"
 	"google.golang.org/protobuf/proto"
 )
 

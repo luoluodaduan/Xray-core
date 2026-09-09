@@ -3,7 +3,7 @@ package sudoku
 import (
 	"net"
 
-	"github.com/xtls/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/errors"
 )
 
 // Sudoku in finalmask mode is a pure appearance transform with no standalone handshake.

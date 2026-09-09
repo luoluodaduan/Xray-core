@@ -8,14 +8,14 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/xtls/xray-core/app/dispatcher"
-	"github.com/xtls/xray-core/app/proxyman"
-	_ "github.com/xtls/xray-core/app/proxyman/inbound"
-	_ "github.com/xtls/xray-core/app/proxyman/outbound"
-	appstats "github.com/xtls/xray-core/app/stats"
-	"github.com/xtls/xray-core/common/serial"
-	"github.com/xtls/xray-core/core"
-	feature_outbound "github.com/xtls/xray-core/features/outbound"
+	"github.com/luoluodaduan/xray-core/app/dispatcher"
+	"github.com/luoluodaduan/xray-core/app/proxyman"
+	_ "github.com/luoluodaduan/xray-core/app/proxyman/inbound"
+	_ "github.com/luoluodaduan/xray-core/app/proxyman/outbound"
+	appstats "github.com/luoluodaduan/xray-core/app/stats"
+	"github.com/luoluodaduan/xray-core/common/serial"
+	"github.com/luoluodaduan/xray-core/core"
+	feature_outbound "github.com/luoluodaduan/xray-core/features/outbound"
 )
 
 func TestMetricsCanRestartInSameProcess(t *testing.T) {

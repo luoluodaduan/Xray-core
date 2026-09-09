@@ -6,8 +6,8 @@ import (
 	"slices"
 	"testing"
 
-	"github.com/xtls/xray-core/common/geodata/strmatcher"
-	"github.com/xtls/xray-core/common/utils"
+	"github.com/luoluodaduan/xray-core/common/geodata/strmatcher"
+	"github.com/luoluodaduan/xray-core/common/utils"
 )
 
 func TestCompactDomainMatcher_PreservesCustomRuleIndices(t *testing.T) {

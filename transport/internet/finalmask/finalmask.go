@@ -5,8 +5,8 @@ import (
 	"net"
 	"slices"
 
-	"github.com/xtls/xray-core/common/buf"
-	"github.com/xtls/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/buf"
+	"github.com/luoluodaduan/xray-core/common/errors"
 )
 
 type Udpmask interface {

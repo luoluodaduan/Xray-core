@@ -4,7 +4,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	. "github.com/xtls/xray-core/common/platform/filesystem"
+	. "github.com/luoluodaduan/xray-core/common/platform/filesystem"
 )
 
 func TestStatAssetRejectsInvalidPath(t *testing.T) {
