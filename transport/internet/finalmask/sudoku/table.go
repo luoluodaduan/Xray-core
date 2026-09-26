@@ -12,7 +12,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/xtls/xray-core/common"
+	"github.com/luoluodaduan/xray-core/common"
 )
 
 type table struct {

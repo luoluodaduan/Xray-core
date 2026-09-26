@@ -5,9 +5,9 @@ import (
 
 	"google.golang.org/protobuf/proto"
 
-	"github.com/xtls/xray-core/app/observatory/burst"
-	"github.com/xtls/xray-core/app/router"
-	"github.com/xtls/xray-core/infra/conf/cfgcommon/duration"
+	"github.com/luoluodaduan/xray-core/app/observatory/burst"
+	"github.com/luoluodaduan/xray-core/app/router"
+	"github.com/luoluodaduan/xray-core/infra/conf/cfgcommon/duration"
 )
 
 const (

@@ -3,9 +3,9 @@ package conf
 import (
 	"net/netip"
 
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/common/protocol"
-	"github.com/xtls/xray-core/proxy/masque"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/protocol"
+	"github.com/luoluodaduan/xray-core/proxy/masque"
 	"google.golang.org/protobuf/proto"
 )
 
