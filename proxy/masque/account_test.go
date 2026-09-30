@@ -3,8 +3,8 @@ package masque
 import (
 	"testing"
 
+	"github.com/luoluodaduan/xray-core/common/protocol"
 	"github.com/stretchr/testify/require"
-	"github.com/xtls/xray-core/common/protocol"
 )
 
 func TestValidator(t *testing.T) {

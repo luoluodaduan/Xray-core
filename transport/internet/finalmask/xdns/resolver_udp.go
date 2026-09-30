@@ -5,8 +5,8 @@ import (
 	"io"
 	"sync"
 
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/transport/internet/finalmask"
+	"github.com/luoluodaduan/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/transport/internet/finalmask"
 )
 
 type UDPResolver struct {

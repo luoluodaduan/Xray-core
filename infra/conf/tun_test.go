@@ -5,8 +5,8 @@ import (
 	"runtime"
 	"testing"
 
-	. "github.com/xtls/xray-core/infra/conf"
-	"github.com/xtls/xray-core/proxy/tun"
+	. "github.com/luoluodaduan/xray-core/infra/conf"
+	"github.com/luoluodaduan/xray-core/proxy/tun"
 )
 
 func TestTunConfigAutoSystem(t *testing.T) {
