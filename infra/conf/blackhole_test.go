@@ -3,8 +3,8 @@ package conf_test
 import (
 	"testing"
 
-	. "github.com/xtls/xray-core/infra/conf"
-	"github.com/xtls/xray-core/proxy/blackhole"
+	. "github.com/luoluodaduan/xray-core/infra/conf"
+	"github.com/luoluodaduan/xray-core/proxy/blackhole"
 )
 
 func TestHTTPResponseJSON(t *testing.T) {

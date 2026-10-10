@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/xtls/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/common/net"
 	"gvisor.dev/gvisor/pkg/tcpip"
 	"gvisor.dev/gvisor/pkg/tcpip/checksum"
 	"gvisor.dev/gvisor/pkg/tcpip/header"

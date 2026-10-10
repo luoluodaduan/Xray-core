@@ -16,7 +16,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/xtls/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/errors"
 	"golang.org/x/net/http2"
 	"golang.org/x/net/http2/hpack"
 )

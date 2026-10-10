@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/xtls/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/common/net"
 )
 
 // BenchmarkUDPManagerNewSession measures what one new UDP flow costs the

@@ -3,7 +3,7 @@ package lua
 import (
 	"math"
 
-	"github.com/xtls/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/errors"
 	glua "github.com/yuin/gopher-lua"
 )
 

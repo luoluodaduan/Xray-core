@@ -10,8 +10,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/proxy/tun"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/proxy/tun"
 	"google.golang.org/protobuf/proto"
 )
 
