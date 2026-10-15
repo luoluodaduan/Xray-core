@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/xtls/xray-core/transport/internet/finalmask/xmc"
+	"github.com/luoluodaduan/xray-core/transport/internet/finalmask/xmc"
 )
 
 func TestXMCBuildProfile(t *testing.T) {

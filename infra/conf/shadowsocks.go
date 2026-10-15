@@ -3,12 +3,12 @@ package conf
 import (
 	"strings"
 
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/common/protocol"
-	"github.com/xtls/xray-core/common/serial"
-	"github.com/xtls/xray-core/common/task"
-	"github.com/xtls/xray-core/proxy/shadowsocks"
-	"github.com/xtls/xray-core/proxy/shadowsocks_2022"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/protocol"
+	"github.com/luoluodaduan/xray-core/common/serial"
+	"github.com/luoluodaduan/xray-core/common/task"
+	"github.com/luoluodaduan/xray-core/proxy/shadowsocks"
+	"github.com/luoluodaduan/xray-core/proxy/shadowsocks_2022"
 	"google.golang.org/protobuf/proto"
 )
 

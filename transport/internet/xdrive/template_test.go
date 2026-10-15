@@ -12,7 +12,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/xtls/xray-core/transport/internet"
+	"github.com/luoluodaduan/xray-core/transport/internet"
 )
 
 type fakeStore struct {

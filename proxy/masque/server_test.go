@@ -10,10 +10,10 @@ import (
 	"testing"
 	"time"
 
+	"github.com/luoluodaduan/xray-core/common/buf"
+	"github.com/luoluodaduan/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/common/protocol"
 	"github.com/stretchr/testify/require"
-	"github.com/xtls/xray-core/common/buf"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/protocol"
 	"golang.zx2c4.com/wireguard/tun"
 )
 

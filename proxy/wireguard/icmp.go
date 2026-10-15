@@ -3,8 +3,8 @@ package wireguard
 import (
 	"context"
 
-	"github.com/xtls/xray-core/common/errors"
-	tunicmp "github.com/xtls/xray-core/proxy/tun/icmp"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	tunicmp "github.com/luoluodaduan/xray-core/proxy/tun/icmp"
 	"gvisor.dev/gvisor/pkg/buffer"
 	"gvisor.dev/gvisor/pkg/tcpip"
 	"gvisor.dev/gvisor/pkg/tcpip/header"

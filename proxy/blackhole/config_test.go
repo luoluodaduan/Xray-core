@@ -4,8 +4,8 @@ import (
 	"context"
 	"testing"
 
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/proxy/blackhole"
+	"github.com/luoluodaduan/xray-core/common"
+	"github.com/luoluodaduan/xray-core/proxy/blackhole"
 )
 
 func TestHTTPResponse(t *testing.T) {

@@ -4,10 +4,10 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/xtls/xray-core/common/errors"
-	xlua "github.com/xtls/xray-core/common/lua"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/features/routing"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	xlua "github.com/luoluodaduan/xray-core/common/lua"
+	"github.com/luoluodaduan/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/features/routing"
 	lua "github.com/yuin/gopher-lua"
 )
 

@@ -21,7 +21,7 @@ import (
 	"syscall"
 	"time"
 
-	xnet "github.com/xtls/xray-core/common/net"
+	xnet "github.com/luoluodaduan/xray-core/common/net"
 	"golang.zx2c4.com/wireguard/tun"
 
 	"golang.org/x/net/dns/dnsmessage"

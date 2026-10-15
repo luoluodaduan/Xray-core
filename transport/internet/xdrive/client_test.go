@@ -9,9 +9,9 @@ import (
 	"testing"
 	"time"
 
-	xnet "github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/transport/internet"
-	"github.com/xtls/xray-core/transport/internet/tls"
+	xnet "github.com/luoluodaduan/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/transport/internet"
+	"github.com/luoluodaduan/xray-core/transport/internet/tls"
 )
 
 func recordingTLSListener(t *testing.T, sni *string, mu *sync.Mutex) net.Listener {
