@@ -7,8 +7,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/xtls/xray-core/common/net"
-	featureDNS "github.com/xtls/xray-core/features/dns"
+	"github.com/luoluodaduan/xray-core/common/net"
+	featureDNS "github.com/luoluodaduan/xray-core/features/dns"
 	lua "github.com/yuin/gopher-lua"
 )
 

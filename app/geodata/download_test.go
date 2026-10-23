@@ -9,8 +9,8 @@ import (
 	"path/filepath"
 	"testing"
 
-	commongeodata "github.com/xtls/xray-core/common/geodata"
-	xlua "github.com/xtls/xray-core/common/lua"
+	commongeodata "github.com/luoluodaduan/xray-core/common/geodata"
+	xlua "github.com/luoluodaduan/xray-core/common/lua"
 	"github.com/yuin/gopher-lua/parse"
 	"google.golang.org/protobuf/proto"
 )

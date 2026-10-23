@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/xtls/xray-core/transport/internet/finalmask/noise"
+	"github.com/luoluodaduan/xray-core/transport/internet/finalmask/noise"
 )
 
 func expPacket(exp string) json.RawMessage {

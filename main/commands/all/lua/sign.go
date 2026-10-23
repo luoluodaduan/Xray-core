@@ -4,8 +4,8 @@ import (
 	"os"
 	"path/filepath"
 
-	xlua "github.com/xtls/xray-core/common/lua"
-	"github.com/xtls/xray-core/main/commands/base"
+	xlua "github.com/luoluodaduan/xray-core/common/lua"
+	"github.com/luoluodaduan/xray-core/main/commands/base"
 )
 
 var cmdSign = &base.Command{

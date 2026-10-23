@@ -8,8 +8,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/xtls/xray-core/common"
-	. "github.com/xtls/xray-core/common/platform"
+	"github.com/luoluodaduan/xray-core/common"
+	. "github.com/luoluodaduan/xray-core/common/platform"
 )
 
 func TestNormalizeEnvName(t *testing.T) {

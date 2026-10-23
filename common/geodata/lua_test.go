@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/xtls/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/common/net"
 	lua "github.com/yuin/gopher-lua"
 )
 

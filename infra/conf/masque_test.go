@@ -11,12 +11,12 @@ import (
 	"encoding/pem"
 	"testing"
 
-	"github.com/xtls/xray-core/common/protocol"
-	"github.com/xtls/xray-core/common/serial"
-	. "github.com/xtls/xray-core/infra/conf"
-	masqueproxy "github.com/xtls/xray-core/proxy/masque"
-	"github.com/xtls/xray-core/transport/internet/masque"
-	"github.com/xtls/xray-core/transport/internet/splithttp"
+	"github.com/luoluodaduan/xray-core/common/protocol"
+	"github.com/luoluodaduan/xray-core/common/serial"
+	. "github.com/luoluodaduan/xray-core/infra/conf"
+	masqueproxy "github.com/luoluodaduan/xray-core/proxy/masque"
+	"github.com/luoluodaduan/xray-core/transport/internet/masque"
+	"github.com/luoluodaduan/xray-core/transport/internet/splithttp"
 )
 
 func defaultMasqueXmux() *splithttp.XmuxConfig {

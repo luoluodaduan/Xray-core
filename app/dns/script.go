@@ -3,12 +3,12 @@ package dns
 import (
 	"time"
 
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/common/geodata"
-	"github.com/xtls/xray-core/common/log"
-	xlua "github.com/xtls/xray-core/common/lua"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/features/dns"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/geodata"
+	"github.com/luoluodaduan/xray-core/common/log"
+	xlua "github.com/luoluodaduan/xray-core/common/lua"
+	"github.com/luoluodaduan/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/features/dns"
 	lua "github.com/yuin/gopher-lua"
 )
 

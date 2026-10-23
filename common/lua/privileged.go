@@ -7,7 +7,7 @@ import (
 	"encoding/base64"
 	"sync"
 
-	"github.com/xtls/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/errors"
 )
 
 var privilegedKey struct {

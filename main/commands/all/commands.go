@@ -1,13 +1,13 @@
 package all
 
 import (
-	"github.com/xtls/xray-core/main/commands/all/api"
-	"github.com/xtls/xray-core/main/commands/all/base64"
-	"github.com/xtls/xray-core/main/commands/all/convert"
+	"github.com/luoluodaduan/xray-core/main/commands/all/api"
+	"github.com/luoluodaduan/xray-core/main/commands/all/base64"
+	"github.com/luoluodaduan/xray-core/main/commands/all/convert"
 	// TODO: Restore this import and lua.CmdLua when Lua privileged signature authorization is re-enabled.
-	// "github.com/xtls/xray-core/main/commands/all/lua"
-	"github.com/xtls/xray-core/main/commands/all/tls"
-	"github.com/xtls/xray-core/main/commands/base"
+	// "github.com/luoluodaduan/xray-core/main/commands/all/lua"
+	"github.com/luoluodaduan/xray-core/main/commands/all/tls"
+	"github.com/luoluodaduan/xray-core/main/commands/base"
 )
 
 func init() {

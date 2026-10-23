@@ -1,6 +1,6 @@
 package lua
 
-import "github.com/xtls/xray-core/main/commands/base"
+import "github.com/luoluodaduan/xray-core/main/commands/base"
 
 // CmdLua holds the Lua script commands.
 var CmdLua = &base.Command{
