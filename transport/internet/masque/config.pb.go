@@ -7,12 +7,13 @@
 package masque
 
 import (
-	splithttp "github.com/xtls/xray-core/transport/internet/splithttp"
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	splithttp "github.com/luoluodaduan/xray-core/transport/internet/splithttp"
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -177,8 +178,8 @@ const file_transport_internet_masque_config_proto_rawDesc = "" +
 	"privateKey\x12\x1d\n" +
 	"\n" +
 	"public_key\x18\x02 \x01(\fR\tpublicKey\x12\x18\n" +
-	"\aaddress\x18\x03 \x03(\tR\aaddressB|\n" +
-	"\"com.xray.transport.internet.masqueP\x01Z3github.com/xtls/xray-core/transport/internet/masque\xaa\x02\x1eXray.Transport.Internet.Masqueb\x06proto3"
+	"\aaddress\x18\x03 \x03(\tR\aaddressB\x84\x01\n" +
+	"\"com.xray.transport.internet.masqueP\x01Z;github.com/luoluodaduan/xray-core/transport/internet/masque\xaa\x02\x1eXray.Transport.Internet.Masqueb\x06proto3"
 
 var (
 	file_transport_internet_masque_config_proto_rawDescOnce sync.Once

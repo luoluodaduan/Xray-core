@@ -5,7 +5,7 @@ package tun
 import (
 	"net"
 
-	"github.com/xtls/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/errors"
 )
 
 type DefaultTun struct{}

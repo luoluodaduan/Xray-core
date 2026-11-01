@@ -13,7 +13,7 @@ import (
 	"testing"
 	"weak"
 
-	xerrors "github.com/xtls/xray-core/common/errors"
+	xerrors "github.com/luoluodaduan/xray-core/common/errors"
 	glua "github.com/yuin/gopher-lua"
 	luar "layeh.com/gopher-luar"
 )

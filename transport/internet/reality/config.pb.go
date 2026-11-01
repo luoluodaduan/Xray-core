@@ -7,11 +7,12 @@
 package reality
 
 import (
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -320,8 +321,8 @@ const file_transport_internet_reality_config_proto_rawDesc = "" +
 	"\vafter_bytes\x18\x01 \x01(\x04R\n" +
 	"afterBytes\x12\"\n" +
 	"\rbytes_per_sec\x18\x02 \x01(\x04R\vbytesPerSec\x12-\n" +
-	"\x13burst_bytes_per_sec\x18\x03 \x01(\x04R\x10burstBytesPerSecB\x7f\n" +
-	"#com.xray.transport.internet.realityP\x01Z4github.com/xtls/xray-core/transport/internet/reality\xaa\x02\x1fXray.Transport.Internet.Realityb\x06proto3"
+	"\x13burst_bytes_per_sec\x18\x03 \x01(\x04R\x10burstBytesPerSecB\x87\x01\n" +
+	"#com.xray.transport.internet.realityP\x01Z<github.com/luoluodaduan/xray-core/transport/internet/reality\xaa\x02\x1fXray.Transport.Internet.Realityb\x06proto3"
 
 var (
 	file_transport_internet_reality_config_proto_rawDescOnce sync.Once

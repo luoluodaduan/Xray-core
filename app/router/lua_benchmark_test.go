@@ -8,11 +8,11 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/xtls/xray-core/common/geodata"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/session"
-	"github.com/xtls/xray-core/features/routing"
-	routing_session "github.com/xtls/xray-core/features/routing/session"
+	"github.com/luoluodaduan/xray-core/common/geodata"
+	"github.com/luoluodaduan/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/common/session"
+	"github.com/luoluodaduan/xray-core/features/routing"
+	routing_session "github.com/luoluodaduan/xray-core/features/routing/session"
 	lua "github.com/yuin/gopher-lua"
 )
 
