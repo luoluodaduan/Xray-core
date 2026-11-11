@@ -1,8 +1,8 @@
 package sudoku
 
 import (
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/transport/internet/finalmask"
+	"github.com/luoluodaduan/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/transport/internet/finalmask"
 )
 
 // Sudoku in finalmask mode is a pure appearance transform with no standalone handshake.

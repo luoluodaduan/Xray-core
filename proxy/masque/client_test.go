@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/xtls/xray-core/transport/internet/splithttp"
+	"github.com/luoluodaduan/xray-core/transport/internet/splithttp"
 )
 
 func newTestClient(newConn func(c *Client) splithttp.XmuxConn) *Client {

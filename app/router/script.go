@@ -3,13 +3,13 @@ package router
 import (
 	"time"
 
-	"github.com/xtls/xray-core/app/dns"
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/common/geodata"
-	"github.com/xtls/xray-core/common/log"
-	xlua "github.com/xtls/xray-core/common/lua"
-	"github.com/xtls/xray-core/features/routing"
+	"github.com/luoluodaduan/xray-core/app/dns"
+	"github.com/luoluodaduan/xray-core/common"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/geodata"
+	"github.com/luoluodaduan/xray-core/common/log"
+	xlua "github.com/luoluodaduan/xray-core/common/lua"
+	"github.com/luoluodaduan/xray-core/features/routing"
 	lua "github.com/yuin/gopher-lua"
 )
 

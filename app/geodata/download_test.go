@@ -10,10 +10,10 @@ import (
 	"strings"
 	"testing"
 
-	commongeodata "github.com/xtls/xray-core/common/geodata"
-	xlua "github.com/xtls/xray-core/common/lua"
-	"github.com/xtls/xray-core/common/serial"
-	"github.com/xtls/xray-core/core"
+	commongeodata "github.com/luoluodaduan/xray-core/common/geodata"
+	xlua "github.com/luoluodaduan/xray-core/common/lua"
+	"github.com/luoluodaduan/xray-core/common/serial"
+	"github.com/luoluodaduan/xray-core/core"
 	"github.com/yuin/gopher-lua/parse"
 	"google.golang.org/protobuf/proto"
 )

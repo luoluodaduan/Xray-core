@@ -7,12 +7,13 @@
 package commander
 
 import (
-	serial "github.com/xtls/xray-core/common/serial"
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	serial "github.com/luoluodaduan/xray-core/common/serial"
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -133,8 +134,8 @@ const file_app_commander_config_proto_rawDesc = "" +
 	"\x03tag\x18\x01 \x01(\tR\x03tag\x12\x16\n" +
 	"\x06listen\x18\x03 \x01(\tR\x06listen\x12:\n" +
 	"\aservice\x18\x02 \x03(\v2 .xray.common.serial.TypedMessageR\aservice\"\x12\n" +
-	"\x10ReflectionConfigBX\n" +
-	"\x16com.xray.app.commanderP\x01Z'github.com/xtls/xray-core/app/commander\xaa\x02\x12Xray.App.Commanderb\x06proto3"
+	"\x10ReflectionConfigB`\n" +
+	"\x16com.xray.app.commanderP\x01Z/github.com/luoluodaduan/xray-core/app/commander\xaa\x02\x12Xray.App.Commanderb\x06proto3"
 
 var (
 	file_app_commander_config_proto_rawDescOnce sync.Once

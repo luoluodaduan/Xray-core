@@ -7,10 +7,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/xtls/xray-core/common/geodata"
-	. "github.com/xtls/xray-core/infra/conf"
-	"github.com/xtls/xray-core/transport/internet"
-	"github.com/xtls/xray-core/transport/internet/finalmask/filter"
+	"github.com/luoluodaduan/xray-core/common/geodata"
+	. "github.com/luoluodaduan/xray-core/infra/conf"
+	"github.com/luoluodaduan/xray-core/transport/internet"
+	"github.com/luoluodaduan/xray-core/transport/internet/finalmask/filter"
 )
 
 func TestFinalMaskFilter(t *testing.T) {

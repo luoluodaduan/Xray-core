@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/xtls/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/errors"
 )
 
 // dnsLeaks is what "dns" in autoSystemWfpBlockLeak stands for: DNS over TCP

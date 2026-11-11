@@ -7,12 +7,13 @@
 package xdrive
 
 import (
-	splithttp "github.com/xtls/xray-core/transport/internet/splithttp"
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	splithttp "github.com/luoluodaduan/xray-core/transport/internet/splithttp"
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -264,7 +265,7 @@ const file_transport_internet_xdrive_config_proto_rawDesc = "" +
 	"\x06region\x18\x02 \x01(\tR\x06region\x12\x16\n" +
 	"\x06bucket\x18\x03 \x01(\tR\x06bucket\x12\x1d\n" +
 	"\n" +
-	"path_style\x18\x04 \x01(\bR\tpathStyleB5Z3github.com/xtls/xray-core/transport/internet/xdriveb\x06proto3"
+	"path_style\x18\x04 \x01(\bR\tpathStyleB=Z;github.com/luoluodaduan/xray-core/transport/internet/xdriveb\x06proto3"
 
 var (
 	file_transport_internet_xdrive_config_proto_rawDescOnce sync.Once

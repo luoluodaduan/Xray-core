@@ -7,12 +7,13 @@
 package masque
 
 import (
-	protocol "github.com/xtls/xray-core/common/protocol"
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	protocol "github.com/luoluodaduan/xray-core/common/protocol"
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -192,8 +193,8 @@ const file_proxy_masque_config_proto_rawDesc = "" +
 	"\fServerConfig\x120\n" +
 	"\x05users\x18\x01 \x03(\v2\x1a.xray.common.protocol.UserR\x05users\x12\x18\n" +
 	"\aaddress\x18\x02 \x03(\tR\aaddress\x12\x10\n" +
-	"\x03mtu\x18\x03 \x01(\rR\x03mtuBU\n" +
-	"\x15com.xray.proxy.masqueP\x01Z&github.com/xtls/xray-core/proxy/masque\xaa\x02\x11Xray.Proxy.Masqueb\x06proto3"
+	"\x03mtu\x18\x03 \x01(\rR\x03mtuB]\n" +
+	"\x15com.xray.proxy.masqueP\x01Z.github.com/luoluodaduan/xray-core/proxy/masque\xaa\x02\x11Xray.Proxy.Masqueb\x06proto3"
 
 var (
 	file_proxy_masque_config_proto_rawDescOnce sync.Once

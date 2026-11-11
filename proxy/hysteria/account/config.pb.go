@@ -7,11 +7,12 @@
 package account
 
 import (
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -71,8 +72,8 @@ const file_proxy_hysteria_account_config_proto_rawDesc = "" +
 	"\n" +
 	"#proxy/hysteria/account/config.proto\x12\x1bxray.proxy.hysteria.account\"\x1d\n" +
 	"\aAccount\x12\x12\n" +
-	"\x04auth\x18\x01 \x01(\tR\x04authBs\n" +
-	"\x1fcom.xray.proxy.hysteria.accountP\x01Z0github.com/xtls/xray-core/proxy/hysteria/account\xaa\x02\x1bXray.Proxy.Hysteria.Accountb\x06proto3"
+	"\x04auth\x18\x01 \x01(\tR\x04authB{\n" +
+	"\x1fcom.xray.proxy.hysteria.accountP\x01Z8github.com/luoluodaduan/xray-core/proxy/hysteria/account\xaa\x02\x1bXray.Proxy.Hysteria.Accountb\x06proto3"
 
 var (
 	file_proxy_hysteria_account_config_proto_rawDescOnce sync.Once

@@ -10,7 +10,7 @@ import (
 	"net"
 	"reflect"
 
-	"github.com/xtls/xray-core/common/utils"
+	"github.com/luoluodaduan/xray-core/common/utils"
 )
 
 const (

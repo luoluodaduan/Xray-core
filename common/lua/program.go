@@ -9,9 +9,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/xtls/xray-core/common/base64"
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/common/platform/filesystem"
+	"github.com/luoluodaduan/xray-core/common/base64"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/platform/filesystem"
 	glua "github.com/yuin/gopher-lua"
 	"github.com/yuin/gopher-lua/parse"
 )

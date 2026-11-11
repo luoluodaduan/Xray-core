@@ -4,7 +4,7 @@ import (
 	"errors"
 	"net"
 
-	"github.com/xtls/xray-core/transport/internet/finalmask"
+	"github.com/luoluodaduan/xray-core/transport/internet/finalmask"
 )
 
 type Resolver interface {

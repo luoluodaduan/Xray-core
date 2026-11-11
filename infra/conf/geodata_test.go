@@ -3,8 +3,8 @@ package conf_test
 import (
 	"testing"
 
-	"github.com/xtls/xray-core/app/geodata"
-	. "github.com/xtls/xray-core/infra/conf"
+	"github.com/luoluodaduan/xray-core/app/geodata"
+	. "github.com/luoluodaduan/xray-core/infra/conf"
 )
 
 func TestGeodataConfig(t *testing.T) {

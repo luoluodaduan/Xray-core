@@ -4,9 +4,9 @@ import (
 	"net/url"
 	"strings"
 
+	"github.com/luoluodaduan/xray-core/app/geodata"
+	"github.com/luoluodaduan/xray-core/common/errors"
 	"github.com/robfig/cron/v3"
-	"github.com/xtls/xray-core/app/geodata"
-	"github.com/xtls/xray-core/common/errors"
 	"google.golang.org/protobuf/proto"
 )
 

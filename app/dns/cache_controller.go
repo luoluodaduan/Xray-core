@@ -7,11 +7,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/common/signal/pubsub"
-	"github.com/xtls/xray-core/common/task"
-	dns_feature "github.com/xtls/xray-core/features/dns"
+	"github.com/luoluodaduan/xray-core/common"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/signal/pubsub"
+	"github.com/luoluodaduan/xray-core/common/task"
+	dns_feature "github.com/luoluodaduan/xray-core/features/dns"
 
 	"golang.org/x/net/dns/dnsmessage"
 	"golang.org/x/sync/singleflight"

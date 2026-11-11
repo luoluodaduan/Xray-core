@@ -7,12 +7,13 @@
 package loopback
 
 import (
-	proxyman "github.com/xtls/xray-core/app/proxyman"
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	proxyman "github.com/luoluodaduan/xray-core/app/proxyman"
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -82,8 +83,8 @@ const file_proxy_loopback_config_proto_rawDesc = "" +
 	"\x06Config\x12\x1f\n" +
 	"\vinbound_tag\x18\x01 \x01(\tR\n" +
 	"inboundTag\x12=\n" +
-	"\bsniffing\x18\x02 \x01(\v2!.xray.app.proxyman.SniffingConfigR\bsniffingB[\n" +
-	"\x17com.xray.proxy.loopbackP\x01Z(github.com/xtls/xray-core/proxy/loopback\xaa\x02\x13Xray.Proxy.Loopbackb\x06proto3"
+	"\bsniffing\x18\x02 \x01(\v2!.xray.app.proxyman.SniffingConfigR\bsniffingBc\n" +
+	"\x17com.xray.proxy.loopbackP\x01Z0github.com/luoluodaduan/xray-core/proxy/loopback\xaa\x02\x13Xray.Proxy.Loopbackb\x06proto3"
 
 var (
 	file_proxy_loopback_config_proto_rawDescOnce sync.Once

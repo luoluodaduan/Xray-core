@@ -7,7 +7,7 @@ import (
 	"io"
 	"strings"
 
-	"github.com/xtls/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/errors"
 )
 
 // Decode decodes Base64 text with an optional [Prefix] or [GzipPrefix].

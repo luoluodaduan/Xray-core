@@ -7,11 +7,12 @@
 package net
 
 import (
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -130,8 +131,8 @@ const file_common_net_port_proto_rawDesc = "" +
 	"\x04From\x18\x01 \x01(\rR\x04From\x12\x0e\n" +
 	"\x02To\x18\x02 \x01(\rR\x02To\"<\n" +
 	"\bPortList\x120\n" +
-	"\x05range\x18\x01 \x03(\v2\x1a.xray.common.net.PortRangeR\x05rangeBO\n" +
-	"\x13com.xray.common.netP\x01Z$github.com/xtls/xray-core/common/net\xaa\x02\x0fXray.Common.Netb\x06proto3"
+	"\x05range\x18\x01 \x03(\v2\x1a.xray.common.net.PortRangeR\x05rangeBW\n" +
+	"\x13com.xray.common.netP\x01Z,github.com/luoluodaduan/xray-core/common/net\xaa\x02\x0fXray.Common.Netb\x06proto3"
 
 var (
 	file_common_net_port_proto_rawDescOnce sync.Once

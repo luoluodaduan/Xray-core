@@ -7,12 +7,13 @@
 package vmess
 
 import (
-	protocol "github.com/xtls/xray-core/common/protocol"
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	protocol "github.com/luoluodaduan/xray-core/common/protocol"
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -94,8 +95,8 @@ const file_proxy_vmess_account_proto_rawDesc = "" +
 	"\aAccount\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12Q\n" +
 	"\x11security_settings\x18\x03 \x01(\v2$.xray.common.protocol.SecurityConfigR\x10securitySettings\x12#\n" +
-	"\rtests_enabled\x18\x04 \x01(\tR\ftestsEnabledBR\n" +
-	"\x14com.xray.proxy.vmessP\x01Z%github.com/xtls/xray-core/proxy/vmess\xaa\x02\x10Xray.Proxy.Vmessb\x06proto3"
+	"\rtests_enabled\x18\x04 \x01(\tR\ftestsEnabledBZ\n" +
+	"\x14com.xray.proxy.vmessP\x01Z-github.com/luoluodaduan/xray-core/proxy/vmess\xaa\x02\x10Xray.Proxy.Vmessb\x06proto3"
 
 var (
 	file_proxy_vmess_account_proto_rawDescOnce sync.Once

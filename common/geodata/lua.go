@@ -1,8 +1,8 @@
 package geodata
 
 import (
-	xlua "github.com/xtls/xray-core/common/lua"
-	"github.com/xtls/xray-core/common/net"
+	xlua "github.com/luoluodaduan/xray-core/common/lua"
+	"github.com/luoluodaduan/xray-core/common/net"
 	lua "github.com/yuin/gopher-lua"
 )
 

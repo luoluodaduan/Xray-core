@@ -7,11 +7,12 @@
 package httpupgrade
 
 import (
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -110,8 +111,8 @@ const file_transport_internet_httpupgrade_config_proto_rawDesc = "" +
 	"\x02ed\x18\x05 \x01(\rR\x02ed\x1a9\n" +
 	"\vHeaderEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\x8b\x01\n" +
-	"'com.xray.transport.internet.httpupgradeP\x01Z8github.com/xtls/xray-core/transport/internet/httpupgrade\xaa\x02#Xray.Transport.Internet.HttpUpgradeb\x06proto3"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\x93\x01\n" +
+	"'com.xray.transport.internet.httpupgradeP\x01Z@github.com/luoluodaduan/xray-core/transport/internet/httpupgrade\xaa\x02#Xray.Transport.Internet.HttpUpgradeb\x06proto3"
 
 var (
 	file_transport_internet_httpupgrade_config_proto_rawDescOnce sync.Once

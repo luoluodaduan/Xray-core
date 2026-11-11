@@ -9,9 +9,9 @@ import (
 	"testing"
 	"time"
 
+	"github.com/luoluodaduan/xray-core/transport/internet/stat"
+	"github.com/luoluodaduan/xray-core/transport/internet/tls"
 	"github.com/stretchr/testify/require"
-	"github.com/xtls/xray-core/transport/internet/stat"
-	"github.com/xtls/xray-core/transport/internet/tls"
 )
 
 func TestServerVersions(t *testing.T) {
