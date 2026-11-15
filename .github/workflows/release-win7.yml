@@ -3,8 +3,6 @@ name: Build and Release for Windows 7
 
 on:
   workflow_dispatch:
-  release:
-    types: [published]
 
 jobs:
   check-assets:
