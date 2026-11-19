@@ -7,10 +7,10 @@ import (
 	"testing"
 	"time"
 
+	"github.com/luoluodaduan/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/common/session"
+	"github.com/luoluodaduan/xray-core/transport/internet/finalmask"
 	"github.com/pires/go-proxyproto"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/session"
-	"github.com/xtls/xray-core/transport/internet/finalmask"
 )
 
 func TestClientHeader(t *testing.T) {

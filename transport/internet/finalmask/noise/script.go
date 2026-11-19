@@ -5,9 +5,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/common/log"
-	xlua "github.com/xtls/xray-core/common/lua"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	"github.com/luoluodaduan/xray-core/common/log"
+	xlua "github.com/luoluodaduan/xray-core/common/lua"
 	lua "github.com/yuin/gopher-lua"
 )
 

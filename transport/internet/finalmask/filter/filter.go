@@ -1,8 +1,8 @@
 package filter
 
 import (
-	"github.com/xtls/xray-core/common/geodata"
-	"github.com/xtls/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/common/geodata"
+	"github.com/luoluodaduan/xray-core/common/net"
 )
 
 type listener struct {

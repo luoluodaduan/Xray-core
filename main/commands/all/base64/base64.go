@@ -1,6 +1,6 @@
 package base64
 
-import "github.com/xtls/xray-core/main/commands/base"
+import "github.com/luoluodaduan/xray-core/main/commands/base"
 
 // CmdBase64 holds all Base64 subcommands.
 var CmdBase64 = &base.Command{

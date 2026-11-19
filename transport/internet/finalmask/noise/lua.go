@@ -4,9 +4,9 @@ import (
 	"crypto/rand"
 	"time"
 
-	"github.com/xtls/xray-core/common/crypto"
-	"github.com/xtls/xray-core/common/errors"
-	xlua "github.com/xtls/xray-core/common/lua"
+	"github.com/luoluodaduan/xray-core/common/crypto"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	xlua "github.com/luoluodaduan/xray-core/common/lua"
 	lua "github.com/yuin/gopher-lua"
 )
 

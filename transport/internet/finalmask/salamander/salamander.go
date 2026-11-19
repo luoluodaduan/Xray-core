@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/xtls/xray-core/common"
+	"github.com/luoluodaduan/xray-core/common"
 	"golang.org/x/crypto/blake2b"
 )
 

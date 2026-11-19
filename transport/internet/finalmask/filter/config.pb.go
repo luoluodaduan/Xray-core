@@ -7,12 +7,13 @@
 package filter
 
 import (
-	geodata "github.com/xtls/xray-core/common/geodata"
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	geodata "github.com/luoluodaduan/xray-core/common/geodata"
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -81,8 +82,8 @@ const file_transport_internet_finalmask_filter_config_proto_rawDesc = "" +
 	"0transport/internet/finalmask/filter/config.proto\x12(xray.transport.internet.finalmask.filter\x1a\x1bcommon/geodata/geodat.proto\"\x9e\x01\n" +
 	"\x06Config\x12I\n" +
 	"\x12blocked_source_ips\x18\x01 \x03(\v2\x1b.xray.common.geodata.IPRuleR\x10blockedSourceIps\x12I\n" +
-	"\x12allowed_source_ips\x18\x02 \x03(\v2\x1b.xray.common.geodata.IPRuleR\x10allowedSourceIpsB\x9a\x01\n" +
-	",com.xray.transport.internet.finalmask.filterP\x01Z=github.com/xtls/xray-core/transport/internet/finalmask/filter\xaa\x02(Xray.Transport.Internet.Finalmask.Filterb\x06proto3"
+	"\x12allowed_source_ips\x18\x02 \x03(\v2\x1b.xray.common.geodata.IPRuleR\x10allowedSourceIpsB\xa2\x01\n" +
+	",com.xray.transport.internet.finalmask.filterP\x01ZEgithub.com/luoluodaduan/xray-core/transport/internet/finalmask/filter\xaa\x02(Xray.Transport.Internet.Finalmask.Filterb\x06proto3"
 
 var (
 	file_transport_internet_finalmask_filter_config_proto_rawDescOnce sync.Once

@@ -7,12 +7,13 @@
 package protocol
 
 import (
-	serial "github.com/xtls/xray-core/common/serial"
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	serial "github.com/luoluodaduan/xray-core/common/serial"
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -93,8 +94,8 @@ const file_common_protocol_user_proto_rawDesc = "" +
 	"\x04User\x12\x14\n" +
 	"\x05level\x18\x01 \x01(\rR\x05level\x12\x14\n" +
 	"\x05email\x18\x02 \x01(\tR\x05email\x12:\n" +
-	"\aaccount\x18\x03 \x01(\v2 .xray.common.serial.TypedMessageR\aaccountB^\n" +
-	"\x18com.xray.common.protocolP\x01Z)github.com/xtls/xray-core/common/protocol\xaa\x02\x14Xray.Common.Protocolb\x06proto3"
+	"\aaccount\x18\x03 \x01(\v2 .xray.common.serial.TypedMessageR\aaccountBf\n" +
+	"\x18com.xray.common.protocolP\x01Z1github.com/luoluodaduan/xray-core/common/protocol\xaa\x02\x14Xray.Common.Protocolb\x06proto3"
 
 var (
 	file_common_protocol_user_proto_rawDescOnce sync.Once

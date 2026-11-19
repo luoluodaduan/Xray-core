@@ -9,8 +9,8 @@ import (
 	"testing"
 	"time"
 
+	xlua "github.com/luoluodaduan/xray-core/common/lua"
 	"github.com/stretchr/testify/require"
-	xlua "github.com/xtls/xray-core/common/lua"
 	lua "github.com/yuin/gopher-lua"
 )
 

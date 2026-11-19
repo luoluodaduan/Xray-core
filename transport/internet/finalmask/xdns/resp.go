@@ -5,7 +5,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/xtls/xray-core/common"
+	"github.com/luoluodaduan/xray-core/common"
 	"golang.org/x/net/dns/dnsmessage"
 )
 

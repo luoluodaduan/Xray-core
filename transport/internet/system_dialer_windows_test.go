@@ -7,8 +7,8 @@ import (
 	"syscall"
 	"testing"
 
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/transport/internet"
+	"github.com/luoluodaduan/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/transport/internet"
 	"golang.org/x/sys/windows"
 )
 

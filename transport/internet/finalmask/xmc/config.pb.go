@@ -7,11 +7,12 @@
 package xmc
 
 import (
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -301,8 +302,8 @@ const file_transport_internet_finalmask_xmc_config_proto_rawDesc = "" +
 	"length_max\x18\x02 \x01(\x03R\tlengthMax\x12\x1c\n" +
 	"\tdirection\x18\x03 \x01(\x05R\tdirection\x12\x1b\n" +
 	"\tdelay_min\x18\x04 \x01(\x03R\bdelayMin\x12\x1b\n" +
-	"\tdelay_max\x18\x05 \x01(\x03R\bdelayMaxB\x91\x01\n" +
-	")com.xray.transport.internet.finalmask.xmcP\x01Z:github.com/xtls/xray-core/transport/internet/finalmask/xmc\xaa\x02%Xray.Transport.Internet.Finalmask.XMCb\x06proto3"
+	"\tdelay_max\x18\x05 \x01(\x03R\bdelayMaxB\x99\x01\n" +
+	")com.xray.transport.internet.finalmask.xmcP\x01ZBgithub.com/luoluodaduan/xray-core/transport/internet/finalmask/xmc\xaa\x02%Xray.Transport.Internet.Finalmask.XMCb\x06proto3"
 
 var (
 	file_transport_internet_finalmask_xmc_config_proto_rawDescOnce sync.Once

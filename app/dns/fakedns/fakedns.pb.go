@@ -7,11 +7,12 @@
 package fakedns
 
 import (
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -126,8 +127,8 @@ const file_app_dns_fakedns_fakedns_proto_rawDesc = "" +
 	"\aip_pool\x18\x01 \x01(\tR\x06ipPool\x12\x18\n" +
 	"\alruSize\x18\x02 \x01(\x03R\alruSize\"K\n" +
 	"\x10FakeDnsPoolMulti\x127\n" +
-	"\x05pools\x18\x01 \x03(\v2!.xray.app.dns.fakedns.FakeDnsPoolR\x05poolsB^\n" +
-	"\x18com.xray.app.dns.fakednsP\x01Z)github.com/xtls/xray-core/app/dns/fakedns\xaa\x02\x14Xray.App.Dns.Fakednsb\x06proto3"
+	"\x05pools\x18\x01 \x03(\v2!.xray.app.dns.fakedns.FakeDnsPoolR\x05poolsBf\n" +
+	"\x18com.xray.app.dns.fakednsP\x01Z1github.com/luoluodaduan/xray-core/app/dns/fakedns\xaa\x02\x14Xray.App.Dns.Fakednsb\x06proto3"
 
 var (
 	file_app_dns_fakedns_fakedns_proto_rawDescOnce sync.Once

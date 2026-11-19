@@ -5,8 +5,8 @@ import (
 	"io"
 	"os"
 
-	xbase64 "github.com/xtls/xray-core/common/base64"
-	"github.com/xtls/xray-core/main/commands/base"
+	xbase64 "github.com/luoluodaduan/xray-core/common/base64"
+	"github.com/luoluodaduan/xray-core/main/commands/base"
 )
 
 var cmdEncode = &base.Command{

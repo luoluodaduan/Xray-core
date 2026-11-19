@@ -3,9 +3,9 @@ package conf_test
 import (
 	"testing"
 
-	"github.com/xtls/xray-core/common/log"
-	. "github.com/xtls/xray-core/infra/conf"
-	"github.com/xtls/xray-core/proxy/freedom"
+	"github.com/luoluodaduan/xray-core/common/log"
+	. "github.com/luoluodaduan/xray-core/infra/conf"
+	"github.com/luoluodaduan/xray-core/proxy/freedom"
 )
 
 func TestHTTPResponseJSON(t *testing.T) {
