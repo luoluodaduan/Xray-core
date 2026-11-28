@@ -7,11 +7,12 @@
 package proxyprotocol
 
 import (
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -71,8 +72,8 @@ const file_transport_internet_finalmask_proxyprotocol_config_proto_rawDesc = "" 
 	"\n" +
 	"7transport/internet/finalmask/proxyprotocol/config.proto\x12/xray.transport.internet.finalmask.proxyprotocol\"\"\n" +
 	"\x06Config\x12\x18\n" +
-	"\aversion\x18\x01 \x01(\rR\aversionB\xaf\x01\n" +
-	"3com.xray.transport.internet.finalmask.proxyprotocolP\x01ZDgithub.com/xtls/xray-core/transport/internet/finalmask/proxyprotocol\xaa\x02/Xray.Transport.Internet.Finalmask.ProxyProtocolb\x06proto3"
+	"\aversion\x18\x01 \x01(\rR\aversionB\xb7\x01\n" +
+	"3com.xray.transport.internet.finalmask.proxyprotocolP\x01ZLgithub.com/luoluodaduan/xray-core/transport/internet/finalmask/proxyprotocol\xaa\x02/Xray.Transport.Internet.Finalmask.ProxyProtocolb\x06proto3"
 
 var (
 	file_transport_internet_finalmask_proxyprotocol_config_proto_rawDescOnce sync.Once

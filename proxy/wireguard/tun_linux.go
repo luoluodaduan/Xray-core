@@ -14,9 +14,9 @@ import (
 
 	"golang.org/x/sys/unix"
 
+	"github.com/luoluodaduan/xray-core/common/errors"
+	xnet "github.com/luoluodaduan/xray-core/common/net"
 	"github.com/vishvananda/netlink"
-	"github.com/xtls/xray-core/common/errors"
-	xnet "github.com/xtls/xray-core/common/net"
 	"golang.zx2c4.com/wireguard/tun"
 )
 

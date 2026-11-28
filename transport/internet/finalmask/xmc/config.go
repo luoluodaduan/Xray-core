@@ -5,8 +5,8 @@ import (
 	"math"
 	"time"
 
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/transport/internet/finalmask"
+	"github.com/luoluodaduan/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/transport/internet/finalmask"
 )
 
 // maxPaddingDelayMilliseconds keeps the millisecond value convertible to a

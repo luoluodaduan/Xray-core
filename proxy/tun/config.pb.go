@@ -7,11 +7,12 @@
 package tun
 
 import (
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -163,8 +164,8 @@ const file_proxy_tun_config_proto_rawDesc = "" +
 	"\x1aauto_system_dns_to_gateway\x18\t \x01(\bR\x16autoSystemDnsToGateway\x12:\n" +
 	"\x1aauto_system_wfp_block_leak\x18\n" +
 	" \x03(\tR\x16autoSystemWfpBlockLeak\x12\x12\n" +
-	"\x04GUID\x18\v \x01(\tR\x04GUIDBL\n" +
-	"\x12com.xray.proxy.tunP\x01Z#github.com/xtls/xray-core/proxy/tun\xaa\x02\x0eXray.Proxy.Tunb\x06proto3"
+	"\x04GUID\x18\v \x01(\tR\x04GUIDBT\n" +
+	"\x12com.xray.proxy.tunP\x01Z+github.com/luoluodaduan/xray-core/proxy/tun\xaa\x02\x0eXray.Proxy.Tunb\x06proto3"
 
 var (
 	file_proxy_tun_config_proto_rawDescOnce sync.Once

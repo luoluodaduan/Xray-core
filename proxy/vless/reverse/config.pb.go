@@ -7,11 +7,12 @@
 package reverse
 
 import (
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -130,8 +131,8 @@ const file_proxy_vless_reverse_config_proto_rawDesc = "" +
 	"\x05State\x12\n" +
 	"\n" +
 	"\x06ACTIVE\x10\x00\x12\t\n" +
-	"\x05DRAIN\x10\x01B^\n" +
-	"\x16com.xray.proxy.reverseP\x01Z-github.com/xtls/xray-core/proxy/vless/reverse\xaa\x02\x12Xray.Proxy.Reverseb\x06proto3"
+	"\x05DRAIN\x10\x01Bf\n" +
+	"\x16com.xray.proxy.reverseP\x01Z5github.com/luoluodaduan/xray-core/proxy/vless/reverse\xaa\x02\x12Xray.Proxy.Reverseb\x06proto3"
 
 var (
 	file_proxy_vless_reverse_config_proto_rawDescOnce sync.Once

@@ -6,8 +6,8 @@ import (
 	"testing"
 
 	"github.com/apernet/quic-go"
-	"github.com/xtls/xray-core/common/buf"
-	xnet "github.com/xtls/xray-core/common/net"
+	"github.com/luoluodaduan/xray-core/common/buf"
+	xnet "github.com/luoluodaduan/xray-core/common/net"
 )
 
 // datagramReader returns one datagram per Read, like a QUIC datagram stream.

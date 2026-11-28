@@ -4,11 +4,11 @@ import (
 	"context"
 	"strings"
 
-	"github.com/xtls/xray-core/common/errors"
-	xlua "github.com/xtls/xray-core/common/lua"
-	"github.com/xtls/xray-core/common/net"
-	featureDNS "github.com/xtls/xray-core/features/dns"
-	"github.com/xtls/xray-core/features/dns/localdns"
+	"github.com/luoluodaduan/xray-core/common/errors"
+	xlua "github.com/luoluodaduan/xray-core/common/lua"
+	"github.com/luoluodaduan/xray-core/common/net"
+	featureDNS "github.com/luoluodaduan/xray-core/features/dns"
+	"github.com/luoluodaduan/xray-core/features/dns/localdns"
 	lua "github.com/yuin/gopher-lua"
 )
 

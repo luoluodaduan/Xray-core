@@ -5,12 +5,12 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/xtls/xray-core/common/log"
-	. "github.com/xtls/xray-core/infra/conf"
-	"github.com/xtls/xray-core/transport/internet"
-	finalmaskcustom "github.com/xtls/xray-core/transport/internet/finalmask/header/custom"
-	"github.com/xtls/xray-core/transport/internet/splithttp"
-	"github.com/xtls/xray-core/transport/internet/xdrive"
+	"github.com/luoluodaduan/xray-core/common/log"
+	. "github.com/luoluodaduan/xray-core/infra/conf"
+	"github.com/luoluodaduan/xray-core/transport/internet"
+	finalmaskcustom "github.com/luoluodaduan/xray-core/transport/internet/finalmask/header/custom"
+	"github.com/luoluodaduan/xray-core/transport/internet/splithttp"
+	"github.com/luoluodaduan/xray-core/transport/internet/xdrive"
 	"google.golang.org/protobuf/proto"
 )
 

@@ -7,12 +7,13 @@
 package vless
 
 import (
-	proxyman "github.com/xtls/xray-core/app/proxyman"
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	proxyman "github.com/luoluodaduan/xray-core/app/proxyman"
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -267,8 +268,8 @@ const file_proxy_vless_account_proto_rawDesc = "" +
 	"\tMultiplex\x12 \n" +
 	"\vconcurrency\x18\x01 \x01(\x05R\vconcurrency\x12(\n" +
 	"\x0fxudpConcurrency\x18\x02 \x01(\x05R\x0fxudpConcurrency\x12(\n" +
-	"\x0fxudpProxyUDP443\x18\x03 \x01(\tR\x0fxudpProxyUDP443BR\n" +
-	"\x14com.xray.proxy.vlessP\x01Z%github.com/xtls/xray-core/proxy/vless\xaa\x02\x10Xray.Proxy.Vlessb\x06proto3"
+	"\x0fxudpProxyUDP443\x18\x03 \x01(\tR\x0fxudpProxyUDP443BZ\n" +
+	"\x14com.xray.proxy.vlessP\x01Z-github.com/luoluodaduan/xray-core/proxy/vless\xaa\x02\x10Xray.Proxy.Vlessb\x06proto3"
 
 var (
 	file_proxy_vless_account_proto_rawDescOnce sync.Once

@@ -14,7 +14,7 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/xtls/xray-core/transport/internet/tls"
+	"github.com/luoluodaduan/xray-core/transport/internet/tls"
 )
 
 const maxErrorBodySize = 64 * 1024
